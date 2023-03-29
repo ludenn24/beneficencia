@@ -1,0 +1,387 @@
+{% extends 'templates/app.twig' %}
+
+
+{% block content %}
+
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        #map {
+            width: 100%;
+            height: 80%;
+            border: solid 2px #cccccc;
+            border-radius: 5px;
+        }
+        #map2 {
+            width: 100%;
+            height: 80%;
+            border: solid 2px #cccccc;
+            border-radius: 5px;
+        }
+        #coords{width: 500px;}
+
+        td.details-control {
+            background: url('{{ base_url() }}/images/details_open.png') no-repeat center center;
+            cursor: pointer;
+        }
+        tr.shown  td.details-control {
+            background: url('{{ base_url() }}/images/details_close.png') no-repeat center center;
+        }
+    </style>
+
+    <div class="">
+
+        <main>
+            <div class="col-lg-12 section_inmuebles_banner section_noticias_banner background_" style="background-image:url({{ base_url() }}/images/inmobiliaria/portada.jpg)">
+                <div class="ca_ content_item">
+                    <h2>Patrimonio Inmobiliario</h2>
+                </div>
+            </div>
+        </main>
+
+        <section>
+            <div class="col-lg-12 section_inmuebles">
+                <span id="filtro_collapse" class="filtro_collapse"><p>Filtro de Búsqueda</p> <span><i class="fas fa-times"></i></span></span>
+                <div class="section_inmuebles_container">
+
+                    <form>
+                        <div id="filtro" class="filtro">
+                            <p class="text_filtro_busqueda">Filtros de Búsqueda</p>
+                            <div class="item_col item_col_1">
+                                <div class="form-group">
+                                    <label>Tipo de uso</label>
+                                    <select id="obj_uso" name="obj_uso" class="form-control obj_uso">
+                                        <option value="">Todos</option>
+                                        <option value="Comercio">Comercio</option>
+                                        <option value=Vivienda">Vivienda</option>
+                                    </select>
+                                </div>
+                            </div>
+
+
+                            <div class="item_col item_col_2">
+                                <div class="form-group">
+                                    <label>Distrito</label>
+                                    <select  id="obj_seccion" name="obj_seccion"  class="form-control obj_seccion">
+                                        <option value="">Todos</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <button type="button" class="form-submit btn btn-transition-2 btn_enviar">Filtrar</button>
+
+                        </div>
+                    </form>
+
+                    <div class="contenido_" id="listaresultados">
+
+                    </div>
+
+
+
+                </div>
+
+                <div class="nav-links">
+                </div>
+
+            </div>
+
+
+            <div class="modal fade" id="Mapa" tabindex="-1" role="dialog" aria-labelledby="Mapa">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header mod">
+                            <h5 class="modal-title" id="inmueble"></h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                    aria-hidden="true">&times;</span></button>
+                        </div>
+                        <div class="modal-body">
+                            <div id="map" style="height: 400px;"></div>
+                        </div>
+                        <div class="msg"></div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+               <div class="modal fade" id="modalMensaje" tabindex="-1" role="dialog" aria-labelledby="modalMensaje">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Información</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        cargando contenido...espere un momento por favor
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+            <div class="modal fade" id="Formulario" tabindex="-1" role="dialog" aria-labelledby="Formulario">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header mod">
+                            <h5 class="modal-title" id="inmuebleForm"></h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                    aria-hidden="true">&times;</span></button>
+                        </div>
+                        <div class="modal-body">
+
+                            <p>Envíanos un mensaje para recibir más información</p>
+
+                            <div class="modal__pink">
+                                <div class="formulario_pink">
+
+                                    <form class="row" method="post" autccomplete="off" enctype="multipart/form-data"  autocomplete="off"   id="FormRegistro" name="FormRegistro">
+
+                                        <input type="hidden" name="categoria" id="categoria"  value="">
+                                        <input type="hidden" name="motivo" id="motivo"  value="Inmuebles">
+                                        <input type="hidden" name="direccion" id="direccion"  value="---">
+
+
+                                        <div class="col-lg-6 col-md-12 col-sm-12 form-group">
+                                            <label class="label-nombres">Nombres</label>
+                                            <input type="text" name="nombres" id="nombres"
+                                                   data-content="Usted debe ingresar su nombre."
+                                                   class="form-control formulario obligate" onkeypress="return validaLetras(event)">
+                                        </div>
+                                        <div class="col-lg-6 col-md-12 col-sm-12 form-group">
+                                            <label class="label-apellidos">Apellidos</label>
+                                            <input type="text" name="apellidos" id="apellidos"
+                                                   data-content="Usted debe ingresar sus apellidos."
+                                                   class="form-control formulario obligate" onkeypress="return validaLetras(event)">
+                                        </div>
+                                        <div class="col-lg-4 col-md-12 col-sm-12 form-group">
+                                            <label class="label-apellidos">DNI</label>
+                                            <input type="text" name="dni" id="dni"
+                                                   data-content="Usted debe ingresar su DNI."
+                                                   class="form-control formulario obligate" onkeypress="return validaNumericos(event)">
+                                        </div>
+                                        <div class="col-lg-4 col-md-12 col-sm-12 form-group">
+                                            <label class="label-email">Correo Electrónico</label>
+                                            <input type="email" name="correo"
+                                                   data-content="Usted debe ingresar su correo."
+                                                   id="correo" class="form-control formulario obligate">
+                                        </div>
+                                        <div class="col-lg-4 col-md-12 col-sm-12 form-group">
+                                            <label class="label-telefono">Teléfono</label>
+                                            <input type="tel" name="telefono" id="telefono"
+                                                   data-content="Usted debe ingresar su teléfono."
+                                                   class="form-control formulario obligate" onkeypress="return validaNumericos(event)">
+                                        </div>
+
+                                        <div class="col-lg-6 col-md-12 col-sm-12 form-group" id="donacion" style="display:none">
+                                            <label class="label-telefono">¿Qué es lo quieres donar?</label>
+                                            <select name="tipodonacion" id="tipodonacion"
+                                                    data-content="Usted debe seleccionar el tipo de donación."
+                                                    class="form-control formulario">
+                                                <option value="">Seleccione el tipo de donación</option>
+                                                <option value="Bien">Bien</option>
+                                                <option value="Dinero">Dinero</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="col-lg-6 col-md-12 col-sm-12 form-group" id="voluntariado" style="display:none">
+                                            <label class="label-telefono">¿Cuánto tiempo quieres voluntario?</label>
+                                            <select name="tiempovoluntario" id="tiempovoluntario"
+                                                    data-content="Usted seleccionar el tiempo de voluntariado."
+                                                    class="form-control formulario">
+                                                <option value="">Seleccione el tiempo de voluntariado</option>
+                                                <option value="Permanente">Permanente</option>
+                                                <option value="Eventual">Eventual</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="col-lg-12 form-group">
+                                            <label class="label-telefono">Mensaje</label>
+                                            <textarea name="mensaje" id="mensaje"
+                                                      data-content="Usted debe ingresar un mensaje."
+                                                      class="form-control formulario obligate" rows="6"  placeholder="Escribe aquí tu mensaje"></textarea>
+                                        </div>
+
+                                        <div class="col-lg-12 form-group">
+                                            <div class="msg">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-12 form-group registrarform" >
+                                            <button type="button" id="registrar" class="btn btn_default next_">ENVIAR</button>
+                                        </div>
+
+                                        {{ csrf.field | raw }}
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </div>
+
+
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOto-hKdu-7-z4FolFfAgA6ppzmpP303Y"
+    type="text/javascript"></script>
+
+
+
+    <script>
+
+
+        function verMapa(latitud, longitud, inmueble) {
+            var latitud = latitud;
+            var longitud = longitud;
+            var inmueble = inmueble;
+            document.getElementById("inmueble").innerHTML = inmueble;
+            $('#Mapa').modal('show');
+            coords = {
+                lng: longitud,
+                lat: latitud,
+            };
+            setMapa(coords);
+        }
+
+        function contacto(codigo, inmueble) {
+            var codigo = codigo;
+            var inmueble = inmueble;
+            document.getElementById("inmuebleForm").innerHTML = inmueble;
+            document.getElementById("categoria").value = codigo;
+            $('#Formulario').modal('show');
+
+        }
+
+
+
+        function setMapa(coords) {
+
+            var map = new google.maps.Map(document.getElementById('map'),
+                    {
+                        zoom: 17,
+                        center: new google.maps.LatLng(coords.lat, coords.lng),
+                    });
+
+            marker = new google.maps.Marker({
+                map: map,
+                draggable: false,
+                animation: google.maps.Animation.DROP,
+                position: new google.maps.LatLng(coords.lat, coords.lng),
+            });
+
+        }
+
+
+
+        $('.btn_enviar').click(function () {
+            cod_uso = $('.obj_uso').val();
+            cod_distrito = $('.obj_seccion').val();
+            ListarInmuebles(cod_uso, cod_distrito);
+        })
+
+        $(document).ready(function () {
+            ListarInmuebles();
+            ListarDistritos();
+        })
+
+        function ListarDistritos() {
+            return $.ajax({
+                type: "get",
+                url: '{{ base_url() }}/alquiler/distritos',
+                data: {
+                },
+                success: function (data) {
+                    $.each(data, function (i, item) {
+                        $("#obj_seccion").append("" +
+                                "<option value='" + item.distrito + "'>" +
+                                item.distrito);
+                    });
+                },
+                error: function () {
+                }
+            });
+        }
+
+        function ListarInmuebles(tipo, distrito) {
+
+            var tipo;
+            var distrito;
+
+            return $.ajax({
+                type: "get",
+                url: '{{ base_url() }}/alquiler/listar',
+                data: {
+                    tipo: tipo,
+                    distrito: distrito,
+                },
+                success: function (data) {
+                    $('#listaresultados div').remove();
+                    $.each(data, function (i, item) {
+                        var cierre;
+                        cierre = "'";
+
+                        $('#listaresultados').append('' +
+                                '<div class="item">' +
+                                '<div class="imagen background_" style="background-image:url({{ base_url() }}/' + item.foto + ')"></div>' +
+                                '<div class="content_">' +
+                                '<div class="cr_">' +
+                                '<div class="info">' +
+                                '<p>Condición: <span>Desocupado</span></p>' +
+                                '<p>Distrito: <span>' + item.distrito + '</span></p>' +
+                                '<p>Área Arrendable: <span>' + item.area + ' m²</span> </p>' +
+                                '<p>Uso: <span>' + item.tipo_uso + '</span>' +
+                                '</p>' +
+                                '<p>Modalidad de contratación: <span>' + item.modalidad + '</span></p>' +
+                                '<div class="">' +
+                                '<p>N° <span>' + item.numero + '</span></p>' +
+                                '</div>' +
+                                '</div>' +
+                                '<div class="detalles">' +
+                                '<h6>' +
+                                '<a onclick="verMapa(' + item.latitud + ',' + item.longitud + ',' + cierre + item.nombre + cierre + ')">' +
+                                '<i class="fas fa-map-marker-alt" aria-hidden="true"></i> Ver mapa' +
+                                '</a>' +
+                                '</h6>' +
+                                '<h5>' + item.nombre + '</h5>' +
+                                '<p>' + item.moneda + ' ' + item.precio + '</p>' +
+                                '<div><a class="btn btn_default next_22" onclick="contacto(' + item.codigo + ',' + cierre + item.nombre + cierre + ')">Contáctanos</a></div>' +
+                                '</div>' +
+                                '</div>' +
+                                '</div>' +
+                                '</div>'
+
+                                );
+                    });
+
+                },
+                error: function () {
+                }
+            });
+        }
+    </script>
+
+         <script>
+            document.getElementById("filtro_collapse").onclick = function() {Filtro()};
+            function Filtro() {
+                document.getElementById("filtro").classList.toggle("active");
+                document.getElementById("filtro_collapse").classList.toggle("stickyTop");
+            }
+        </script>
+
+{% endblock content %}

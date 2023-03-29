@@ -1,0 +1,47 @@
+{% extends 'templates/app.twig' %}
+
+
+{% block content %}
+
+    <div class="">
+        <main>
+         <div class="col-lg-12 section_noticias_banner background_" style="background-image:url({{ base_url() }}/images/centro-cultural/portada.jpg)">           
+                <div class="ca_ content_item">
+                    <h2>EXPOSICIÓN TEMPORAL</h2>
+                </div>
+            </div>
+        </main>
+
+    <section>
+        <div class="col-lg-12 section_d_noticias_info">
+            <div class="section_d_noticias_info_container">
+                <div class="section_d_n_part1">
+                    <div class="image"></div>
+                    <h1>PROGRAMAS SOCIALES Y PROYECCIÓN INSTITUCIONAL</h1>
+                     <p class="fecha">Del 26 de setiembre al 11 de noviembre</p>
+                     <img src="{{base_url()}}/images/centro-cultural/psociales.jpg" style="width: 100%;">
+                    
+                    <p class="text">Presentación del Centro Cultural de la Beneficencia de Lima a través de una exposición institucional; se mostraron los trabajos realizados, programas sociales y posibles proyectos de inversión. Con esta exposición y la recuperación arquitectónica de la Casa de Divorciadas, el Centro Cultural formó parte del Art Lima Gallery Weekend 2019, evento cultural que se llevó del a cabo del 27 al 29 de setiembre, con la finalidad de promover el acercamiento del público a los espacios culturales. </p>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="cc_ content_compartir_float">
+            <a class="btn btn_default prev_" href="{{ base_url() }}/centro-cultural/#exposiciones" role="button">Regresar</a>
+        </div>
+    </section>	
+                    
+     <section>
+        <div class="col-lg-12 noticias_relacionadas">
+        </div>
+    </section>			
+
+
+
+    </div>
+                                
+      
+{% endblock content %}

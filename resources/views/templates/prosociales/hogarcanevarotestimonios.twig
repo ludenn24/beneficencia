@@ -1,0 +1,136 @@
+{% extends 'templates/app.twig' %}
+
+{% block content %}
+
+    <div class="san_vicente_de_paul hogar_canevaro">   
+    <main>
+        <div class="col-lg-12 section_landing">  
+            <div class="owl-carousel owl-theme owl_landing_top">
+                <div class="item_owl_landing_top">
+                    <div class="col-lg-12 background_" style="background-image:url('{{ base_url() }}/images/canevaro/portada1.jpg')">
+                        <div class="ca_ content_item">
+                            <h2>Hogar Canevaro</h2>                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+    </main>
+
+      <section id="contenido">
+            <div class="col-lg-12 section_menu_tabs">
+                <div class="section_tab">
+                    <div class="filtro">
+                        <ul id="menu-san-vicente-de-paul" class="menu">
+                            <li class="inicio  "><a href="{{ base_url() }}/hogar-canevaro/inicio/#contenido" ><i class="icon-home_landing"></i>Inicio</a></li>
+                            <li class="testimonios  active"><a href="{{ base_url() }}/hogar-canevaro/testimonios/#contenido" ><i class="icon-modalidad"></i>Testimonios</a></li>
+                            <li class="historia  "><a href="{{ base_url() }}/hogar-canevaro/historia/#contenido" ><i class="icon-historia_bene"></i>Historia</a></li>
+                            <li class="modalidad-de-ingreso  "><a href="{{ base_url() }}/hogar-canevaro/modalidad-de-ingreso/#contenido" ><i class="icon-modalidad"></i>Modalidad de Ingreso</a></li>
+                            <li class="contactanos  "><a href="{{ base_url() }}/hogar-canevaro/contactanos/#contenido" ><i class="icon-contacto_landing"></i>Contáctanos</a></li>
+                        </ul>                
+                    </div>
+                </div>
+
+                <div class="section_content_ section_content_2">
+                    <h3>Testimonios <strong class="subtitle"> &nbsp;conoce estas historias</strong></h3>
+                    <div class="container testimonios">
+                        <div class="carousel">
+                            <a class="owl_inicio_generales_left" onclick="owl_testimonios.trigger('prev.owl')">
+                                <img src="{{ base_url() }}/img/icon/doble-left.png">
+                            </a>
+                            <a class="owl_inicio_generales_right" onclick="owl_testimonios.trigger('next.owl')">
+                                <img src="{{ base_url() }}/img/icon/doble-right.png">
+                            </a>
+                            <div class="owl-carousel owl-theme owl_testimonios">
+                                <div class="item">
+                                    <div class="imagen_testimonios">
+                                        <img src="{{ base_url() }}/images/canevaro/testimonios/2.jpg" alt="Isabel Valeria Wiese Castillo (79 años)">
+                                    </div>
+                                    <div class="content_testimonios">
+                                        <h3>Isabel Valeria Wiese Castillo (79 años)</h3>
+                                        <div class="texto"><p>
+                                                 Isabel nació el 28 de abril de 1940, ella es hija única. Su afición por el canto 
+                                                 y el ballet la hicieron inclinarse por las artes desde temprana edad. Estudió
+                                                 música desde los 8 años y perteneció al Coro Femenino de Lima. Su ingreso
+                                                 al Hogar Canevaro fue el 24 de setiembre de 1999. Llegó para contagiar,
+                                                 con su fascinante alegría, las actividades que comparte junto a sus compañeros;
+                                                 siempre tiene una canción que interpretar.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div> 
+
+
+                                <div class="item">
+                                    <div class="imagen_testimonios">
+                                        <img src="{{ base_url() }}/images/canevaro/testimonios/3.jpg" alt="Luis Abelardo Lobatón (66 años)">
+                                    </div>
+                                    <div class="content_testimonios">
+                                        <h3>Luis Abelardo Lobatón (66 años)</h3>
+                                        <div class="texto"><p>Luis llegó al Hogar Canevaro el 25 de junio del 2018, él siempre
+                                                participa en todas las actividades que se realizan dentro del hogar y forma parte del
+                                                coro junto a otros residentes. Nació en Lima el 31 de diciembre de 1953, un trágico
+                                                accidente le impidió seguir trabajando en una automotriz y, pese a ello, nunca cambió
+                                                su extraordinario carácter; es de temperamento tranquilo, muy amigable y luchador. 
+                                                Estas notables característica le han dado la fuerza para salir adelante y sobrepasar
+                                                cualquier barrera al lado de sus amigos del Hogar Canevaro.</p>
+                                        </div>
+                                    </div>
+                                </div> 
+
+
+                                <div class="item">
+                                    <div class="imagen_testimonios">
+                                        <img src="{{ base_url() }}/images/canevaro/testimonios/4.jpg" alt="Ana Mireya Landauro Chico (86 años)">
+                                    </div>
+                                    <div class="content_testimonios">
+                                        <h3>Ana Mireya Landauro Chico (86 años)</h3>
+                                        <div class="texto"><p>La ciudad de Trujillo la vio nacer el 11 de agosto de 1933, 
+                                                desde muy joven su pasión por el arte la llevó a realizar algunos estudios en 
+                                                la Escuela Nacional de Bellas Artes en Lima. Any también elaboró múltiples
+                                                trabajos artesanales. Ingresó al albergue el 03 de marzo del 2015 y desde
+                                                entonces demuestra su talento en la pintura, participando en varias exposiciones 
+                                                con su trabajo. Tiene un trato amable y muy cordial con los demás residentes 
+                                                y colaboradores del Hogar Canevaro. </p>
+                                        </div>
+                                    </div>
+                                </div> 
+
+
+                                <div class="item">
+                                    <div class="imagen_testimonios">
+                                        <img src="{{ base_url() }}/images/canevaro/testimonios/1.jpg" alt="María del Carmen Muñoz Torres (84 años)">
+                                    </div>
+                                    <div class="content_testimonios">
+                                        <h3>María del Carmen Muñoz Torres (84 años)</h3>
+                                        <div class="texto"><p>Gracias a su carácter alegre y cordial, cultivó muy buenos
+                                                amigos, los que la apoyaron en momentos difíciles de su vida. La popular
+                                                “Pecas”, como la llaman en el hogar, nació el 25 de febrero de 1935,
+                                                se desempeñó en labores domésticas y, posteriormente, ingresó al Hogar 
+                                                Canevaro el 07 de julio del 2006. Participa en todas las actividades y en los 
+                                                concursos de baile, sus predilectos; su especialidad es el mambo.</p>
+                                        </div>
+                                    </div>
+                                </div> 
+
+
+                            </div>
+
+                            <div class="owl-carousel-custom-dots owl-theme owl_dots_content_inicio_generales" >
+
+                                <div class="owl-dots owl_dots_inicio_generales"></div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+
+    </div>   
+
+{% endblock content %}

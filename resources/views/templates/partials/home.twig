@@ -1,0 +1,464 @@
+{% block content %}
+
+    <style>
+
+
+        /* Related Events */
+
+        .event-info{
+            display:table;
+            margin-top:30px;
+            padding-bottom: 30px;
+            margin-left: 5px;
+        }
+
+        .event-info>*{
+            display:table-cell;
+            vertical-align:top;
+        }
+
+        .event-info ul{
+            list-style:none;
+            margin:0;
+            padding:0;
+        }
+
+        .event-info .date>span{
+            background:#000000;
+            text-align:center;
+            padding:7px 10px;
+            border-radius:3px;
+            -webkit-border-radius:3px;
+            -moz-border-radius:3px;
+            width:42px;
+            display:block;
+            transition:color 0.2s, background 0.3s;
+            -webkit-transition:color 0.2s, background 0.3s;
+            -moz-transition:color 0.2s, background 0.3s;
+        }
+
+        .event-info .date .day{
+            font-size:18px;
+            font-weight:700;
+            display:block;
+            padding:0;
+            color: white;
+        }
+
+        .event-info .date .month{
+            font-size:12px;
+            font-weight:400;
+            line-height:16px;
+            text-transform:uppercase;
+            display:block;
+            padding:0;
+            color: white;
+        }
+
+        .event-info .event-content{
+            padding-left:15px;
+            vertical-align:top;
+        }
+
+        .event-info .event-content h6{
+            margin:0 0 5px;
+            font-size:16px;
+            font-weight:700;
+        }
+
+        .event-info .event-content h6 a{
+            color: black;
+            font-family: 'FortescuePro_Regular';
+            font-size: 18px;
+        }
+        .event-info .event-content .event-meta{
+            color:#95999e;
+            line-height:16px;
+            font-size:13px;
+        }
+
+        .event-info .event-content .event-meta .icons{
+            font-size:10px;
+            margin-right:2px;
+            color:#cbcdd1;
+            position:relative;
+            top:-1px;
+            transition:color 0.3s;
+            -webkit-transition:color 0.3s;
+            -moz-transition:color 0.3s;
+        }
+
+        .event-item:hover .date>span{
+            background:#6043dc;
+            color:#fff;
+        }
+
+        .event-item:hover h6 a{
+            color:#6043dc;
+        }
+
+        .event-item{
+            margin-bottom: 10px;
+            background: #F1F1F1;
+        }
+
+        .event-item .event-image img{
+            width:100%;
+        }
+
+        .event-item:hover .event-content .event-meta .icons{
+            color:#b1b4b8;
+        }
+
+        .related-events h3{
+            margin-bottom:23px;
+            margin-top:0;
+        }
+
+    </style>
+    <main>
+        <div class="col-lg-12 section_home">
+            <div class="owl-carousel owl-theme owl_home_top">
+                <div class="item_owl_home_top">
+                    <div class="col-lg-12 background_" style="background-image:url('{{ base_url() }}/images/portadav1.jpg')">
+                        <div class="ca_ content_item">
+                            <h2>Vivir para servir</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <section>
+        <div class="col-lg-12 section_categorias_home">
+            <div class="item">
+                <a href="{{ base_url() }}/puericultorio-perez-aranibar/inicio/">
+                    <div class="header">
+                        <div class="cr_">
+                            <div class="header_icon"><img src="{{ base_url() }}/images/iconos/ppa.png"></div>
+                        </div>
+                    </div>
+                    <div class="body" style="background-image:url('{{ base_url() }}/images/ppa/mini.jpg')">
+                        <div class="fondo_opacity">
+                            <div class="cr_ cc_ content_" style="display:none">
+                                <a class="btn btn_default next_" href="{{ base_url() }}/puericultorio-perez-aranibar/inicio/" role="button">Leer más</a>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="item">
+                <a href="{{ base_url() }}/hogar-canevaro/inicio/">
+                    <div class="header">
+                        <div class="cr_">
+                            <div class="header_icon"><img src="{{ base_url() }}/images/iconos/hc.png"></div>
+                        </div>
+                    </div>
+                    <div class="body" style="background-image:url('{{ base_url() }}/images/canevaro/mini-portada.png')">
+                        <div class="fondo_opacity">
+                            <div class="cr_ cc_ content_" style="display:none">
+                                <a class="btn btn_default next_" href="{{ base_url() }}/hogar-canevaro/inicio/" role="button">Leer más</a>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <!--
+            <div class="item">
+                <a href="{{ base_url() }}/san-vicente-de-paul/inicio/">
+                    <div class="header">
+                        <div class="cr_">
+                            <div class="header_icon"><img src="{{ base_url() }}/images/iconos/svp.png"></div>
+                        </div>
+                    </div>
+                    <div class="body" style="background-image:url('{{ base_url() }}/images/svp/mini-portada.png')">
+                        <div class="fondo_opacity">
+                            <div class="cr_ cc_ content_" style="display:none">
+                                <a class="btn btn_default next_" href="{{ base_url() }}/san-vicente-de-paul/inicio/" role="button">Leer más</a>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            -->
+            <div class="item">
+                <a href="{{ base_url() }}/instituto-sevilla/inicio/">
+                    <div class="header">
+                        <div class="cr_">
+                            <div class="header_icon"><img src="{{ base_url() }}/images/iconos/cs.png"></div>
+                        </div>
+                    </div>
+                    <div class="body" style="background-image:url('{{ base_url() }}/images/isevilla/mini-portada.png')">
+                        <div class="fondo_opacity">
+                            <div class="cr_ cc_ content_" style="display:none">
+                                <a class="btn btn_default next_" href="{{ base_url() }}/instituto-sevilla/inicio/" role="button">Leer más</a>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="item">
+                <a href="{{ base_url() }}/casadetodos/inicio/">
+                    <div class="header">
+                        <div class="cr_">
+                            <div class="header_icon"><img src="{{ base_url() }}/images/iconos/cdt.png"></div>
+                        </div>
+                    </div>
+                    <div class="body" style="background-image:url('{{ base_url() }}/images/casadetodos/mini-portada.png')">
+                        <div class="fondo_opacity">
+                            <div class="cr_ cc_ content_" style="display:none">
+                                <a class="btn btn_default next_" href="{{ base_url() }}/casadetodos/inicio/" role="button">Leer más</a>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="col-lg-12 section_noticias_home">
+            <div class="section_noticias_home_container">
+                <h2>Noticias</h2>
+
+                <div class="section_noticias sect_noticias" id="listaresultados">
+                </div>
+
+                <div class="cc_ content_">
+                    <a class="btn btn_default next_" href="{{ path_for('noticias') }}" role="button">Ver más noticias</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--
+    <section>
+        <div class="col-lg-12 section_home_eventos">
+            <h2>Eventos</h2>
+            <div class="col-lg-12 section_home_eventos_i">
+
+                <div class="row related-events" id="listareventos">
+                </div>
+
+            </div>
+        </div>
+    </section>
+    -->
+
+
+             <div class="modal fade" id="modalEditarEvento" tabindex="-1" role="dialog" aria-labelledby="modalEditarEvento">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header modalert">
+                                     <h4 class="modal-title modtitle" id="tituloevento">EVENTO</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+
+                        </div>
+                        <div class="modal-body">
+
+                            <div class="row">
+
+
+                                <div class="col-md-12">
+                                    <img id="foto"  name="foto" src="" style="width: 100%;border: solid 3px #9e9e9e5e;">
+                                </div>
+
+                                <div class="col-md-12">
+                                <p></p>
+                                </div>
+
+                                <div class="col-md-2">
+                                    <strong>Fecha:</strong><br><label class="modalc" id="fecha"></label>
+                                </div>
+
+                                <div class="col-md-2">
+                                    <strong>Hora:</strong><br><label class="modalc" id="hora"></label>
+                                </div>
+
+                                <div class="col-md-2">
+                                   <strong>Lugar:</strong><br> <label class="modalc" id="lugar"></label>
+                                </div>
+
+                                <div class="col-md-6">
+                                   <strong>Programa o Patrimonio:</strong><br> <label class="modalc" id="categoria"></label>
+                                </div>
+
+                                <div class="col-md-12">
+                                   <hr>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <p id="detalle"><p>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa  fa-remove"></i> Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+			
+	         {% if (popup.fin >= "now"|date("Y-m-d") ) %}                                                      
+                <div class="modal fade" id="Anuncio" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">X</span></button>
+                            </div>
+                            <div class="modal-body">
+                                <a href="{{ popup.link }}">
+                                    <img src="{{base_url()}}/{{ popup.foto }}" width="100%">
+                                </a>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}   
+	
+
+    <script>
+	
+		$(window).on('load', function () {
+           $('#Anuncio').modal('show');
+        });
+		
+        $(document).ready(function () {
+            ListarNoticias();
+            ListarEventos();
+        })
+        function ListarNoticias(origen) {
+
+            var texto;
+
+            texto = $("#filtro").val();
+
+            return $.ajax({
+                type: "get",
+               url: '{{ base_url() }}/noticias/listar',
+                data: {
+                    origen: origen,
+                    texto: texto,
+                },
+                success: function (data) {
+                    $('#listaresultados div').remove();
+                    $.each(data, function (i, item) {
+                        var categoria;
+                        if (item.categoria == 'Programas Sociales') {
+                            categoria = 'hogar-de-la-madre';
+                        } else if (item.categoria == 'Patrimonio Cultural') {
+                            categoria = 'cementerio-el-angel';
+                        } else {
+                            categoria = 'noticias';
+                        }
+                        $("#listaresultados").append("" +
+                                "<div class='item_noticia " + categoria + "'>" +
+                                "<div class='image' style='background-image:url({{ base_url() }}/" + item.foto + ")'></div>" +
+                                "<div class='header'>" +
+                                "<div class='cr_'>" +
+                                "<h4>" + item.titular + "</h4>" +
+                                "<p class='fecha'>" + item.formated + "</p>" +
+                                "<p class='text'>" + item.detallemin + "</p>" +
+                                "<a class='btn btn_default next_' href='{{base_url()}}/noticias/detalle/" + item.codigo + "' role='button'>Leer más</a> " +
+                                "</div>" +
+                                "</div>" +
+                                "</div>"
+                                );
+                    });
+
+                },
+                error: function () {
+                }
+            });
+        }
+
+        function ListarEventos(origen) {
+
+            var texto;
+
+            texto = $("#filtro").val();
+
+            return $.ajax({
+                type: "get",
+               url: '{{ base_url() }}/eventos/listar',
+                data: {
+                    origen: origen,
+                    texto: texto,
+                },
+                success: function (data) {
+                    $('#listareventos div').remove();
+                    $.each(data, function (i, item) {
+                        var categoria;
+                        if (item.categoria == 'Programas Sociales') {
+                            categoria = 'hogar-de-la-madre';
+                        } else if (item.categoria == 'Patrimonio Cultural') {
+                            categoria = 'cementerio-el-angel';
+                        } else {
+                            categoria = 'noticias';
+                        }
+                        $("#listareventos").append("" +
+                        "<div class='col-lg-4 col-md-4 col-sm-4'>" +
+                        "<div class='event-item'>" +
+                        "<div class='event-image'>" +
+                        "<img src='{{ base_url() }}/" + item.foto + "' alt=''>" +
+                        "</div>" +
+                        "<div class='event-info'>" +
+                        "<div class='date'>" +
+                        "<span>" +
+                        "<span class='day'>" + item.dia + "</span>" +
+                        "<span class='month'>" + item.mes + "</span>" +
+                        "</span>" +
+                        "</div>" +
+                        "<div class='event-content'>" +
+                        "<h6><a onclick='verEvento(" + item.codigo + ")'>" + item.nombre + "</a></h6>" +
+                        "<ul class='event-meta'>" +
+                        "<li><i class='icons icon-clock'></i> " + item.hora + "</li>" +
+                        "<li><i class='icons icon-location'></i> " + item.lugar + "</li>" +
+                        "</ul>" +
+                        "</div>" +
+                        "</div>" +
+                        "</div>" +
+                        "</div>" );
+                    });
+                },
+                error: function () {
+                }
+            });
+        }
+
+        function verEvento(codigo) {
+            var codigo = codigo;
+            $('#modalEditarEvento').modal('show');
+                       return $.ajax({
+                        type: "get",
+                        url: '{{ base_url() }}/evento/editar',
+                        data: {
+                            codigo: codigo
+                        },
+                        success: function (data) {
+                            $.each(data, function (i, item) {
+                               document.getElementById("tituloevento").innerHTML = item.nombre;
+                                    $('#foto').attr('src', '{{base_url()}}/' + item.foto);
+                                 document.getElementById("fecha").innerHTML = item.fecha;
+                                 document.getElementById("hora").innerHTML = item.hora;
+                                 document.getElementById("lugar").innerHTML = item.lugar;
+                                 document.getElementById("detalle").innerHTML = item.descripcion;
+                                 document.getElementById("categoria").innerHTML = item.categoria;
+
+                            });
+                        },
+                        error: function () {
+                        alert("Algo salió mal, actualice la página")
+                        }
+                    });
+        }
+
+    </script>
+
+
+
+{% endblock content %}

@@ -1,0 +1,113 @@
+{% extends 'templates/app.twig' %}
+
+
+{% block content %}
+
+
+    <section id="content">
+
+        <!-- Page Heading -->
+        <section class="section page-heading animate-onscroll">
+
+            <h1>CONTÁCTANOS</h1>
+            <p class="breadcrumb"><a href="{{ base_url() }}">INICIO</a> / CONTÁCTANOS</p>
+
+        </section>
+        <!-- Page Heading -->
+
+
+        <!-- Section -->
+        <section class="section full-width-bg gray-bg">
+
+            <div class="row">
+
+                <div class="col-lg-9 col-md-9 col-sm-8 animate-onscroll">
+
+
+                    <form id="contact-form" action="php/contact-form.php" method="POST">
+
+                        <div class="inline-inputs">
+
+                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                <label>Nonbre completo*</label>
+                                <input type="text" name="contact-email">
+                            </div>
+
+                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                <label>Correo electrónico*</label>
+                                <input type="text" name="contact-firstname">
+                            </div>
+
+                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                <label>Teléfono*</label>
+                                <input type="text" name="contact-lastname">
+                            </div>
+
+                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                <label>Mensaje</label>
+                                <textarea rows="10" name="contact-message"></textarea>
+                            </div>
+
+                        </div>
+
+                        <input type="submit" value="Enviar">
+
+                    </form>
+
+
+                </div>
+
+
+                <!-- Sidebar -->
+                <div class="col-lg-3 col-md-3 col-sm-4 sidebar">
+
+                    <div class="row">
+
+
+
+                        <div class="col-lg-12 col-md-12 col-sm-12 animate-onscroll">
+
+                            <h6 style="color: #158948;">TELÉFONOS</h6>
+                            <p>+051 999 999 999<br>
+                                051 999 999 999</p>
+
+                        </div>
+
+                        <div class="col-lg-12 col-md-12 col-sm-12 animate-onscroll">
+
+                            <h6 style="color: #158948;">CORREOS</h6>
+                            <p><a href="mailto:mail@companyname.com">mail@correo.com</a>
+                                <a href="mailto:info@companyname.com">info@correo.com</a></p>
+
+                        </div>
+
+                        <div class="col-lg-12 col-md-12 col-sm-12 animate-onscroll">
+
+                            <h6 style="color: #158948;">UBICACIÓN</h6>
+                            <p>Av. Morales Duares, <br>
+                                1520, Cercado de Lima </p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="contact-map animate-onscroll">
+                        <iframe width="200" height="200"
+                                src="https://maps.google.rs/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=marmora+road&amp;sll=44.210767,20.922416&amp;sspn=4.606139,10.821533&amp;ie=UTF8&amp;hq=&amp;hnear=Marmora+Rd,+London+SE22+0RX,+United+Kingdom&amp;t=m&amp;z=14&amp;ll=51.451955,-0.055755&amp;output=embed"></iframe>
+                    </div>
+
+
+                </div>
+                <!-- /Sidebar -->
+
+
+            </div>
+
+        </section>
+        <!-- /Section -->
+
+    </section>
+
+
+
+{% endblock content %}

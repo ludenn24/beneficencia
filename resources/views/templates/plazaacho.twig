@@ -1,0 +1,355 @@
+{% extends 'templates/app.twig' %}
+{% block content %}
+<div class="plaza_acho">
+   <main>
+      <div class="col-lg-12 section_landing">
+         <div class="sub_mega_menu">
+            <div id="opt_contacto" class="sub_">
+               <a href="#" onclick="scrollDownAnimate('#Contacto')"><i class="icon-contacto_landing"></i> <span>Contacto</span></a>
+            </div>
+         </div>
+         <div class="owl-carousel owl-theme owl_landing_top">
+            <div class="item_owl_landing_top">
+               <div class="col-lg-12 background_" style="background-image:url({{ base_url() }}/images/acho/pacho.jpg)">
+                  <div class="ca_ content_item">
+                     <!--<h2>Plaza de Acho</h2>-->
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </main>
+   <script>
+      $(document).ready(function() {
+
+        var inicio = $('#Inicio').length;
+        var historia = $('#Historia').length;
+        var modalidad = $('#Modalidad').length;
+        var servicio = $('#Servicio').length;
+        var contacto = $('#Contacto').length;
+
+        if (inicio == 0) {
+          $('#opt_inicio').hide();
+        }
+        if (historia == 0) {
+          $('#opt_historia').hide();
+        }
+        if (modalidad == 0) {
+          $('#opt_modalidad').hide();
+        }
+        if (servicio == 0) {
+          $('#opt_servicio').hide();
+        }
+        if (contacto == 0) {
+          $('#opt_contacto').hide();
+        }
+
+      });
+   </script>
+   <section>
+      <div id="Inicio" class="col-lg-12 section_landing_inicio">
+         <h2 id="Inicio" class="ca_ title_men">Inicio</h2>
+         <div class="row">
+            <div class="col-lg-6 section_landing_inicio_part one_sec">
+               <div class="owl-carousel owl-theme owl_presbitero_first">
+                  <div class="item_owl_presbitero_first">
+                     <div class="col-lg-12 background_" style="background-image:url({{ base_url() }}/uploads/2019/08/image-11.png)"></div>
+                  </div>
+               </div>
+            </div>
+            <div class="col-lg-6 section_landing_inicio_part two_sec">
+               <div class="cr_ landing-intro">
+                  <h3>Plaza de Acho: Un Coso de Exportación</h3>
+                  <p>
+                  <p><strong>La Plaza de Acho, es la tercera más antigua del mundo y una de las más importantes. Esta joya arquitectónica ubicada en el distrito del Rímac, fue inaugurada el 30 de enero de 1766, recinto en el que hasta la actualidad se
+                     realizan grandes corridas de toros.</strong>
+                  </p>
+                  <p>Con 250 años de antigüedad y una capacidad máxima de 13 mil espectadores, el coso peruano ostenta el título de Monumento Histórico. A pesar del tiempo, su adecuado mantenimiento ha logrado relucir la Plaza y llevarla a lo que es ahora,
+                     una majestuosidad que se exhibe en cada feria taurina del Señor de los Milagros realizada en el mes de octubre.
+                  </p>
+                  </p>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="col-lg-12 content_landing_">
+         <div class="text">
+            <strong>Plaza de Acho,<br>un lugar enriquecido gracias al: </strong>
+         </div>
+      </div>
+      <div class="col-lg-12 content_landing_options">
+         <div class="item">
+            <h3 class="cr_" style="font-size: 22px;">Esfuerzo</h3>
+         </div>
+         <div class="item">
+            <h3 class="cr_" style="font-size: 22px;">Dedicación</h3>
+         </div>
+         <div class="item">
+            <h3 class="cr_" style="font-size: 22px;">Compromiso</h3>
+         </div>
+         <div class="item">
+            <h3 class="cr_" style="font-size: 22px;">Entrega</h3>
+         </div>
+      </div>
+      <div class="col-lg-12 content_landing_2">
+         <div class="row">
+            <div class="col-lg-6 content_landing_option2 ">
+               <p></p>
+               <p><strong>Dentro de este Patrimonio encontramos el Museo Taurino, único en su género, siendo un atractivo donde se puede apreciar óleos que retratan corridas y carteles de los primeros eventos realizados en Acho; además de una colección de
+                  auténticos tesoros representativos de la tauromaquia. Lugar enriquecido gracias al esfuerzo y dedicación de los miembros del Patronato del Museo Taurino de la Plaza de Acho.</strong>
+               </p>
+               <p class="p1">Cabe resaltar, que los ingresos realizados en la Feria del Señor de los Milagros, van directamente a los Programas Sociales a cargo de la Beneficencia de Lima. Dependencias donde acogemos a personas en situación de
+                  vulnerabilidad y que reciben protección y calor de hogar, además de todo lo esencial para una calidad de vida digna.
+               </p>
+            </div>
+            <div class="col-lg-6 content_landing_option2 landing_img_">
+               <img src="{{ base_url() }}/uploads/2019/08/image-12.png">
+            </div>
+         </div>
+      </div>
+   </section>
+   <section>
+      <div class="col-lg-12 section_landing_second">
+         <h2 class="ca_ title_men">Historia</h2>
+         <div class="row">
+            <div class="col-lg-6 section_landing_second_part_1">
+               <img src="{{ base_url() }}/uploads/2019/08/image-4-2.png">
+            </div>
+            <div class="col-lg-6 section_landing_second_part_2">
+               <div class="content_">
+                  <h3></h3>
+                  <div class="col-lg-12 content_historia">
+                     <p>Las corridas de toros llegaron a América y al Perú con el arribo de los conquistadores españoles. Una referencia al primer espectáculo taurino en Lima, figura en las Tradiciones Peruanas de Ricardo Palma, donde se indica que la
+                        primera feria de toros en Lima habría ocurrido en 1538 para celebrar la derrota de los Almagristas. Sin embargo, otros dicen que en realidad fue el 19 de marzo de 1540, como celebración de la Pascua de Resurrección.
+                     </p>
+                     <p>El acontecimiento tuvo lugar en la Plaza de Armas de Lima y, durante muchos años, las fiestas de toros se realizaron en este espacio. Para ello se cerraba con vallas, se instalaban tribunas y se armaban barreras de tal forma que se
+                        erigía un coso para la ocasión.
+                     </p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+   <section>
+      <div class="col-lg-12 section_landing_turismo">
+         <h2 id="Servicio" class="ca_ title_men">Turismo</h2>
+         <div class="row">
+            <div class="col-lg-12 background_ banner_landing_turismo" style="background-image:url({{ base_url() }}/uploads/2019/08/image-13.png)">
+               <h3>Museo Taurino</h3>
+            </div>
+            <div class="sect_servicio_info_container">
+               <div class="sect_servicio_info_puericultorio">
+                  <div class="item">
+                     <div class="middle_1">
+                        <div class="cr_">
+                           <h3>Precios Particulares</h3>
+                        </div>
+                     </div>
+                     <div class="middle_2">
+                        <div class="cr_">
+                           <p>Niños (hasta los 12 años) s/2
+                              <br>
+                              Adultos s/8
+                              <br>
+                              Adultos mayor y CONADIS s/3
+                              <br>
+                              Residentes del sector (Rímac) s/3
+                           </p>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="item">
+                     <div class="middle_1">
+                        <div class="cr_">
+                           <h3>Precios <br>Institucionales</h3>
+                        </div>
+                     </div>
+                     <div class="middle_2">
+                        <div class="cr_">
+                           <p>Colegios Nacionales s/2
+                              <br>
+                              Colegios Particulares s/3
+                              <br>
+                              Universitarios e Institutos s/7
+                           </p>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="item">
+                     <div class="middle_1">
+                        <div class="cr_">
+                           <h3>Extras</h3>
+                        </div>
+                     </div>
+                     <div class="middle_2">
+                        <div class="cr_">
+                           <p>Permiso de camara fotográfica s/11
+                              <br>
+                              Guiado s/55
+                           </p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+   <section>
+      <div class="col-lg-12 plaza_acho_texto">
+         <div class="plaza_acho_texto_container">
+            <p><strong>Ubicado al interior de la plaza de toros de Acho, el Museo Taurino, único en su género, conserva objetos de importancia histórica del mundo de la tauromaquia, donde se pueden apreciar óleos que retratan corridas y carteles de los
+               primeros eventos realizados en Acho. </strong>
+            </p>
+            <p>Es incalculable el valor histórico de este museo, considerado el más completo del continente y que guarda una colección de auténticos tesoros representativos de la tauromaquia peruana del siglo XX. En su interior, podemos encontrar trajes
+               de luces donados por los propios toreros, fotos, afiches, pinturas de Roberto Domingo, Carlos Ruano Llopis, Jean Cocteau y litografías del reconocido artista Pablo Picasso.
+            </p>
+            <p>Fundado el 18 de octubre de 1962, este museo surge como parte de las restauraciones por la celebración de los 200 años de fundación de la plaza de Acho, gracias a la colaboración de familias limeñas apasionadas por la tauromaquia y los
+               miembros del Patronato del Museo Taurino.
+            </p>
+            <p>Para el deleite de todos los aficionados, la Beneficencia de Lima realizó diversas mejoras como el mantenimiento del recinto, el inventariado de las piezas taurinas y grandes exposiciones en homenaje a varios toreros de amplia trayectoria.
+               Estas acciones son impulsadas con el objetivo de poner en valor nuestro patrimonio cultural y brindar un espacio lleno de historia y tradición a nuestros visitantes.
+            </p>
+         </div>
+      </div>
+   </section>
+   <section>
+      <div class="col-lg-12 section_landing_second">
+         <h2 class="ca_ title_men">Contáctanos</h2>
+         <div class="row section_home_eventos_i">
+            <div class="col-lg-8">
+               <h3> Formulario<strong class="subtitle"> Complete los campos requeridos</strong></h3>
+               <div class="modal__beige">
+                  <div class="formulario_inmuebles">
+                     <form class="row" method="post" autccomplete="off" enctype="multipart/form-data" autocomplete="off" id="FormRegistro" name="FormRegistro">
+                        <input type="hidden" name="categoria" id="categoria" value="Plaza de Acho">
+                        <div class="col-lg-6 col-md-12 col-sm-12 form-group">
+                           <label class="label-nombres">Nombres</label>
+                           <input type="text" name="nombres" id="nombres" data-content="Usted debe ingresar su nombre." class="form-control formulario obligate" onkeypress="return validaLetras(event)">
+                        </div>
+                        <div class="col-lg-6 col-md-12 col-sm-12 form-group">
+                           <label class="label-apellidos">Apellidos</label>
+                           <input type="text" name="apellidos" id="apellidos" data-content="Usted debe ingresar sus apellidos." class="form-control formulario obligate" onkeypress="return validaLetras(event)">
+                        </div>
+                        <div class="col-lg-6 col-md-12 col-sm-12 form-group">
+                           <label class="label-apellidos">DNI</label>
+                           <input type="text" name="dni" id="dni" data-content="Usted debe ingresar su DNI." class="form-control formulario obligate" onkeypress="return validaNumericos(event)">
+                        </div>
+                        <div class="col-lg-6 col-md-12 col-sm-12 form-group">
+                           <label class="label-email">Correo Electrónico</label>
+                           <input type="email" name="correo" data-content="Usted debe ingresar su correo." id="correo" class="form-control formulario obligate">
+                        </div>
+                        <div class="col-lg-6 col-md-12 col-sm-12 form-group">
+                           <label class="label-telefono">Teléfono</label>
+                           <input type="tel" name="telefono" id="telefono" data-content="Usted debe ingresar su teléfono." class="form-control formulario obligate" onkeypress="return validaNumericos(event)">
+                        </div>
+                        <div class="col-lg-6 col-md-12 col-sm-12 form-group">
+                           <label class="label-telefono">Dirección</label>
+                           <input type="text" name="direccion" id="direccion" data-content="Usted debe ingresar su dirección." class="form-control formulario obligate">
+                        </div>
+                        <div class="col-lg-6 col-md-12 col-sm-12 form-group">
+                           <label class="label-telefono">Motivo</label>
+                           <select name="motivo" id="motivo" data-content="Usted debe seleccionar un motivo." class="form-control formulario obligate">
+                              <option value="">Seleccione el motivo de comunicación</option>
+                              <option value="Consulta">Consulta</option>
+                              <option value="Donación">Donación</option>
+                              <option value="Voluntariado">Voluntariado</option>
+                           </select>
+                        </div>
+                        <div class="col-lg-6 col-md-12 col-sm-12 form-group" id="donacion" style="display:none">
+                           <label class="label-telefono">¿Qué es lo quieres donar?</label>
+                           <select name="tipodonacion" id="tipodonacion" data-content="Usted debe seleccionar el tipo de donación." class="form-control formulario">
+                              <option value="">Seleccione el tipo de donación</option>
+                              <option value="Bien">Bien</option>
+                              <option value="Dinero">Dinero</option>
+                           </select>
+                        </div>
+                        <div class="col-lg-6 col-md-12 col-sm-12 form-group" id="voluntariado" style="display:none">
+                           <label class="label-telefono">¿Cuánto tiempo quieres voluntario?</label>
+                           <select name="tiempovoluntario" id="tiempovoluntario" data-content="Usted seleccionar el tiempo de voluntariado." class="form-control formulario">
+                              <option value="">Seleccione el tiempo de voluntariado</option>
+                              <option value="Permanente">Permanente</option>
+                              <option value="Eventual">Eventual</option>
+                           </select>
+                        </div>
+                        <div class="col-lg-12 form-group">
+                           <label class="label-telefono">Mensaje</label>
+                           <textarea name="mensaje" id="mensaje" data-content="Usted debe ingresar un mensaje." class="form-control formulario obligate" rows="6" placeholder="Escribe aquí tu mensaje"></textarea>
+                        </div>
+                        <div class="col-lg-12 form-group">
+                           <div class="msg">
+                           </div>
+                        </div>
+                        <div class="col-lg-12 form-group registrarform">
+                           <button type="button" id="registrar" class="btn btn_default next_">ENVIAR</button>
+                        </div>
+                        {{ csrf.field | raw }}
+                     </form>
+                  </div>
+               </div>
+            </div>
+            <div class="col-lg-4">
+               <div class="content_ banner2_landing_turismo">
+                  <p>
+                     <strong>Dirección: </strong> Jr. Hualgayoc 332 - Rímac<br>
+                     <!--<strong>Director: </strong> Daniel Cáceda <br>
+                     <strong>Teléfono: </strong>01 352-6208<br>
+                     <strong>Correo: </strong> dcaceda@beneficenciadelima.org<br>-->
+                  </p>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+   <div class="modal fade" id="modalMensaje" tabindex="-1" role="dialog" aria-labelledby="modalMensaje">
+      <div class="modal-dialog" role="document">
+         <div class="modal-content">
+            <div class="modal-header">
+               <h5 class="modal-title">Información</h5>
+               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+               <span aria-hidden="true">&times;</span>
+               </button>
+            </div>
+            <div class="modal-body">
+               cargando contenido...espere un momento por favor
+            </div>
+            <div class="modal-footer">
+               <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+<script>
+   $('#motivo').click(function() {
+     if ($(this).val() == 'Consulta') {
+       $("#donacion").css("display", "none");
+       $("#voluntariado").css("display", "none");
+       $("#tipodonacion").removeClass("obligate");
+       $("#tiempovoluntario").removeClass("obligate");
+       $("#tipodonacion").val("");
+       $("#tiempovoluntario").val("");
+     } else if ($(this).val() == 'Donación') {
+       $("#donacion").css("display", "block");
+       $("#voluntariado").css("display", "none");
+       $("#tipodonacion").addClass("obligate");
+       $("#tiempovoluntario").removeClass("obligate");
+       $("#tiempovoluntario").val("");
+     } else if ($(this).val() == 'Voluntariado') {
+       $("#voluntariado").css("display", "block");
+       $("#donacion").css("display", "none");
+       $("#tiempovoluntario").addClass("obligate");
+       $("#tipodonacion").removeClass("obligate");
+       $("#tipodonacion").val("");
+     } else {
+       $("#donacion").css("display", "none");
+       $("#voluntariado").css("display", "none");
+       $("#tipodonacion").removeClass("obligate");
+       $("#tiempovoluntario").removeClass("obligate");
+       $("#tipodonacion").val("");
+       $("#tiempovoluntario").val("");
+     }
+   });
+</script>
+{% endblock content %}

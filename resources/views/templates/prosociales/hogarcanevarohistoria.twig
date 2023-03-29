@@ -1,0 +1,50 @@
+{% extends 'templates/app.twig' %}
+
+{% block content %}
+
+<div class="san_vicente_de_paul hogar_canevaro">   
+           <main>
+        <div class="col-lg-12 section_landing">  
+            <div class="owl-carousel owl-theme owl_landing_top">
+                <div class="item_owl_landing_top">
+                    <div class="col-lg-12 background_" style="background-image:url('{{ base_url() }}/images/canevaro/portada1.jpg')">
+                        <div class="ca_ content_item">
+                            <h2>Hogar Canevaro</h2>                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+    </main>
+
+ <section id="contenido">
+        <div class="col-lg-12 section_menu_tabs">
+             <div class="section_tab">
+                    <div class="filtro">
+                        <ul id="menu-san-vicente-de-paul" class="menu">
+                            <li class="inicio  "><a href="{{ base_url() }}/hogar-canevaro/inicio/#contenido" ><i class="icon-home_landing"></i>Inicio</a></li>
+                            <li class="testimonios  "><a href="{{ base_url() }}/hogar-canevaro/testimonios/#contenido" ><i class="icon-modalidad"></i>Testimonios</a></li>
+                            <li class="historia  active"><a href="{{ base_url() }}/hogar-canevaro/historia/#contenido" ><i class="icon-historia_bene"></i>Historia</a></li>
+                            <li class="modalidad-de-ingreso  "><a href="{{ base_url() }}/hogar-canevaro/modalidad-de-ingreso/#contenido" ><i class="icon-modalidad"></i>Modalidad de Ingreso</a></li>
+                            <li class="contactanos  "><a href="{{ base_url() }}/hogar-canevaro/contactanos/#contenido" ><i class="icon-contacto_landing"></i>Contáctanos</a></li>
+                        </ul>                
+                    </div>
+                </div>
+
+            <div class="section_content_ section_content_2">
+                <h3>Historia <strong class="subtitle"> &nbsp;El legado de Ignacia Rodulfo Vda. de Canevaro</strong></h3>
+                <div class="text">
+                         <p>El nombre se debe a su benefactora, la señora Ignacia Rodulfo Vda. de Canevaro, quien en abril de 1925, donó el terreno ubicado en el Paseo de Aguas en el distrito del Rímac.</p>
+                         <p>El Hogar Canevaro inició sus actividades un 27 de agosto de 1982, y desde entonces ofrece atención integral de forma continua con inmenso amor a los abuelitos que han sido abandonados por su familia, carecen de ella, o viven en riesgo socio-económico.</p>
+                
+                </div> 
+                
+            </div>
+        </div>
+    </section>
+
+
+
+</div>   
+
+{% endblock content %}

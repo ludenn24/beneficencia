@@ -1,0 +1,101 @@
+{% extends 'templates/app.twig' %}
+
+{% block content %}
+
+    <div class="instituto_sevilla">
+    <main>
+        <div class="col-lg-12 section_landing">  
+            <div class="owl-carousel owl-theme owl_landing_top">
+                <div class="item_owl_landing_top">
+                    <div class="col-lg-12 background_" style="background-image:url('{{ base_url() }}/images/isevilla/portada.jpg')">
+                        <div class="ca_ content_item">
+                            <h2>Instituto Sevilla<br></h2>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        </div> 
+    </main>
+
+    <section id="contenido">
+        <div class="col-lg-12 section_menu_tabs">
+            <div class="section_tab">
+                <div class="filtro">
+                    <ul id="menu-instituto-sevilla" class="menu">
+                        <li class="inicio active "><a href="{{ base_url() }}/instituto-sevilla/inicio/#contenido" ><i class="icon-home_landing"></i>Inicio</a></li>
+                        <li class="historia  "><a href="{{ base_url() }}/instituto-sevilla/historia/#contenido" ><i class="icon-historia_bene"></i>Historia</a></li>
+                        <li class="contactanos  "><a href="{{ base_url() }}/instituto-sevilla/contactanos/#contenido" ><i class="icon-contacto_landing"></i>Contáctanos</a></li>
+                    </ul>                
+                </div>
+            </div>
+
+            <div class="section_content_ ">
+
+                <h3>Inicio <strong class="subtitle"> &nbsp;Enseñanza de excelencia</strong></h3>
+                <div class="text">
+                    <div class="text_middle">
+
+                        <div class="item">
+                            <h4></h4>
+                            <p><strong>Tenemos la misión de brindar educación primaria y secundaria acorde a las exigencias estudiantiles de la actualidad, a un costo mínimo y de calidad. </strong></p>
+                            <p>El Instituto Sevilla, cuenta con docentes especialmente capacitados, como todo educador de una institución nacional o privada.</p>
+                            <p>Nuestras alumnas se desenvuelven con ética, integridad y principios; valores que les permitirán actuar como ciudadanas de bien dentro de nuestra sociedad.</p>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel">
+                    <a class="owl_inicio_generales_left" onclick="owl_inicio_generales.trigger('prev.owl')">
+                        <img src="{{ base_url() }}/img/icon/doble-left.png">
+                    </a>
+                    <a class="owl_inicio_generales_right" onclick="owl_inicio_generales.trigger('next.owl')">
+                        <img src="{{ base_url() }}/img/icon/doble-right.png">
+                    </a>
+
+                    <div class="owl-carousel owl-theme owl_inicio_generales">
+
+                        <div class="item_owl_inicio_generales" style="background-image:url('{{ base_url() }}/images/isevilla/1.jpg')" data-hash="mini1"></div> 
+                        <div class="item_owl_inicio_generales" style="background-image:url('{{ base_url() }}/images/isevilla/2.jpg')" data-hash="mini2"></div> 
+                        <div class="item_owl_inicio_generales" style="background-image:url('{{ base_url() }}/images/isevilla/3.jpg')" data-hash="mini3"></div> 
+
+
+                    </div>
+
+                    <div class="owl-carousel owl-theme owl_inicio_generales_mini">
+
+                        <a href="#mini1">
+                            <div class="item_owl_inicio_generales_mini" style="background-image:url('{{ base_url() }}/images/isevilla/1.jpg')"></div>
+                        </a>
+
+                        <a href="#mini2">
+                            <div class="item_owl_inicio_generales_mini" style="background-image:url('{{ base_url() }}/images/isevilla/2.jpg')"></div>
+                        </a>
+
+                        <a href="#mini3">
+                            <div class="item_owl_inicio_generales_mini" style="background-image:url('{{ base_url() }}/images/isevilla/3.jpg')"></div>
+                        </a>
+
+
+                    </div>
+
+                    <div class="owl-carousel-custom-dots owl-theme owl_dots_content_inicio_generales" >
+                        <div class="owl-dots owl_dots_inicio_generales"></div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="section_sidebar_">
+                <div class="content_">
+                    <h4><strong>El objetivo de la institución es la educación</strong> </h4>
+                    <p>Este centro, es administrado por la Beneficencia de Lima y mantiene su local original ubicado en el distrito del Rímac. Este inmueble, es declarado Monumento Histórico del país desde el 12 de enero de 1989.</p>
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+
+  </div>
+{% endblock content %}

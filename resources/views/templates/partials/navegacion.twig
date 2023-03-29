@@ -1,0 +1,120 @@
+<header id="menu">
+    <div class="nav_desk">
+        <div class="nav_desk_container">
+            <div class="nav_desk_header">
+                <div class="nav_desk_logo">
+                    <a href="{{ base_url() }}/" class="custom-logo-link" rel="home" itemprop="url"><img src="{{ base_url() }}/images/logo.png" class="custom-logo" alt="Beneficencia" itemprop="logo"></a>	                </div>
+                <div class="nav_desk_redes_g">
+                    <div class="cr_ content_redes">
+                        <div class="nav_desk_redes">
+                            <a href="https://www.facebook.com/BeneficenciaDeLimaOficial/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                            <a href="http://cort.as/-RHGf" target="_blank"><i class="fab fa-youtube"></i></a>
+                            <a href="https://www.linkedin.com/company/beneficencia-de-lima-bl/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                            <a href="https://www.instagram.com/beneficenciadelimaoficial/?hl=es-la" target="_blank"><i class="fab fa-instagram"></i></a>
+                        </div>
+                        <div class="nav_desk_icon">
+                            <img src="{{ base_url() }}/img/icon/menu_open.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+                        
+            <div class="nav_desk_header">
+                <div class="nav_desk_logo">
+               </div>
+                <div class="nav_desk_redes_g">
+                    <div class="cr_ content_redes">
+                        <div class="menu_secundario">
+                            <a href="{{ path_for('mesa') }}" class="btn btn_default btn-sm">Mesa de partes</i></a>
+                            <!--<a href="http://181.65.214.132:8083/slrv-sblm/" class="btn btn_default btn-sm">Libro de Reclamaciones</i></a>-->
+							<a href="#" class="btn btn_default btn-sm" id="urls" onclick="get_ip()">Libro de Reclamaciones</i></a>
+                            <a href="{{ path_for('pt') }}" class="btn btn_default btn-sm">Portal de Transparencia</i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <ul id="menu-primary" class="menu"> 
+            <li class="menu_item home menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-2 current_page_item menu-item-676"><a href="https://beneficenciadelima.org/public/"><i class="fas fa-home"></i></a></li>
+            </ul>
+
+    
+
+        </div>
+    </div>
+
+    <script>
+        crearMenu();
+
+        function crearMenu() {
+            $.ajax({
+                type: "get",
+                url: '{{ base_url() }}/menu/lista',
+                data: {
+                    estado : 1,
+                },
+                beforeSend: function () {
+                },
+                success: function (data) {
+                    var c = JSON.parse(data);
+                    $.each(c.data,function(i,item){ 
+                        $('#menu-primary').append(
+                            '<li id="li'+item.codigo+'" class="menu_item menu-item menu-item-type-post_type menu-item-object-page menu-item-2039">'+
+                            '<a href="{{ base_url() }}/'+item.url+'/" data-content="raiz">'+item.nombre+'</a>');
+                        $.ajax({
+                            url: '{{ base_url() }}/submenu/lista',
+                            type:'get',
+                            data: { 
+                                codigo : item.codigo,
+                                estado : 1,
+                            },
+                            beforeSend: function(e){
+                                $('#load').addClass('load');
+                            },
+                            success: function(data){
+                                var b = JSON.parse(data);
+                                var cont = 0;
+
+                                if (b.data.length > 0){
+                                    $('#li'+item.codigo).append('<ul class="sub-menu" id="ul'+item.codigo+'">');
+                                        $.each(b.data,function(v,value){
+                                            $('#ul'+item.codigo).append('<li class="sub_menu_item menu-item menu-item-type-post_type menu-item-object-page"><a href="{{ base_url() }}/'+value.url+'/"><i class="fa fa-circle-o"></i> '+value.nombre+'</a></li>');
+                                            cont++;
+                                        });
+                                    setTimeout(function(){
+                                        $('#li'+item.codigo).append('</ul>');
+                                        $('#tmp'+item.codigo).text(cont);
+                                        $('#sub-menu').append('</li>');
+                                        $('#div_Menu').append('</ul>');
+                                        $('#load').removeClass('load');
+                                    }, 1500);
+                                }
+        
+                            },
+                            error: function(){
+                                $('#load').removeClass('load');
+                            }
+                        });
+                    });
+                },
+                error: function () {
+                }
+            });
+        }
+    </script>
+
+
+	
+	<script type="text/javascript">
+	
+                             function get_ip(obj){
+                                    if(obj.ip=='181.65.214.132'){
+                                          urls.href = 'http://192.168.1.8:8083/slrv-sblm/';			
+                                    }else{
+                                          urls.href = 'http://181.65.214.132:8083/slrv-sblm/';
+                                    }
+                                }
+    </script>
+    <script type="text/javascript" src="https://api.ipify.org/?format=jsonp&callback=get_ip"></script>
+	
+</header>

@@ -1,0 +1,88 @@
+{% extends 'templates/app.twig' %}
+
+{% block content %}
+
+<div class="centros_esperanza_maria_castano_sagrada_familia_y_sagrado_corazon">
+    <main>
+        <div class="col-lg-12 section_landing">  
+            <div class="owl-carousel owl-theme owl_landing_top">
+                <div class="item_owl_landing_top">
+                    <div class="col-lg-12 background_" style="background-image:url('{{ base_url() }}/images/cemaricacastano/portada.jpg')">
+                        <div class="ca_ content_item">
+                            <h2>Centros Esperanza María Castaño, Sagrada Familia y Sagrado Corazón<br></h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+    </main>
+
+    <section id="contenido">
+        <div class="col-lg-12 section_menu_tabs">
+            <div class="section_tab">
+                <div class="filtro">
+                    <ul id="menu-centros-esperanza-2" class="menu">
+                        <li class="inicio active "><a href="{{ base_url() }}/centros-esperanza-maria-castano-sagrada-familia-y-sagrado-corazon/inicio/#contenido" ><i class="icon-home_landing"></i>Inicio</a></li>
+                        <li class="modalidad-de-ingreso  "><a href="{{ base_url() }}/centros-esperanza-maria-castano-sagrada-familia-y-sagrado-corazon/modalidad-de-ingreso/#contenido" ><i class="icon-modalidad"></i>Modalidad de Ingreso</a></li>
+                        <li class="hogares  "><a href="{{ base_url() }}/centros-esperanza-maria-castano-sagrada-familia-y-sagrado-corazon/hogares/#contenido" ><i class="icon-hogares"></i>Centro Esperanza</a></li>
+                        <li class="contactanos  "><a href="{{ base_url() }}/centros-esperanza-maria-castano-sagrada-familia-y-sagrado-corazon/contactanos/#contenido" ><i class="icon-contacto_landing"></i>Contáctanos</a></li>
+                    </ul>                
+                </div>
+            </div>
+
+            <div class="section_content_ section_content_2">
+
+                <h3>Inicio <strong class="subtitle"> &nbsp;Hogares para compartir</strong></h3>
+
+
+
+                <div class="text">
+                    <div class="text_middle">
+                        <div class="item">
+                            <h4></h4>
+                            <p><strong>María Castaño, Sagrada Familia y Sagrado Corazón</strong>, son más que centros de atención, los llamamos hogares, donde nuestros residentes de la tercera edad comparten el día a día y encuentran posada en su propio espacio. Conviven adultos mayores independientes, con buen estado físico y mental, de limitados recursos económicos y que en su gran mayoría son separados de su familia nuclear.</p>
+                            <p>Tenemos un equipo calificado y con alta vocación de servicio. Nuestros técnicos y profesionales están prestos para cubrir cualquier necesidad asistencial.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel">
+                    <a class="owl_inicio_generales_left" onclick="owl_inicio_generales.trigger('prev.owl')">
+                        <img src="{{ base_url() }}/img/icon/doble-left.png">
+                    </a>
+
+                    <a class="owl_inicio_generales_right" onclick="owl_inicio_generales.trigger('next.owl')">
+                        <img src="{{ base_url() }}/img/icon/doble-right.png">
+                    </a>
+
+                    <div class="owl-carousel owl-theme owl_inicio_generales">
+                        <div class="item_owl_inicio_generales" style="background-image:url('{{ base_url() }}/uploads/2019/08/centros_ge_2.png')" data-hash="mini1"></div> 
+                        <div class="item_owl_inicio_generales" style="background-image:url('{{ base_url() }}/uploads/2019/08/centros_ge_2b.png')" data-hash="mini2"></div> 
+                    </div>
+
+                    <div class="owl-carousel owl-theme owl_inicio_generales_mini">
+                        <a href="#mini1">
+                            <div class="item_owl_inicio_generales_mini" style="background-image:url('{{ base_url() }}/uploads/2019/08/centros_ge_2.png')"></div>
+                        </a>
+
+                        <a href="#mini2">
+                            <div class="item_owl_inicio_generales_mini" style="background-image:url('{{ base_url() }}/uploads/2019/08/centros_ge_2b.png')"></div>
+                        </a>
+
+                    </div>
+
+                    <div class="owl-carousel-custom-dots owl-theme owl_dots_content_inicio_generales" >
+                        <div class="owl-dots owl_dots_inicio_generales"></div>
+                    </div>
+
+                </div>
+
+                <div class="text text2">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+{% endblock content %}

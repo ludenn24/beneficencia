@@ -1,0 +1,548 @@
+{% extends 'templates/app.twig' %}
+
+
+{% block content %}
+
+    <section id="content">
+
+
+        <!-- Page Heading -->
+        <section class="section page-heading animate-onscroll">
+
+            <h1>SÉ PARTE DEL CAMBIO</h1>
+            <p class="breadcrumb"><a href="main-v1.html">INICIO</a> / ÚNETE</p>
+
+        </section>
+        <!-- Page Heading -->
+
+
+        <!-- Section -->
+        <section class="section full-width-bg gray-bg">
+
+
+            <div class="row">
+
+
+                <div class="col-lg-12 col-md-12 col-sm-12 animate-onscroll">
+
+
+                    <div class="tabs style2">
+
+                        <div class="tab-header">
+                            <ul>
+                                <li><a href="#tab1"><h6>RECIBE INFORMACIÓN</h6></a></li>
+                                <li><a href="#tab2"><h6>SE VOLUNTARIO</h6></a></li>
+                                <li><a href="#tab3"><h6>AFÍLIATE</h6></a></li>
+                            </ul>
+                        </div>
+
+                        <div class="tab-content">
+
+                            <div id="tab1" class="tab">
+
+                                <h3 class="no-margin-top" style="opacity: 1;">Déjanos tu correo y teléfono para recibir
+                                    las
+                                    novedades
+                                    de nuestras actividades.</h3>
+
+                                <div class="row">
+
+                                    <div class="col-lg-12 col-md-12 col-sm-12">
+
+                                       <form  enctype="multipart/form-data"
+                                                  id="FormRegistrarAfiliacion1" name="FormRegistrarAfiliacion1">
+                                            <div class="row">
+                                                <div class="col-lg-12 col-md-12 col-sm-12 animate-onscroll">
+													<input type="hidden" name="tipo" value="INFORMACIÓN">
+                                                   	<label>Nombre completo*</label>
+													<input type="text" name="nombre" class="obligate1" data-content="Usted debe ingresar su nombre completo.">
+                                                    <br>
+                                                    <label>Correo electrónico*</label>
+                                                    <input type="text" name="correo" >
+                                                    <br>
+                                                    <div class="inline-inputs">
+                                                        <div class="col-lg-6 col-md-6 col-sm-6">
+                                                               <label>Teléfono*</label>
+                                                               <input type="text" name="telefono" class="obligate1" data-content="Usted debe ingresar su teléfono.">
+                                                        </div>
+                                                        <div class="col-lg-6 col-md-6 col-sm-6">
+                                                                <label>Género</label>
+                                                                <select class="obligate1" name="genero" data-content="Usted debe seleccionar su sexo">
+                                                                    <option>Seleccione</option>
+                                                                    <option>Femenino</option>
+                                                                    <option>Masculino</option>
+                                                                </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="inline-inputs">
+                                                      <div class="col-lg-6 col-md-6 col-sm-6">
+                                                                <label>Distrito</label>
+                                                               <input type="text" class="obligate1" name="distrito" data-content="Usted debe ingresar su distrito.">
+                                                            </div>
+                                                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                                                <label>Departamento</label>
+                                                              <input type="text" class="obligate1" name="departamento" data-content="Usted debe ingresar su departamento.">
+                                                            </div>
+                                                    </div>
+                                                    <br>
+                                                    <input type="checkbox" id="volunteer-chbx" class="checkrequerido1"
+														        data-content="Usted debe aceptar los términos."><label
+                                                            for="volunteer-chbx">He leído y acepto la política de
+                                                        privacidad y las condiciones de uso de los datos que proporciono
+                                                        y acepto que me envíen mensajes e información.</label><br>
+
+                                                </div>
+
+
+                                            </div>
+
+                                           		
+												<div class="col-lg-12 col-md-12 col-sm-12 msg1"></div>
+
+												 {{ csrf.field | raw }}
+												 
+												 <div class="blog-post">
+													 <div class="align-center animate-onscroll registrarafiliacion1">
+														<input type="submit" id="registrar1" name="registrar1" class="btn btn-success button " value="registrar">
+								
+													</div>
+												</div>
+
+                                        </form>
+
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+
+                            <div id="tab2" class="tab">
+                                <h3 class="no-margin-top">
+                                    Participa de nuestras actividades. Deja tus información
+                                    para ponernos en contacto contigo.</h3>
+
+                                <div class="row">
+
+                                    <div class="col-lg-12 col-md-12 col-sm-12">
+
+                                        <form  enctype="multipart/form-data"
+                                                  id="FormRegistrarAfiliacion2" name="FormRegistrarAfiliacion2">
+                                            <div class="row">
+                                                <div class="col-lg-12 col-md-12 col-sm-12 animate-onscroll">
+														
+														<input type="hidden" name="tipo" value="VOLUNTARIO">
+														<label>Nombre completo*</label>
+														<input type="text" name="nombre" class="obligate" data-content="Usted debe ingresar su nombre completo.">
+													 
+														<div class="inline-inputs">
+                                                        <div class="col-lg-6 col-md-6 col-sm-6">
+                                                            <label>DNI*</label>
+                                                            <input type="text" name="dni" class="obligate" data-content="Usted debe ingresar su DNI.">
+                                                        </div>
+                                                        <div class="col-lg-6 col-md-6 col-sm-6">
+                                                            <label>Edad*</label>
+                                                            <input type="text" name="edad" class="obligate"
+															data-content="Usted debe ingresar su edad.">
+                                                        </div>
+														</div>
+														
+                                                        <label>Correo electrónico*</label>
+                                                        <input type="text" name="correo">
+                                                       
+                                                        <div class="inline-inputs">
+                                                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                                                <label>Teléfono*</label>
+                                                                <input type="text" name="telefono" class="obligate" data-content="Usted debe ingresar su teléfono.">
+                                                            </div>
+                                                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                                                <label>Género</label>
+                                                                <select class="obligate" name="genero" data-content="Usted debe seleccionar su sexo">
+                                                                    <option>Seleccione</option>
+                                                                    <option>Femenino</option>
+                                                                    <option>Masculino</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+														
+                                                        <label>Dirección de domicilio*</label>
+                                                        <input type="text" class="obligate" name="direccion" data-content="Usted debe ingresar su dirección.">
+                                                      
+                                                        <div class="inline-inputs">
+                                                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                                                <label>Distrito</label>
+                                                               <input type="text" class="obligate" name="distrito" data-content="Usted debe ingresar su distrito.">
+                                                            </div>
+                                                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                                                <label>Departamento</label>
+                                                              <input type="text" class="obligate" name="departamento" data-content="Usted debe ingresar su departamento.">
+                                                            </div>
+                                                        </div>
+                                                       
+                                                        <input type="checkbox" id="aceptacion2" class="checkrequerido2"
+														        data-content="Usted debe aceptar los términos."><label
+                                                                for="aceptacion2" >He leído y acepto la política de
+                                                            privacidad y las condiciones de uso de los datos que
+                                                            proporciono
+                                                            y acepto que me envíen mensajes e información.</label><br>
+
+                                                    </div>
+
+
+                                                </div>
+												
+												<div class="col-lg-12 col-md-12 col-sm-12 msg2"></div>
+
+												 {{ csrf.field | raw }}
+												 
+												 <div class="blog-post">
+													 <div class="align-center animate-onscroll registrarafiliacion2">
+														<input type="submit" id="registrar2" name="registrar2" class="btn btn-success button " value="registrar">
+								
+													</div>
+												</div>
+                                               
+
+                                        </form>
+
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+
+                            <div id="tab3" class="tab">
+
+
+                            </div>
+
+                            <div id="tab4" class="tab">
+                                <div class="row">
+
+                                    <div class="col-lg-12 col-md-12 col-sm-12">
+
+                                        <h3 class="animate-onscroll no-margin-top">INTEGRANTES</h3>
+
+                                        <div class="row">
+                                            <div class="col-lg-6 col-md-6 col-sm-6">
+
+                                                <!-- Team Member -->
+                                                <div class="team-member animate-onscroll ">
+
+                                                    <img class="team-member-image" src="img/team/1.jpg" alt="">
+
+                                                    <div class="team-member-info">
+
+                                                        <h2>Royer Velasquez</h2>
+                                                        <span class="job">Programador de Sistemas</span>
+
+                                                        <div class="team-member-more">
+                                                            <p>Vivamus eget nibh. Etiam cursus leo vel metus. Nulla
+                                                                facilisi. Aenean nec eros. Vestibulum ante ipsum primis
+                                                                in faucibus.</p>
+                                                            <p>Vestibulum iaculis lacinia est. Proin dictum elementum
+                                                                velit. Fusce euismod consequat ante. Lorem ipsum dolor
+                                                                sit amet.</p>
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+                                                <!-- /Team Member -->
+                                            </div>
+                                            <div class="col-lg-6 col-md-6 col-sm-6">
+
+                                                <!-- Team Member -->
+                                                <div class="team-member animate-onscroll ">
+
+                                                    <img class="team-member-image" src="img/team/1.jpg" alt="">
+
+                                                    <div class="team-member-info">
+
+                                                        <h2>Royer Velasquez</h2>
+                                                        <span class="job">Programador de Sistemas</span>
+
+                                                        <div class="team-member-more">
+                                                            <p>Vivamus eget nibh. Etiam cursus leo vel metus. Nulla
+                                                                facilisi. Aenean nec eros. Vestibulum ante ipsum primis
+                                                                in faucibus.</p>
+                                                            <p>Vestibulum iaculis lacinia est. Proin dictum elementum
+                                                                velit. Fusce euismod consequat ante. Lorem ipsum dolor
+                                                                sit amet.</p>
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+                                                <!-- /Team Member -->
+                                            </div>
+                                            <div class="col-lg-6 col-md-6 col-sm-6">
+
+                                                <!-- Team Member -->
+                                                <div class="team-member animate-onscroll ">
+
+                                                    <img class="team-member-image" src="img/team/1.jpg" alt="">
+
+                                                    <div class="team-member-info">
+
+                                                        <h2>Royer Velasquez</h2>
+                                                        <span class="job">Programador de Sistemas</span>
+
+                                                        <div class="team-member-more">
+                                                            <p>Vivamus eget nibh. Etiam cursus leo vel metus. Nulla
+                                                                facilisi. Aenean nec eros. Vestibulum ante ipsum primis
+                                                                in faucibus.</p>
+                                                            <p>Vestibulum iaculis lacinia est. Proin dictum elementum
+                                                                velit. Fusce euismod consequat ante. Lorem ipsum dolor
+                                                                sit amet.</p>
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+                                                <!-- /Team Member -->
+                                            </div>
+                                            <div class="col-lg-6 col-md-6 col-sm-6">
+
+                                                <!-- Team Member -->
+                                                <div class="team-member animate-onscroll ">
+
+                                                    <img class="team-member-image" src="img/team/1.jpg" alt="">
+
+                                                    <div class="team-member-info">
+
+                                                        <h2>Royer Velasquez</h2>
+                                                        <span class="job">Programador de Sistemas</span>
+
+                                                        <div class="team-member-more">
+                                                            <p>Vivamus eget nibh. Etiam cursus leo vel metus. Nulla
+                                                                facilisi. Aenean nec eros. Vestibulum ante ipsum primis
+                                                                in faucibus.</p>
+                                                            <p>Vestibulum iaculis lacinia est. Proin dictum elementum
+                                                                velit. Fusce euismod consequat ante. Lorem ipsum dolor
+                                                                sit amet.</p>
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+                                                <!-- /Team Member -->
+                                            </div>
+
+
+                                        </div>
+
+
+                                    </div>
+
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- /Tabs -->
+                </div>
+
+
+            </div>
+
+
+        </section>
+        <!-- /Section -->
+
+    </section>
+	
+	    <script>
+
+        !function (a) {
+            "use strict";
+
+            a(function () {
+                var b = a(window),
+                    c = a(document.body),
+                    mensaje = '',
+                    tipo = '',
+                    codigo = '';
+
+                $('.registrarafiliacion1').click(function(){
+                    var b = a(this), dataString;
+                    var holder = '';
+					var holder2 = '';
+                    var exito = true;
+
+                    $(".obligate1").each(function(){
+                        if($(this).val()==''){
+                            $(this).focus();
+                            holder=$(this).attr("data-content");
+                            exito=false;
+                            $(".msg1").html("").show();
+							$(".msg1").html("<div class='alert-box warning'>"+
+							"<p><strong>¡Atención!</strong> "+holder+"</p>"+
+							"</div>");
+							
+                            setTimeout(function() {
+                            $(".msg1").fadeOut(2500);
+                            },1500);
+                            return false;
+                        }		
+                    });
+					
+					$(".checkrequerido1").each(function(){
+                        if(!$(this).is(':checked')){
+                            $(this).focus();
+                            holder=$(this).attr("data-content");
+                            exito=false;
+                            $(".msg1").html("").show();
+							$(".msg1").html("<div class='alert-box warning'>"+
+							"<p><strong>¡Atención!</strong> "+holder+"</p>"+
+							"</div>");
+							
+                            setTimeout(function() {
+                            $(".msg1").fadeOut(2500);
+                            },1500);
+                            return false;
+                        }		
+                    });
+
+					
+					 
+                    if(!exito)
+                        return false;
+
+
+                    var formData = new FormData($("#FormRegistrarAfiliacion1")[0]);
+
+                    $.ajax({
+                        type: "POST",
+                        url: "{{ base_url() }}/afiliacion/registrar",
+                        data: formData,
+                        contentType: false,
+                        processData: false,
+                        dataType: 'json',
+                        beforeSend: function () {
+                            $("#registrar1").attr("disabled", true);
+                        },
+                        success: function (data) {
+                            if (data.response == 'success') {
+                                    Swal.fire({
+										icon: 'success',
+										title: '¡Éxito!',
+										text: 'Registro exitoso.',
+								    }).then((result) => {
+										if (result.value) {
+											setTimeout("location.href=''", 500);
+										}
+									});
+                            } else {
+                                $('.msg1').html(data.message);
+                                $("#registrar1").attr("disabled", false);
+                            }
+                        },
+                        error: function () {
+                            console.log("It failed");
+                        }
+                    })
+                });
+				
+				$('.registrarafiliacion2').click(function(){
+                    var b = a(this), dataString;
+                    var holder = '';
+					var holder2 = '';
+                    var exito = true;
+
+                    $(".obligate2").each(function(){
+                        if($(this).val()==''){
+                            $(this).focus();
+                            holder=$(this).attr("data-content");
+                            exito=false;
+                            $(".msg2").html("").show();
+							$(".msg2").html("<div class='alert-box warning'>"+
+							"<p><strong>¡Atención!</strong> "+holder+"</p>"+
+							"</div>");
+							
+                            setTimeout(function() {
+                            $(".msg2").fadeOut(2500);
+                            },1500);
+                            return false;
+                        }		
+                    });
+					
+					$(".checkrequerido2").each(function(){
+                        if(!$(this).is(':checked')){
+                            $(this).focus();
+                            holder=$(this).attr("data-content");
+                            exito=false;
+                            $(".msg2").html("").show();
+							$(".msg2").html("<div class='alert-box warning'>"+
+							"<p><strong>¡Atención!</strong> "+holder+"</p>"+
+							"</div>");
+							
+                            setTimeout(function() {
+                            $(".msg2").fadeOut(2500);
+                            },1500);
+                            return false;
+                        }		
+                    });
+
+					
+					 
+                    if(!exito)
+                        return false;
+
+
+                    var formData = new FormData($("#FormRegistrarAfiliacion2")[0]);
+
+                    $.ajax({
+                        type: "POST",
+                        url: "{{ base_url() }}/afiliacion/registrar",
+                        data: formData,
+                        contentType: false,
+                        processData: false,
+                        dataType: 'json',
+                        beforeSend: function () {
+                            $("#registrar2").attr("disabled", true);
+                        },
+                        success: function (data) {
+                            if (data.response == 'success') {
+                                    Swal.fire({
+										icon: 'success',
+										title: '¡Éxito!',
+										text: 'Registro exitoso.',
+								    }).then((result) => {
+										if (result.value) {
+											setTimeout("location.href=''", 500);
+										}
+									});
+                            } else {
+                                $('.msg1').html(data.message);
+                                $("#registrar2").attr("disabled", false);
+                            }
+                        },
+                        error: function () {
+                            console.log("It failed");
+                        }
+                    })
+                });
+
+            })
+        }
+
+        (jQuery), function () {
+            "use strict";
+            $('#fono').keyup(function () {
+                this.value = (this.value + '').replace(/[^0-9]/g, '');
+            });
+
+        }();
+
+    </script>
+
+
+{% endblock content %}

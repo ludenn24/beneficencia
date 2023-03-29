@@ -1,0 +1,47 @@
+{% extends 'templates/app.twig' %}
+
+
+{% block content %}
+
+    <div class="">
+        <main>
+            <div class="col-lg-12 section_noticias_banner background_" style="background-image:url({{ base_url() }}/images/centro-cultural/portada.jpg)">         
+                <div class="ca_ content_item">
+                    <h2>EXPOSICIÓN TEMPORAL</h2>
+                </div>
+            </div>
+        </main>
+
+    <section>
+        <div class="col-lg-12 section_d_noticias_info">
+            <div class="section_d_noticias_info_container">
+                <div class="section_d_n_part1">
+                    <div class="image"></div>
+                    <h1>RETROSPECTIVA CONCURSO NACIONAL DE NACIMIENTOS 15 AÑOS </h1>
+                     <p class="fecha">Del 21 de noviembre al 06 de enero del 2019</p>
+                     <img src="{{base_url()}}/images/centro-cultural/retro.jpg" style="width: 100%;">
+                    
+                    <p class="text">Exposición que reunió a las obras ganadoras de todas las ediciones del Concurso Nacional de Nacimientos organizado por ICTYS, por sus 15 años trayectoria.  La muestra puso en valor las diversas formas de representar la venida del Niño Jesús al mundo, con variadas expresiones de arte en sus distintas regiones como la cerámica, el tallado en piedra, los retablos, la imaginería o el mate burilado, evidenciando la extraordinaria riqueza artística y cultural de nuestro país.</p>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="cc_ content_compartir_float">
+            <a class="btn btn_default prev_" href="{{ base_url() }}/centro-cultural/#exposiciones" role="button">Regresar</a>
+        </div>
+    </section>	
+                    
+     <section>
+        <div class="col-lg-12 noticias_relacionadas">
+        </div>
+    </section>
+
+
+
+    </div>
+                                
+      
+{% endblock content %}

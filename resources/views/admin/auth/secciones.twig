@@ -1,0 +1,735 @@
+{% extends 'admin/templates/app.twig' %}
+{% block content %}
+<style>
+   html, body {
+   height: 100%;
+   margin: 0;
+   padding: 0;
+   }
+   td.details-control {
+   background: url('{{ base_url() }}/images/details_open.png') no-repeat center center;
+   cursor: pointer;
+   }
+   tr.shown  td.details-control {
+   background: url('{{ base_url() }}/images/details_close.png') no-repeat center center;
+   }
+</style>
+<body class="hold-transition skin-blue sidebar-mini ">
+   <div class="pace  pace-inactive">
+      <div class="pace-progress" data-progress-text="100%" data-progress="99" style="transform: translate3d(100%, 0px, 0px);">
+         <div class="pace-progress-inner"></div>
+      </div>
+      <div class="pace-activity"></div>
+   </div>
+   <div class="wrapper">
+   <header class="main-header">
+      <!-- Logo -->
+      <a href="../admin/dash" class="logo">
+         <!-- mini logo for sidebar mini 50x50 pixels -->
+         <span class="logo-mini"><b>B</b>L</span>
+         <!-- logo for regular state and mobile devices -->
+         <span class="logo-lg"><b>BENEFICENCIA</b></span>
+      </a>
+      <!-- Header Navbar: style can be found in header.less -->
+      <nav class="navbar navbar-static-top" role="navigation">
+         <!-- Sidebar toggle button-->
+         <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+         <span class="sr-only">Toggle navigation</span>
+         <span class="icon-bar"></span>
+         <span class="icon-bar"></span>
+         <span class="icon-bar"></span>
+         </a>
+         <div class="navbar-custom-menu">
+            <ul class="nav navbar-nav">
+               <!-- User Account: style can be found in dropdown.less -->
+               <li class="dropdown user user-menu">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  <img src="{{ base_url() }}/dist/img/logini.jpg" class="user-image" alt="User Image">
+                  <span class="hidden-xs"></span>
+                  </a>
+                  <ul class="dropdown-menu">
+                     <!-- User image -->
+                     <li class="user-header">
+                        <img src="{{ base_url() }}/dist/img/logini.jpg" class="img-circle" alt="User Image">
+                        <p>
+                           {{ AdminController.admin.nombres }}
+                           <small>{{ AdminController.admin.dni }}</small>
+                           <small>Administrador</small>
+                        </p>
+                     </li>
+                     <!-- Menu Footer-->
+                     <li class="user-footer" style="border: 1px solid #3C8DBC;">
+                        <div class="pull-right">
+                           <a href="{{ base_url() }}/admin/auth/signout" class="btn btn-default btn-flat" id="changeses"
+                              style="border: 1px solid #3C8DBC;">Cerrar sesión</a>
+                        </div>
+                     </li>
+                  </ul>
+               </li>
+               <!-- Control Sidebar Toggle Button -->
+               <li>
+                  <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+               </li>
+            </ul>
+         </div>
+      </nav>
+   </header>
+   <aside class="main-sidebar">
+      {% include 'admin/templates/menu.twig' %}
+   </aside>
+   <div class="content-wrapper">
+      <section class="content-header">
+         <h1 id="tipodease">
+            PÁGINAS
+         </h1>
+      </section>
+      <section class="content">
+         <div class="row">
+            <div class="col-xs-12">
+               <div class="box">
+                  <div class="box-body">
+                     <div class="margin">
+                        <div class="btn-group">
+                           <button onclick="nuevanoticia()" type="button" class="btn btn-block btn-primary btn-flat">AGREGAR</button>
+                        </div>
+                     </div>
+                  </div>
+                  <!-- /.box-body -->
+               </div>
+            </div>
+            <div class="col-xs-12">
+               <div class="box">
+                  <div class="box-body">
+                     <table id="Noticias" class="table table-bordered table-hover" width="100%">
+                        <thead>
+                           <tr class="heading-table">
+                              <th>Nombre</th>
+                              <th>Enlace</th>
+                              <th>SubGrupos</th>
+                              <th>Estado</th>
+                              <th></th>
+                           </tr>
+                        </thead>
+                     </table>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+      </section>
+   </div>
+   <div class="modal fade" id="modalNoticia" tabindex="-1" role="dialog" aria-labelledby="modalNoticia">
+      <div class="modal-dialog modal-lg" role="document">
+         <div class="modal-content">
+            <div class="modal-header modalert">
+               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+               <h4 class="modal-title modtitle">[ SECCIÓN NUEVA ]</h4>
+            </div>
+            <div class="modal-body">
+               <div class="box-body row">
+                  <div class="col-sm-12">
+                     <div class="form-group">
+                        <form name="seccion" id="seccion" method="post" enctype="multipart/form-data">
+                           <div class="form-group">
+                              <label>Nombre</label>
+                              <input type="text" name="nombre" id="nombre" class="form-control">
+                           </div>
+                           <div class="form-group">
+                              <label>Enlace</label>
+                              <input type="text" name="url" id="url" class="form-control">
+                           </div>
+                           {{ csrf.field | raw }}
+                        </form>
+                     </div>
+                     <div  class="msg"></div>
+                  </div>
+               </div>
+            </div>
+            <div class="modal-footer">
+               <button type="button" class="btn btn-default pull-left" data-dismiss="modal"><i class="fa  fa-remove"></i> Cancelar</button>
+               <button type="button" href="#" class="btn btn-success guardarseccion">Guardar </button>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <div class="modal fade" id="modalEditarNoticia" role="dialog" aria-labelledby="modalEditarNoticia">
+      <div class="modal-dialog modal-lg" role="document">
+         <div class="modal-content">
+            <div class="modal-header modalert">
+               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+               <h4 class="modal-title modtitle">[ EDITAR PÁGINA ]</h4>
+            </div>
+            <div class="modal-body">
+               <div class="box-body row">
+                  <div class="col-sm-12">
+                     <div class="form-group">
+                        <form name="noticiaedit" id="noticiaedit" method="post" enctype="multipart/form-data">
+                           <input type="hidden"  name="codigo" id="codigo" value="">
+                           <div class="form-group">
+                              <label>Nombre</label>
+                              <input type="text" name="nombreedit" id="nombreedit" class="form-control">
+                           </div>
+                           <div class="form-group">
+                              <label>Enlace</label>
+                              <input type="text" name="urledit" id="urledit" class="form-control">
+                           </div>
+                           <div class="form-group">
+                              <label>Estado</label>
+                              <select id="estadoedi" name="estadoedi" value="" class="form-control">
+                                 <option value="1">Activar</option>
+                                 <option value="2">Desactivar</option>
+                                 <option value="3">Eliminar</option>
+                              </select>
+                           </div>
+                           {{ csrf.field | raw }}
+                        </form>
+                     </div>
+                     <div  class="msg"></div>
+                  </div>
+               </div>
+            </div>
+            <div class="modal-footer">
+               <button type="button" class="btn btn-default pull-left" data-dismiss="modal"><i class="fa  fa-remove"></i> Cancelar</button>
+               <button type="button" href="#" class="btn btn-success actualizarnoticia">Guardar </button>
+            </div>
+         </div>
+      </div>
+   </div>
+
+    <div class="modal fade" id="modalSubSecciones" tabindex="-1" role="dialog" aria-labelledby="modalSubSecciones">
+      <div class="modal-dialog modal-lg" role="document">
+         <div class="modal-content">
+            <div class="modal-header modalert">
+               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+               <h4 class="modal-title modtitle">[ Gestión de SubSecciones ]</h4>
+            </div>
+            <div class="modal-body">
+               <div class="box-body row">
+                  <div class="col-md-12">
+                     <div class="col-md-12">
+                        <div class="box">
+                           <div class="box-body">
+                              <div class="margin">
+                                 <div class="btn-group">
+                                    <button onclick="NuevaSubSeccion()" type="button" class="btn btn-block btn-primary btn-flat">Nuevo Subgrupo</button>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-sm-12">
+                     <div class="form-group">
+                        <form name="subsecciones" id="subsecciones" method="post" enctype="multipart/form-data">
+                           <input type="hidden"  name="codigo_subseccion" id="codigo_subseccion" value="">
+                           <input type="hidden"  name="codigo_seccion" id="codigo_seccion" value="">
+                           <div class="col-sm-5">
+                              <div class="form-group">    
+                                 <label>Nombre</label>
+                                 <input type="text" name="nombre_subseccion" id="nombre_subseccion" class="form-control" value="">                                            
+                              </div>
+                           </div>
+                           <div class="col-sm-5">
+                              <div class="form-group">    
+                                 <label>Enlace</label>
+                                 <input type="text" name="url_subseccion" id="url_subseccion" class="form-control" value="">                                            
+                              </div>
+                           </div>
+                           <div class="col-sm-2" id="seccionestado">
+                              <div class="form-group">
+                                 <label>Estado</label>
+                                 <select id="estado_subseccion" name="estado_subseccion" value="" class="form-control">
+                                    <option  value="">:: seleccionar ::</option>
+                                    <option selected value="1">Activar</option>
+                                    <option value="2">Desactivar</option>
+                                    <option value="3">Eliminar</option>
+                                 </select>
+                              </div>
+                           </div>
+                           <div class="col-sm-12">
+                              <div class="box">
+                                 <div class="box-header with-border">
+                                    <h3 class="box-title">SubSecciones registradas</h3>
+                                 </div>
+                                 <div class="box-body">
+                                    <table id="DetalleSubSecciones"  class="table table-bordered display compact" width="100%">
+                                       <thead>
+                                          <tr class="heading-table">
+                                             <th>Nombre</th>
+                                             <th>Enlace</th>
+                                             <th>Estado</th>
+                                             <th></th>
+                                          </tr>
+                                       </thead>
+                                    </table>
+                                 </div>
+                              </div>
+                           </div>
+                           {{ csrf.field | raw }}
+                        </form>
+                     </div>
+                     <div  class="msg"></div>
+                  </div>
+               </div>
+            </div>
+            <div class="modal-footer">
+               <button type="button" class="btn btn-default pull-left" data-dismiss="modal"><i class="fa  fa-remove"></i> Cancelar</button>
+               <button type="button" href="#" class="btn btn-success guardarsubsecciones">Guardar </button>
+            </div>
+         </div>
+      </div>
+   </div>
+
+
+   <script type="text/javascript">
+      function EditarNoticia(codigo) {
+           var codigo = codigo;
+           $('#modalEditarNoticia').modal('show');
+           $('#codigo').val(codigo);
+               return $.ajax({
+               type: "get",
+               url: '{{ base_url() }}/admin/secciones/editar',
+               data: {
+                   codigo: codigo
+               },
+               success: function (data) {
+                   $.each(data, function (i, item) {
+                       $('#nombreedit').val(item.nombre);
+                       $('#urledit').val(item.url);
+                       $('#estadoedi').val(item.estado);
+                   });
+               },
+               error: function () {
+               }
+           });
+      
+       }
+      
+       $(document).ready(function () {
+      
+           ListaNoticias();
+      
+           $(".cogepx").on("click", function () {
+               var valor = $(this).data('codigo');
+               $("#Selecciones").modal('hide');
+               $('.foto').val(valor);
+           });
+      
+       })
+
+      //Nueva foto
+      function NuevaSubSeccion() {
+         $("#subsecciones")[0].reset();
+         $('#codigo_subseccion').val('');
+      }
+
+      function GuardarSubSecciones() {
+         var formData = new FormData($("#subsecciones")[0]);
+         var resultado = "";
+         $.ajax({
+            url: "{{ base_url() }}/admin/subsecciones/registrar",
+            async: false,
+            type: 'POST',
+            data: formData,
+            contentType: false,
+            enctype: 'multipart/form-data',
+            processData: false,
+            dataType: 'json',
+            success: function (datos) {
+               resultado = datos.response;
+               mensaje = datos.message;
+            }
+         });
+         return [resultado, mensaje];
+      }
+
+       $(".guardarsubsecciones").on("click", function (event) {
+      
+      event.preventDefault();
+      var codigo = $('#codigo_subseccion').val();
+      var codigo_seccion = $('#codigo_seccion').val();
+      var nombre = $('#nombre_subseccion').val();
+      var url = $('#url_subseccion').val();
+      var estado = $('#estado_subseccion').val();
+
+      if (nombre == "") {
+         Swal.fire({
+             icon: 'warning',
+             title: '¡Advertencia!',
+             text: 'Debe imgresar el nombre',
+         })
+      } else {
+         if (url == "") {
+             Swal.fire({
+                 icon: 'warning',
+                 title: '¡Advertencia!',
+                 text: 'Debe ingresar en enlace de redirección',
+             })
+         } else {
+             if (estado == "") {
+                 Swal.fire({
+                     icon: 'warning',
+                     title: '¡Advertencia!',
+                     text: 'Debe seleccionar el estado',
+                 })
+             } else {
+                  Swal.fire({
+                        title: 'Está seguro?',
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'Sí, guardar!'
+                  }).then((result) => {
+                        if (result.value) {
+                           var resp = GuardarSubSecciones();
+                           if (resp[0] == "success") {
+                              Swal.fire({
+                                    icon: 'success',
+                                    title: '¡Éxito!',
+                                    text: resp[1],
+                              }).then((result) => {
+                                    if (result.value) {
+                                       $("#subsecciones")[0].reset();
+                                       $('#codigo_subseccion').val('');
+                                       ListaSubSecciones(codigo_seccion);
+                                    }
+                              });
+                           } else {
+                              Swal.fire({
+                                    icon: 'error',
+                                    title: '¡Error!',
+                                    text: resp[1],
+                              })
+                           }
+                        }
+                     })
+                  }
+               }
+            }
+      });
+
+      function EditarSubSeccion(codigo) {
+        var codigo = codigo;
+        return $.ajax({
+           type: "get",
+           url: '{{ base_url() }}/admin/subsecciones/editar',
+           data: {
+               codigo: codigo
+           },  
+           success: function (data) {
+               $.each(data, function (i, item) {
+                   $('#codigo_subseccion').val(item.codigo);    
+                   $('#codigo_seccion').val(item.id_seccion);  
+                   $('#nombre_subseccion').val(item.nombre);   
+                   $('#url_subseccion').val(item.url);  
+                   $('#estado_subseccion').val(item.estado);  
+               });
+           },
+           error: function () {
+           }
+        });
+        }
+      
+       function ListaNoticias() {
+           responsive: true
+           var dt = $('#Noticias').DataTable({
+               destroy: true,
+               dom: 'Bfrtip',
+               buttons: [
+                   'copy', 'csv', 'excel', 'pdf', 'print'
+               ],
+               "buttons": [
+                   'copy', 'csv', 'excel', 'pdf'
+               ],
+               "language": {
+                   "lengthMenu": "Ver _MENU_ registros por página",
+                   "zeroRecords": "No se encontraron resultados",
+                   "info": "Viendo página _PAGE_ de _PAGES_",
+                   "infoEmpty": "No se encontraron responsables",
+                   "infoFiltered": "(filtrado de un total de _MAX_ registros)",
+                   "search": "Buscar:",
+                   "paginate": {
+                       "first": "Primero",
+                       "last": "Último",
+                       "next": "Siguiente",
+                       "previous": "Anterior"
+                   },
+               },
+      
+               "ajax": {
+                   "type": "get",
+                   "url": "{{ base_url() }}/admin/secciones/listar",
+               },
+      
+               "columns": [
+                   {"data": "nombre"},
+                   {"data": "url"}, 
+                    {
+                        "data": "codigo",
+                        render: function (data) {
+                            return "<a class='btn'" +
+                                    "style='cursor:pointer;overflow: visible;'" +
+                                    "onclick='AgregarSubSecciones(" + data + ")'" +
+                                    "data-toggle='modal'" +
+                                    "data-content=''>" +
+                                    "<i class='fa fa-university'><i/></a>"
+            
+                        },
+                    },
+                   {
+                       "data": "estado",
+                       render: function(data) {
+                           if(data=="1") {
+                               return "<span class='label label-success'>Publicado</span>";
+                           }  else if(data=="2") {
+                               return "<span class='label label-warning'>Desactivado</span>";
+                           }
+                           else{
+                               return "<span class='label label-danger'>Eliminado</span>";
+                           }
+                       },
+                   },
+                   {
+                       "data": "codigo",
+                       render: function (data) {
+                           return "<a class='btn btn-default'" +
+                                   "style='cursor:pointer;overflow: visible;'" +
+                                   "onclick='EditarNoticia(" + data + ")'" +
+                                   "data-toggle='modal'" +
+                                   "data-content=''>" +
+                                   "Editar</a>"
+      
+                       },
+                   },
+               ],
+           });
+       }
+
+    function ListaSubSecciones(codigo) {
+      responsive: true
+      var dt = $('#DetalleSubSecciones').DataTable({
+         destroy: true,
+      
+         "language": {
+             "lengthMenu": "Ver _MENU_ registros por página",
+             "zeroRecords": "No se encontraron resultados",
+             "info": "Viendo página _PAGE_ de _PAGES_",
+             "infoEmpty": "No se encontraron registros",
+             "infoFiltered": "(filtrado de un total de _MAX_ registros)",
+             "search": "Buscar:",
+             "paginate": {
+                 "first": "Primero",
+                 "last": "Último",
+                 "next": "Siguiente",
+                 "previous": "Anterior"
+             },
+         },
+      
+         "ajax": {
+             "type": "get",
+             "url": "{{ base_url() }}/submenu/lista",
+             "data": {  codigo: codigo }
+         },
+      
+         "columns": [
+             {"data": "nombre"},
+             {"data": "url"},
+             {
+                 "data": "estado",
+                 render: function (data) {
+                     if (data == "1") {
+                         return "<span class='label label-success'>Activado</span>";
+                     } else if (data == "2") {
+                         return "<span class='label label-warning'>Desactivado</span>";
+                     } else {
+                         return "<span class='label label-danger'>Eliminado</span>";
+                     }
+                 },
+             },
+             {
+                 "data": "codigo",
+                 render: function (data) {
+                     return "<a class='btn btn-default'" +
+                             "style='cursor:pointer;overflow: visible;'" +
+                             "onclick='EditarSubSeccion(" + data + ")'" +
+                             "data-toggle='modal'" +
+                             "data-content=''>" +
+                             "Editar</a>"
+      
+                 },
+             },
+         ],
+      
+         columnDefs: [
+             {
+                 className: 'text-center',
+                 targets: [1, 2, 3],
+             },
+         ]
+      });
+      
+      }
+      
+       //NUEVA NOTICIA
+       function nuevanoticia() {
+           var tipo = 1;
+           $('#modalNoticia').modal('show');
+           $('#tipo').val(tipo);
+       }
+      
+       //GUARDAR NOTICIA
+         function GuardarSeccion() {
+               var formData = new FormData($("#subsecciones")[0]);
+               var resultado = "";
+               $.ajax({
+                   url: "{{ base_url() }}/admin/subsecciones/registrar",
+                   async: false,
+                   type: 'POST',
+                   data: formData,
+                   contentType: false,
+                   enctype: 'multipart/form-data',
+                   processData: false,
+                   dataType: 'json',
+                   success: function (datos) {
+                       resultado = datos.response;
+                       mensaje = datos.message;
+                   }
+               });
+               return [resultado, mensaje];
+           }
+      
+       $(".guardarseccion").on("click", function (event) {
+      
+           event.preventDefault();
+           var nombre = $('#nombre').val();
+           var url = $('#url').val();
+      
+           if (nombre == "") {
+               Swal.fire({
+                   icon: 'warning',
+                   title: '¡Advertencia!',
+                   text: 'Debe imgresar un titular',
+               })
+           } else {
+               if (url == "") {
+                   Swal.fire({
+                       icon: 'warning',
+                       title: '¡Advertencia!',
+                       text: 'Debe ingresar el detalle corto de la noticia.',
+                   })
+              }  else {
+                       Swal.fire({
+                           title: '¿Está seguro?',
+                           icon: 'warning',
+                           showCancelButton: true,
+                           confirmButtonColor: '#3085d6',
+                           cancelButtonColor: '#d33',
+                           confirmButtonText: 'Sí, guardar!'
+                       }).then((result) => {
+                           if (result.value) {
+                               var resp = GuardarSeccion();
+                               if (resp[0] == "success") {
+                                   Swal.fire({
+                                       icon: 'success',
+                                       title: '¡Éxito!',
+                                       text: resp[1],
+                                   }).then((result) => {
+                                       if (result.value) {
+                                           $('#modalNoticia').modal('hide');
+                                            $("#noticia")[0].reset();
+                                           ListaNoticias();
+                                       }
+                                   });
+                               } else {
+                                   Swal.fire({
+                                       icon: 'error',
+                                       title: '¡Error!',
+                                       text: resp[1],
+                                   })
+                               }
+                           }
+                       })
+                      }
+                        }
+       });
+      
+       //Actualizar Noticia
+      
+         function ActualizaNoticia() {
+               var formData = new FormData($("#noticiaedit")[0]);
+               var resultado = "";
+               $.ajax({
+                   url: "{{ base_url() }}/admin/secciones/actualizar",
+                   async: false,
+                   type: 'POST',
+                   data: formData,
+                   contentType: false,
+                   enctype: 'multipart/form-data',
+                   processData: false,
+                   dataType: 'json',
+                   success: function (datos) {
+                       resultado = datos.response;
+                       mensaje = datos.message;
+                   }
+               });
+               return [resultado, mensaje];
+           }
+      
+       $(".actualizarnoticia").on("click", function (event) {
+           event.preventDefault();
+           var codigo = $('#codigo').val();
+           var nombre = $('#nombreedit').val();
+           if (nombre == "") {
+               Swal.fire({
+                   icon: 'warning',
+                   title: '¡Advertencia!',
+                   text: 'Debe imgresar un titular',
+               })
+           } else {
+           Swal.fire({
+               title: '¿Está seguro?',
+               icon: 'warning',
+               showCancelButton: true,
+               confirmButtonColor: '#3085d6',
+               cancelButtonColor: '#d33',
+               confirmButtonText: 'Sí, guardar!'
+               }).then((result) => {
+                   if (result.value) {
+                       var resp = ActualizaNoticia();
+                       //resp = JSON.parse(resp);
+                       if (resp[0] == "success") {
+                           Swal.fire({
+                               icon: 'success',
+                               title: '¡Éxito!',
+                               text: resp[1],
+                           }).then((result) => {
+                               if (result.value) {
+                                   $('#modalEditarNoticia').modal('hide');
+                                       $("#noticiaedit")[0].reset();
+                                       ListaNoticias();
+                               }
+                           });
+                       } else {
+                           Swal.fire({
+                               icon: 'error',
+                               title: '¡Error!',
+                               text: resp[1],
+                           })
+                       }
+                   }
+               })
+           }
+       });
+
+         function AgregarSubSecciones(codigo) {
+            $("#subsecciones")[0].reset();
+            var cod = codigo;
+            $('#modalSubSecciones').modal('show');
+            $('#codigo_seccion').val(cod);
+            ListaSubSecciones(cod);
+        }
+      
+   </script>
+   {% endblock content %}

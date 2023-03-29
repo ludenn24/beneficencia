@@ -1,0 +1,145 @@
+@charset "utf-8";
+
+@font-face {
+font-family: 'Fortescue_Bold';
+src: url('fonts/Fortescue/Fortescue-Bold.otf');
+}
+@font-face {
+font-family: 'Fortescue_Italic';
+src: url('fonts/Fortescue/Fortescue-Italic.otf');
+}
+@font-face {
+font-family: 'FortescuePro_Bold';
+src: url('fonts/Fortescue/FortescuePro-Bold.otf');
+}
+@font-face {
+font-family: 'FortescuePro_Regular';
+src: url('fonts/Fortescue/FortescuePro-Regular.otf');
+}
+@font-face {
+font-family: 'Fortescue_Semibold_Italic';
+src: url('fonts/Fortescue/Fortescue-Semibold-Italic.otf');
+}
+@font-face {
+font-family: 'Alliance_Bold';
+src: url('fonts/Alliance/Alliance_Bold.otf');
+}
+@font-face {
+font-family: 'Alliance_Bold_Italic';
+src: url('fonts/Alliance/Alliance_Bold-Italic.otf');
+}
+@font-face {
+font-family: 'Alliance_ExtraBold';
+src: url('fonts/Alliance/Alliance_ExtraBold.otf');
+}
+@font-face {
+font-family: 'Alliance_Light';
+src: url('fonts/Alliance/Alliance_Light.otf');
+}
+@font-face {
+font-family: 'Alliance_Light_Italic';
+src: url('fonts/Alliance/Alliance_Light-Italic.otf');
+}
+@font-face {
+font-family: 'Alliance_Medium';
+src: url('fonts/Alliance/Alliance_Medium.otf');
+}
+@font-face {
+font-family: 'Alliance_Medium_Italic';
+src: url('fonts/Alliance/Alliance_Medium-Italic.otf');
+}
+@font-face {
+font-family: 'Alliance_Regular';
+src: url('fonts/Alliance/Alliance_Regular.otf');
+}
+@font-face {
+font-family: 'Alliance_Regular_Italic';
+src: url('fonts/Alliance/Alliance_Regular-Italic.otf');
+}
+@font-face {
+font-family: 'Alliance_SemiBold';
+src: url('fonts/Alliance/Alliance_SemiBold.otf');
+}
+@font-face {
+font-family: 'Alliance_2SemiBold';
+src: url('fonts/Alliance/Alliance_2SemiBold.otf');
+}
+@font-face {
+font-family: 'Alliance_2Regular';
+src: url('fonts/Alliance/Alliance_2Regular.otf');
+}
+
+@font-face {
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon.eot');
+  src:  url('fonts/icomoon.eot') format('embedded-opentype'),
+    url('fonts/icomoon.ttf') format('truetype'),
+    url('fonts/icomoon.woff') format('woff'),
+    url('fonts/icomoon.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-directorio:before {
+  content: "\e900";
+}
+.icon-modalidad:before {
+  content: "\e901";
+}
+.icon-hogares:before {
+  content: "\e902";
+}
+.icon-convenios:before {
+  content: "\e903";
+}
+.icon-voluntario:before {
+  content: "\e904";
+}
+.icon-donaciones:before {
+  content: "\e905";
+}
+.icon-calender_landing:before {
+  content: "\e906";
+}
+.icon-voice_landing:before {
+  content: "\e907";
+}
+.icon-contacto_landing:before {
+  content: "\e908";
+}
+.icon-servicios_landing:before {
+  content: "\e909";
+}
+.icon-home_landing:before {
+  content: "\e90a";
+}
+.icon-patronato_bene:before {
+  content: "\e90b";
+}
+.icon-nosotros_bene:before {
+  content: "\e90c";
+}
+.icon-historia_bene:before {
+  content: "\e90d";
+}
+.icon-directorio_bene:before {
+  content: "\e90e";
+}
+.icon-planbicente_bene:before {
+  content: "\e90f";
+}

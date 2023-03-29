@@ -1,0 +1,56 @@
+{% extends 'templates/app.twig' %}
+
+{% block content %}
+<div class="hma">   
+    <main>
+        <div class="col-lg-12 section_landing ">  
+            <div class="owl-carousel owl-theme owl_landing_top ">
+                <div class="item_owl_landing_top">
+                    <div class="col-lg-12 background_" style="background-image:url('{{ base_url() }}/images/hma/portada2.jpg')">
+                        <div class="ca_ content_item">
+                          <h2>Hogar de la Madre</h2>   
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        </div> 
+    </main>
+
+    <section id="contenido">
+        <div class="col-lg-12 section_menu_tabs">
+            <div class="section_tab">
+                <div class="filtro">
+                    <ul id="menu-san-vicente-de-paul" class="menu">
+                        <li class="inicio  "><a href="{{ base_url() }}/hogar-de-la-madre/inicio/#contenido" ><i class="icon-home_landing"></i>Inicio</a></li>
+                        <li class="historia  active"><a href="{{ base_url() }}/hogar-de-la-madre/historia/#contenido" ><i class="icon-historia_bene"></i>Historia</a></li>
+                        <li class="contactanos  "><a href="{{ base_url() }}/hogar-de-la-madre/contactanos/#contenido" ><i class="icon-contacto_landing"></i>Contáctanos</a></li>
+                    </ul>                
+                </div>
+            </div>
+
+            <div class="section_content_ ">
+
+                <h3>Historia</h3>
+
+
+
+                <div class="text">
+
+                    <div class="text_middle">
+                        <div class="item">
+                            <h4>Rosalía De Lavalle De Morales Macedo</h4>
+                             <p>Fue una joven con inmenso espíritu de servicio y ayuda hacia los más necesitados.
+                                 Nació el 31 de julio de 1898; sus padres fueron don José Antonio De Lavalle y Pardo
+                                 y doña Rosalía García De Lavalle.</p>
+                       </div>
+                    </div>
+                </div>
+
+                <div class="text text2">
+                </div>
+            </div>
+        </div>
+    </section>
+</div>   
+
+{% endblock content %}

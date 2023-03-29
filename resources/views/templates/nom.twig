@@ -1,0 +1,61 @@
+{% extends 'templates/app.twig' %}
+
+
+{% block content %}
+
+    <div class="">
+        <main>
+            <div class="col-lg-12 section_noticias_banner background_" style="background-image:url({{ base_url() }}/images/centro-cultural/portada.jpg)">          
+                <div class="ca_ content_item">
+                    <h2>EXPOSICIÓN TEMPORAL</h2>
+                </div>
+            </div>
+        </main>
+
+    <section>
+        <div class="col-lg-12 section_d_noticias_info">
+            <div class="section_d_noticias_info_container">
+                <div class="section_d_n_part1">
+                    <div class="image"></div>
+                    <h1>JOSÉ TOLA: NON OMNIS MORIAR </h1>
+                     <p class="fecha">Del 15 de enero al 15 de marzo del 2020</p>
+                     <img src="{{base_url()}}/images/centro-cultural/jtola.jpg" style="width: 100%;">
+                    
+                    <p class="text">Homenaje póstumo a la vida, obra y colección de José Tola. Se expuso 
+                        la producción personal del artista en diálogo con su importante colección de obra 
+                        gráfica internacional, cuya adquisición coincidió con los últimos años de su trabajo 
+                        artístico. Se exhibieron óleos de gran formato, esculturas, ensamblajes, escritos inéditos
+                        y parte de su colección que incluyó grabados de artistas como Salvador Dalí, Joan Miró,
+                        Siqueiros, Andy Warhol, Pablo Picasso, Keith Haring, entre otros. 
+                    </p>
+                    
+                        <p class="text">Además, la exposición contó con una sala evocativa del estudio
+                            personal de José Tola, en la que mostramos más de 30 años de proceso
+                            artístico a través de los bocetos colocados en las paredes y una réplica de 
+                            su último lienzo inacabado, la cual pudo ser intervenida por el público durante
+                            el tiempo que duró la exposición. 
+                        </p>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+   <section>
+        <div class="cc_ content_compartir_float">
+            <a class="btn btn_default prev_" href="{{ base_url() }}/centro-cultural/#exposiciones" role="button">Regresar</a>
+        </div>
+    </section>	
+                    
+     <section>
+        <div class="col-lg-12 noticias_relacionadas">
+        </div>
+    </section>
+                    
+
+
+
+    </div>
+                                
+      
+{% endblock content %}

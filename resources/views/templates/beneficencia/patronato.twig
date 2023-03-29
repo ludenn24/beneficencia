@@ -1,0 +1,75 @@
+{% extends 'templates/app.twig' %}
+
+{% block content %}
+
+    <main>
+
+        <div class="col-lg-12 section_noticias_banner background_" style="background-image:url({{ base_url() }}/uploads/2019/08/remi-walle-86579-unsplash-1.png)">            
+
+            <div class="ca_ content_item">
+
+                <h2>Beneficencia</h2>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <section>
+
+        <div class="col-lg-12 section_beneficencia_general">
+
+            <div class="section_beneficencia_container">
+
+                <div class="section_tab">
+
+                    <div class="filtro">
+
+                        <ul>
+                            <li class=" ">
+                                <a href="{{ base_url() }}/plan-bicentenario/" ><i class="icon-planbicente_bene"></i>Plan Bicentenario</a>
+                            </li>
+
+                            <li class=" ">
+                                <a href="{{ base_url() }}/beneficencia/nosotros/"><i class="icon-nosotros_bene"></i>Nosotros</a>
+                            </li>
+
+                            <li class=" ">
+                                <a href="{{ base_url() }}/beneficencia/directorio/" ><i class="icon-directorio"></i>Directorio</a>
+                            </li>
+
+                            <li class="active ">
+                                <a href="{{ base_url() }}/beneficencia/patronato/" ><i class="icon-patronato_bene"></i>Patronato</a>
+                            </li>
+
+                            <li class=" ">
+                                <a href="{{ base_url() }}/beneficencia/historia/" ><i class="icon-historia_bene"></i>Historia</a>
+                            </li>
+
+                        </ul>
+
+                    </div>
+                </div>
+
+                <div class="section_content">
+
+                    <h3>Patronato <strong class="subtitle"> &nbsp;Beneficencia de Lima: 185 años de historia</strong></h3>
+
+                    <div class="intro-patronato"><p>
+                            Su labor es tutelar. Brinda apoyo y sostenibilidad a la Beneficencia de Lima. 
+                            Se encarga de velar por el cumplimiento de los fines y la misión de la institución
+                            a través de la correcta administración de sus bienes y servicios.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+{% endblock content %}

@@ -1,0 +1,201 @@
+{% extends 'templates/app.twig' %}
+
+{% block content %}
+    <div class="san_vicente_de_paul hogar_canevaro">   
+        <main>
+            <div class="col-lg-12 section_landing">  
+                <div class="owl-carousel owl-theme owl_landing_top">
+                    <div class="item_owl_landing_top">
+                        <div class="col-lg-12 background_" style="background-image:url('{{ base_url() }}/images/svp/portada2.jpg')">
+                            <div class="ca_ content_item">
+                                <h2>Hogar San Vicente de Paúl<br></h2>
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+            </div> 
+        </main>
+
+        <section id="contenido">
+            <div class="col-lg-12 section_menu_tabs">
+                <div class="section_tab">
+                    <div class="filtro">
+                        <ul id="menu-san-vicente-de-paul" class="menu">
+                            <li class="inicio  "><a href="{{ base_url() }}/san-vicente-de-paul/inicio/#contenido" ><i class="icon-home_landing"></i>Inicio</a></li>
+                            <li class="historia  "><a href="{{ base_url() }}/san-vicente-de-paul/historia/#contenido" ><i class="icon-historia_bene"></i>Historia</a></li>
+                            <li class="modalidad-de-ingreso  "><a href="{{ base_url() }}/san-vicente-de-paul/modalidad-de-ingreso/#contenido" ><i class="icon-modalidad"></i>Modalidad de Ingreso</a></li>
+                            <li class="contactanos active "><a href="{{ base_url() }}/san-vicente-de-paul/contactanos/#contenido" ><i class="icon-contacto_landing"></i>Contáctanos</a></li>
+                        </ul>                
+                    </div>
+                </div>
+
+                     <div class="section_content_">
+                    <h3>Contáctanos <strong class="subtitle"> &nbsp;Complete el siguiente formulario</strong></h3>
+
+                    <div class="modal__purple">
+                        <div class="formulario_inmuebles">
+
+                            <form class="row" method="post" autccomplete="off" enctype="multipart/form-data"  autocomplete="off"   id="FormRegistro" name="FormRegistro">
+                              
+                                <input type="hidden" name="categoria" id="categoria"  value="Hogar San Vicente de Paúl">
+                                
+                                <div class="col-lg-6 col-md-12 col-sm-12 form-group">
+                                    <label class="label-nombres">Nombres</label>
+                                    <input type="text" name="nombres" id="nombres" 
+                                           data-content="Usted debe ingresar su nombre." 
+                                           class="form-control formulario obligate" onkeypress="return validaLetras(event)">
+                                </div>
+                                <div class="col-lg-6 col-md-12 col-sm-12 form-group">
+                                    <label class="label-apellidos">Apellidos</label>
+                                    <input type="text" name="apellidos" id="apellidos"
+                                           data-content="Usted debe ingresar sus apellidos." 
+                                           class="form-control formulario obligate" onkeypress="return validaLetras(event)">
+                                </div>
+                                <div class="col-lg-6 col-md-12 col-sm-12 form-group">
+                                    <label class="label-apellidos">DNI</label>
+                                    <input type="text" name="dni" id="dni" 
+                                           data-content="Usted debe ingresar su DNI." 
+                                           class="form-control formulario obligate" onkeypress="return validaNumericos(event)">
+                                </div>
+                                <div class="col-lg-6 col-md-12 col-sm-12 form-group">
+                                    <label class="label-email">Correo Electrónico</label>
+                                    <input type="email" name="correo"
+                                           data-content="Usted debe ingresar su correo." 
+                                           id="correo" class="form-control formulario obligate">
+                                </div>
+                                <div class="col-lg-6 col-md-12 col-sm-12 form-group">
+                                    <label class="label-telefono">Teléfono</label>
+                                    <input type="tel" name="telefono" id="telefono" 
+                                           data-content="Usted debe ingresar su teléfono." 
+                                           class="form-control formulario obligate" onkeypress="return validaNumericos(event)">
+                                </div>
+                                <div class="col-lg-6 col-md-12 col-sm-12 form-group">
+                                    <label class="label-telefono">Dirección</label>
+                                    <input type="text" name="direccion" id="direccion" 
+                                           data-content="Usted debe ingresar su dirección." 
+                                           class="form-control formulario obligate">
+                                </div>
+                                <div class="col-lg-6 col-md-12 col-sm-12 form-group">
+                                    <label class="label-telefono">Motivo</label>
+                                    <select name="motivo" id="motivo" 
+                                            data-content="Usted debe seleccionar un motivo." 
+                                            class="form-control formulario obligate" >
+                                        <option value="">Seleccione el motivo de comunicación</option>
+                                        <option value="Consulta">Consulta</option>
+                                        <option value="Donación">Donación</option>
+                                        <option value="Voluntariado">Voluntariado</option>
+                                    </select>
+                                </div>  
+                                
+                                 <div class="col-lg-6 col-md-12 col-sm-12 form-group" id="donacion" style="display:none">
+                                    <label class="label-telefono">¿Qué es lo quieres donar?</label>
+                                    <select name="tipodonacion" id="tipodonacion"
+                                            data-content="Usted debe seleccionar el tipo de donación." 
+                                            class="form-control formulario">
+                                        <option value="">Seleccione el tipo de donación</option>
+                                        <option value="Bien">Bien</option>
+                                        <option value="Dinero">Dinero</option>
+                                    </select>
+                                </div>  
+                                
+                                <div class="col-lg-6 col-md-12 col-sm-12 form-group" id="voluntariado" style="display:none">
+                                    <label class="label-telefono">¿Cuánto tiempo quieres voluntario?</label>
+                                    <select name="tiempovoluntario" id="tiempovoluntario" 
+                                            data-content="Usted seleccionar el tiempo de voluntariado." 
+                                            class="form-control formulario">
+                                        <option value="">Seleccione el tiempo de voluntariado</option>
+                                        <option value="Permanente">Permanente</option>
+                                        <option value="Eventual">Eventual</option>
+                                    </select>
+                                </div>  
+                                
+                                <div class="col-lg-12 form-group">
+                                    <label class="label-telefono">Mensaje</label>
+                                    <textarea name="mensaje" id="mensaje" 
+                                              data-content="Usted debe ingresar un mensaje." 
+                                              class="form-control formulario obligate" rows="6"  placeholder="Escribe aquí tu mensaje"></textarea>
+                                </div> 
+                                
+                                 <div class="col-lg-12 form-group">
+                                    <div class="msg">
+                                    </div>
+                                    </div> 
+                                
+                                <div class="col-lg-12 form-group registrarform" >
+                                    <button type="button" id="registrar" class="btn btn_default next_">ENVIAR</button>
+                                </div>
+                                
+                                 {{ csrf.field | raw }}
+                                 
+                            </form>
+                        </div>
+                    </div> 
+                </div>     
+
+                <div class="content_ banner2_landing_turismo">
+                    <p>
+                        <strong>Dirección:</strong> Jr. Ancash Nº 1595 - Barrios Altos<br>                
+                        <strong>Directora: </strong>Srta. Tania Paredes<br>
+                        <strong>Teléfonos:</strong> 01 482 1101 / 01 482-1499<br>
+                        <strong>Correo:</strong> tparedes@beneficenciadelima.org<br>
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+
+    <div class="modal fade" id="modalMensaje" tabindex="-1" role="dialog" aria-labelledby="modalMensaje">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                 <div class="modal-header">
+                    <h5 class="modal-title">Información</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                <div class="modal-body">
+                    cargando contenido...espere un momento por favor
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>  
+                                 
+       <script>
+               $('#motivo').click(function () {
+              if ($(this).val() == 'Consulta') {
+                  $("#donacion").css("display", "none");
+                  $("#voluntariado").css("display", "none");
+                  $("#tipodonacion").removeClass("obligate");
+                  $("#tiempovoluntario").removeClass("obligate");
+                  $("#tipodonacion").val("");
+                  $("#tiempovoluntario").val("");
+              } else if ($(this).val() == 'Donación') {
+                  $("#donacion").css("display", "block");
+                  $("#voluntariado").css("display", "none");
+                  $("#tipodonacion").addClass("obligate");
+                  $("#tiempovoluntario").removeClass("obligate");
+                  $("#tiempovoluntario").val("");
+              }  else if ($(this).val() == 'Voluntariado') {
+                  $("#voluntariado").css("display", "block");
+                  $("#donacion").css("display", "none");
+                  $("#tiempovoluntario").addClass("obligate");
+                  $("#tipodonacion").removeClass("obligate");
+                  $("#tipodonacion").val("");
+              }else {
+                  $("#donacion").css("display", "none");
+                  $("#voluntariado").css("display", "none");
+                  $("#tipodonacion").removeClass("obligate");
+                  $("#tiempovoluntario").removeClass("obligate");
+                  $("#tipodonacion").val("");
+                  $("#tiempovoluntario").val("");
+              }
+          });
+    </script> 
+{% endblock content %}

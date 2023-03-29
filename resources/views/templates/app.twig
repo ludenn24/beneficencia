@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="es-PE">
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Beneficencia de Lima</title>
+        <link rel="shortcut icon" href="{{ base_url() }}/images/favicon.png">
+        <link rel='stylesheet' id='styles_fonts-css'  href='{{ base_url() }}/css/fonts.css' type='text/css' media='all' />
+        <link rel='stylesheet' id='price_range-css'  href='{{ base_url() }}/css/price-range.css' type='text/css' media='all' />
+        <link rel="stylesheet" id="Fonts_Awesome-css" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css?ver=5.0.10" type="text/css" media="all">
+        <link rel="stylesheet" id="Bootstrap-css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css?ver=5.0.10" type="text/css" media="all">
+        <link rel='stylesheet' id='style-css'  href='{{ base_url() }}/css/style.css?v=1.2' type='text/css' media='all' />
+        <link rel='stylesheet' id='styles_main-css'  href='{{ base_url() }}/css/main.css?v=1.1' type='text/css' media='all' />
+        <link rel='stylesheet' id='GoogleFonts-css'  href='https://fonts.googleapis.com/css?family=Noto+Serif&amp;display=swap&amp;ver=5.0.10' type='text/css' media='all' />
+        <link rel='stylesheet' id='Carousel-css'  href='{{ base_url() }}/js/owl/assets/owl.carousel.min.css' type='text/css' media='all' />
+        <link rel='stylesheet' id='Carousel_Default-css'  href='{{ base_url() }}/js/owl/assets/owl.theme.default.min.css' type='text/css' media='all' />
+        <link rel='stylesheet' id='wp-block-library-css'  href='{{ base_url() }}/css/style.min.css' type='text/css' media='all' />
+        <script type='text/javascript' src='{{ base_url() }}/js/jquery-3.4.1.min.js'></script>
+        <script type='text/javascript' src='{{ base_url() }}/js/jquery-migrate-3.0.0.min.js'></script>
+        <script type='text/javascript' src='{{ base_url() }}/js/popper.min.js'></script>
+        <script type='text/javascript' src='{{ base_url() }}/js/owl/owl.carousel.min.js'></script>
+        <script type='text/javascript' src='{{ base_url() }}/js/main.js'></script>
+        <script type='text/javascript' src='{{ base_url() }}/js/jquery-beneficencia.js'></script>
+        <script type='text/javascript' src='{{ base_url() }}/js/bootstrap.min.js'></script>
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-2QVLKZ24FW"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-2QVLKZ24FW');
+        </script>
+        <!-- Google Tag Manager -->
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-N9F48ZK');</script>
+        <!-- End Google Tag Manager -->
+        <!-- Meta Pixel Code -->
+        <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '616075340272831');
+        fbq('track', 'PageView');
+        </script>
+        <noscript><img height="1" width="1" style="display:none"
+        src="https://www.facebook.com/tr?id=616075340272831&ev=PageView&noscript=1"
+        /></noscript>
+        <!-- End Meta Pixel Code -->
+        <script type="text/javascript"> _linkedin_partner_id = "4512514"; window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || []; window._linkedin_data_partner_ids.push(_linkedin_partner_id); </script><script type="text/javascript"> (function(l) { if (!l){window.lintrk = function(a,b){window.lintrk.q.push([a,b])}; window.lintrk.q=[]} var s = document.getElementsByTagName("script")[0]; var b = document.createElement("script"); b.type = "text/javascript";b.async = true; b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js"; s.parentNode.insertBefore(b, s);})(window.lintrk); </script> <noscript> <img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=4512514&fmt=gif" /> </noscript>
+    </head>
+    <body class="home page-template page-template-template-home page-template-template-home-php page page-id-2 wp-custom-logo">
+        
+        <!-- Google Tag Manager (noscript) -->
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N9F48ZK"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <!-- End Google Tag Manager (noscript) -->
+
+        {% include 'templates/partials/navegacion.twig' %}
+
+        {% block content %} {% endblock %}
+
+        {% include 'templates/partials/footer.twig' %}
+
+    </body>
+
+</html>

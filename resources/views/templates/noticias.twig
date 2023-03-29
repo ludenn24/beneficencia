@@ -1,0 +1,135 @@
+{% extends 'templates/app.twig' %}
+
+
+{% block content %}
+
+    <div class="">
+        <main>
+            <div class="col-lg-12 section_noticias_banner background_" style="background-image:url({{ base_url() }}/images/noticias/portada.jpg)">
+                <div class="ca_ content_item">
+                    <h2>Noticias</h2>
+                </div>
+            </div>
+        </main>
+
+        <section>
+
+        <div class="section_noticias_general_buscar">
+            <div class="section_noticias_container">
+                <div class="section_content_about_container" >
+
+                        <div class="input-group" >
+                            <input id="filtro" name="filtro" type="text" onkeypress="ListarNoticias()" class="form-control">
+                            <div class="input-group-btn" >
+                                <button onclick="ListarNoticias()" type="button" class="btn btn-secondary btn-search" >
+                                    <span class="glyphicon glyphicon-search" >&nbsp;</span>
+                                    <span class="label-icon" >Buscar</span></button>
+                            </div>
+                        </div>
+
+
+                        <div class="input-group" >
+                            <div id="resultado">
+
+                            </div>
+                         </div>
+
+                </div>
+            </div>
+        </div>
+
+            <div class="col-lg-12 section_noticias_general">
+
+                <div class="section_noticias_container">
+                    <div class="section_1">
+                        <div class="filtro">
+                            <ul>
+                                <li><a href="#listaresultados"onclick="ListarNoticias()" >Todos</a></li>
+                                <li class="cat-item cat-item-5"><a href="#listaresultados"  onclick="ListarNoticias('Programas Sociales')">Programas Sociales</a>
+                                </li>
+                                <li class="cat-item cat-item-10"><a href="#listaresultados" onclick="ListarNoticias('Patrimonio Cultural')">Patrimonio Cultural</a>
+                                </li>
+                                <!--<li class="cat-item cat-item-36"><a href="#listaresultados" onclick="ListarNoticias('Noticias')">Noticias</a>
+                                </li>-->
+                            </ul>
+                        </div>
+
+                    </div><div class="section_2">
+                        <div class="section_noticias" id="listaresultados">
+                        </div>
+                        <div class="nav-links">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            ListarNoticias();
+        })
+        function ListarNoticias(origen) {
+
+            var texto;
+
+            texto = $("#filtro").val();
+
+            return $.ajax({
+                type: "get",
+                url: '{{ base_url() }}/noticias/listar',
+                data: {
+                    origen: origen,
+                    texto: texto,
+                },
+                success: function (data) {
+                    $('#listaresultados div').remove();
+                    $.each(data, function (i, item) {
+                        var categoria;
+                        if (item.categoria == 'Programas Sociales') {
+                            categoria = 'hogar-de-la-madre';
+                        } else if (item.categoria == 'Patrimonio Cultural') {
+                            categoria = 'cementerio-el-angel';
+                        } else {
+                            categoria = 'noticias';
+                        }
+                        $("#listaresultados").append("" +
+                                "<div class='item_noticia " + categoria + "'>" +
+                                            "<div class='image' style='background-image:url({{ base_url() }}/" + item.foto + ")'></div>" +
+                                "<div class='header'>" +
+                                "<div class='cr_'>" +
+                                "<h4>" + item.titular + "</h4>" +
+                                "<p class='fecha'>" + item.formated + "</p>" +
+                                "<p class='text'>" + item.detallemin + "</p>" +
+                                "<a class='btn btn_default next_' href='{{base_url()}}/noticias/detalle/" + item.codigo + "' role='button'>Leer más</a> " +
+                                "</div>" +
+                                "</div>" +
+                                "</div>"
+                                );
+                    });
+
+                    var contador = Object.keys(data).length;
+                    var encontrar = "encontraron";
+                    var resultado = "resultados";
+
+                    if (contador==1){
+                        encontrar = "encontró";
+                        resultado = "resultado";
+                    }
+
+                     $('#resultado h4').remove();
+
+                    if(texto != ""){
+                       $("#resultado").append("<h4>Se "+encontrar +" "+ contador + " "+ resultado + " para '" + texto + "'</h4>");
+                     }
+
+                },
+                error: function () {
+                }
+            });
+        }
+    </script>
+{% endblock content %}

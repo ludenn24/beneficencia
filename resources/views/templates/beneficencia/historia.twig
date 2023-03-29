@@ -1,0 +1,115 @@
+
+{% extends 'templates/app.twig' %}
+
+{% block content %}
+
+    <main>
+        <div class="col-lg-12 section_noticias_banner background_" style="background-image:url({{ base_url() }}/uploads/2019/08/remi-walle-86579-unsplash-1.png">
+            <div class="ca_ content_item">
+                <h2>Beneficencia</h2>
+            </div>
+        </div>
+    </main>
+    <section>
+        <div class="col-lg-12 section_beneficencia_general">
+            <div class="section_beneficencia_container">
+                <div class="section_tab">
+                    <div class="filtro">
+                            <ul>
+                            <li class=" ">
+                             <a href="{{ base_url() }}/plan-bicentenario/" ><i class="icon-planbicente_bene"></i>Plan Bicentenario</a>
+                            </li>
+
+                            <li class=" ">
+                                <a href="{{ base_url() }}/beneficencia/nosotros/"><i class="icon-nosotros_bene"></i>Nosotros</a>
+                            </li>
+
+                            <li class=" ">
+                                <a href="{{ base_url() }}/beneficencia/directorio/" ><i class="icon-directorio"></i>Directorio</a>
+                            </li>
+
+                            <li class=" ">
+                                <a href="{{ base_url() }}/beneficencia/patronato/" ><i class="icon-patronato_bene"></i>Patronato</a>
+                            </li>
+
+                            <li class="active ">
+                                <a href="{{ base_url() }}/beneficencia/historia/" ><i class="icon-historia_bene"></i>Historia</a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="section_content section_content_history">
+
+                    <h3>Historia</h3>
+
+                    <div class="intro-patronato">
+                        <p>
+                         La Sociedad de Beneficencia de Lima se fundó el 12 de junio de 1834, por Decreto
+                         Supremo durante el gobierno provisional de Luis José de Orbegoso y Moncada, con la
+                         finalidad de servir a los sectores vulnerables de nuestra sociedad, como personas de
+                         escasos recursos, niños, adultos mayores y todo aquel que se encuentre en situación de desamparo.
+                        </p>
+
+                           <p>
+                         Desde su fundación, la institución ha contado con el apoyo económico de benefactores
+                         que han garantizado la sostenibilidad de los espacios que se fueron sumando a su
+                         administración, tales como el Instituto Sevilla, el Hogar San Vicente de Paúl, el Hogar
+                         de la Madre, el Puericultorio Pérez Araníbar, cada de ellos encargados de velar por una
+                         población específica. Además de las instituciones que lidera, la Beneficencia de Lima tiene
+                         a su cargo el Ramo de loterías, la Plaza de Acho, el Cementerio Presbítero Maestro, entre
+                         otros bienes que han sido declarados Patrimonio cultural de la nación.
+                        </p>
+
+                           <p>
+                       Entre las personalidades que han dirigido esta institución, figuran presidentes
+                       como Manuel Pardo y Manuel Candamo, y alcaldes como José Antonio
+                       Miró Quesada, Augusto Wiese y Rufino Torrico. Actualmente la Sociedad
+                       de Beneficencia de Lima, y desde el 13 de septiembre del 2018 por Decreto
+                       Legislativo N°1411, es considerada una entidad privada y bajo la presidencia
+                       de Guillermo Ackermann, busca fortalecer y proyectar los programas sociales que ha
+                       tenido a su cargo durante casi dos siglos de vida institucional.
+                        </p>
+
+
+                         <p><strong>Instituto Sevilla:</strong><br>
+                         Creación del Instituto Sevilla, gracias al legado de José Sevilla. Tiene como misión
+                         brindar formación a niñas y jóvenes de sectores vulnerables.
+                        </p>
+
+                          <p><strong>Hogar San Vicente de Paúl:</strong><br>
+                         Fundación de San Vicente de Paúl con la iniciativa de Don Augusto
+                         Pérez Araníbar, presidente de la Beneficencia.
+                        </p>
+
+                          <p><strong>El Ángel:</strong><br>
+                         Inauguración del Cementerio El Ángel por Manuel Prado para
+                         atender las demandas de la nueva población de la ciudad.
+                        </p>
+
+                           <p><strong>Hogar Canevaro:</strong><br>
+                         Inicio de actividades del Hogar Canevaro, un albergue para personas de la tercera edad.
+                        </p>
+                    </div>
+
+
+
+
+                    <div class="owl-carousel owl-theme owl_landing_history">
+                        <div class="item_owl_landing_top">
+                            <img src="{{ base_url() }}/uploads/2019/10/1.png">
+                        </div>
+                        <div class="item_owl_landing_top">
+                            <img src="{{ base_url() }}/uploads/2019/10/2.png">
+                        </div>
+                        <div class="item_owl_landing_top">
+                            <img src="{{ base_url() }}/uploads/2019/10/3.png">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+{% endblock content %}

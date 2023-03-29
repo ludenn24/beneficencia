@@ -1,0 +1,435 @@
+{% extends 'templates/app.twig' %}
+
+{% block content %}
+
+<div class="hogar_canevaro">
+    <main>
+        <div class="col-lg-12 section_landing ">  
+            <div class="sub_mega_menu">
+                <div id="opt_inicio" class="sub_">
+                    <a href="#" onclick="scrollDownAnimate('#Inicio')"><i class="icon-home_landing"></i> <span>Inicio</span></a>
+                </div>
+                <div id="opt_historia" class="sub_">
+                    <a href="#" onclick="scrollDownAnimate('#Historia')"><i class="icon-historia_bene"></i> <span>Historia</span></a>
+                </div>
+                <div id="opt_modalidad" class="sub_">
+                    <a href="#" onclick="scrollDownAnimate('#Modalidad')"><i class="icon-calender_landing"></i> <span>Modalidad de Ingreso</span></a>
+                </div>
+                <div id="opt_servicio" class="sub_">
+                    <a href="#" onclick="scrollDownAnimate('#Servicio')"><i class="icon-servicios_landing"></i> <span>Servicio</span></a>
+                </div>
+                <div id="opt_contacto" class="sub_">
+                    <a href="#" onclick="scrollDownAnimate('#Contacto')"><i class="icon-contacto_landing"></i> <span>Contacto</span></a>
+                </div>
+            </div>
+            <div class="owl-carousel owl-theme owl_landing_top">
+                <div class="item_owl_landing_top">
+                    <div class="col-lg-12 background_" style="background-image:url({{ base_url() }}/uploads/2019/08/image-3-1.png)">
+                        <div class="ca_ content_item">
+                            <h2>Puericultorio Pérez Araníbar</h2>                            
+                            <div class="cc_">
+                                <a class="btn btn_default next_" href="#" role="button">Leer más</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="owl-carousel-custom-dots owl-theme owl_dots_content_landing" >
+                <a class="owl_landing_top_left" onclick="owl_landing_top.trigger('prev.owl')">
+                    <img src="{{ base_url() }}/img/icon/left.png">
+                </a>
+                <div class="owl-dots owl_dots_landing_top"></div>
+                <a class="owl_landing_top_right" onclick="owl_landing_top.trigger('next.owl')">
+                    <img src="{{ base_url() }}/img/icon/right.png">
+                </a>
+            </div>
+        </div> 
+
+    </main>
+
+    <script>
+        $(document).ready(function () {
+
+            var inicio = $('#Inicio').length;
+            var historia = $('#Historia').length;
+            var modalidad = $('#Modalidad').length;
+            var servicio = $('#Servicio').length;
+            var contacto = $('#Contacto').length;
+
+            if (inicio == 0) {
+                $('#opt_inicio').hide();
+            }
+            if (historia == 0) {
+                $('#opt_historia').hide();
+            }
+            if (modalidad == 0) {
+                $('#opt_modalidad').hide();
+            }
+            if (servicio == 0) {
+                $('#opt_servicio').hide();
+            }
+            if (contacto == 0) {
+                $('#opt_contacto').hide();
+            }
+
+        });
+    </script>  
+    
+    <section>
+
+        <div id="Inicio" class="col-lg-12 section_landing_inicio">
+
+            <h2 id="Inicio" class="ca_ title_men">Inicio</h2>
+
+            <div class="row">
+
+                <div class="col-lg-6 section_landing_inicio_part one_sec">
+
+                    <div class="owl-carousel owl-theme owl_presbitero_first">
+
+
+                        <div class="item_owl_presbitero_first">
+
+                            <div class="col-lg-12 background_" style="background-image:url({{ base_url() }}/uploads/2019/08/image-2.1-1.png)"></div>
+
+                        </div> 
+
+
+                    </div>
+
+                    <div class="owl-carousel-custom-dots owl-theme owl_content_presbitero_first" >
+
+                        <a class="owl_presbitero_first_left" onclick="owl_presbitero_first.trigger('prev.owl')">
+
+                            <img src="{{ base_url() }}/img/icon/left.png">
+
+                        </a>
+
+                        <div class="owl-dots owl_dots_presbitero_first"></div>
+
+                        <a class="owl_presbitero_first_right" onclick="owl_presbitero_first.trigger('next.owl')">
+
+                            <img src="{{ base_url() }}/img/icon/right.png">
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <div class="col-lg-6 section_landing_inicio_part two_sec">
+
+                    <div class="cr_ landing-intro">
+
+                        <h3>El legado de Don Augusto Pérez Araníbar</h3>
+
+                        <p>
+
+                        <p><strong>Es el albergue infantil más importante y destacado del país. Acogemos a niños y niñas entre 0 y 18 años, como consecuencia de medidas de protección dispuestas por el Ministerio de la Mujer y Poblaciones Vulnerables.</strong></p>
+                        <p>Somos los padres que no tienen, pero que nos ven como si lo fuéramos; con esos ojos llenos de ternura, ingenuidad y mucho amor por entregar.</p>
+                        <p>Han sido gravemente vulnerados en sus derechos, y nosotros tenemos la responsabilidad, el compromiso y la firme decisión de trabajar incansablemente para darles una niñez digna.</p>
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-12 content_landing_">
+            <div class="text">
+                “Nuestro hogar, es un pequeño cielo en la tierra, un lugar donde los afectos desinteresados son cultivados”
+            </div>
+        </div>
+
+        <div class="col-lg-12 content_landing_2">
+            <div class="row">
+                <div class="col-lg-6 content_landing_option2 ">
+                    <p><strong>Nuestro objetivo es que cuando levanten velas a nuevos rumbos, no les sea ajena la sociedad. Para ello, los preparamos con sólidos valores, ética y principios.</strong></p>
+                    <p>&nbsp;</p>
+                    <p>A diferencia de la calle y de sus propios hogares, sus necesidades más elementales están cubiertas, gracias a nuestro equipo de profesionales especialmente preparados para cada fin, como lo son:</p>
+                    <p>&nbsp;</p>
+                    <ul>
+                        <li>Equipo asistencial especializado</li>
+                        <li>Nutricionistas</li>
+                        <li>Profesores</li>
+                        <li>Voluntariado permanente de la Asociación de Voluntarias del Puericultorio Pérez Araníbar</li>
+                    </ul>
+                </div>
+                <div class="col-lg-6 content_landing_option2 landing_img_">
+                    <img src="{{ base_url() }}/uploads/2019/08/image-3-1-1.png">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section>
+        <div class="col-lg-12 section_landing_second">
+            <h2  class="ca_ title_men">Historia</h2>
+            <div class="row">
+                <div class="col-lg-6 section_landing_second_part_1">
+                    <img src="{{ base_url() }}/uploads/2019/08/image-4-3.png">
+                </div>
+                <div class="col-lg-6 section_landing_second_part_2">
+                    <div class="content_">
+                        <h3>Un inmenso hogar para los pequeños</h3>
+                        <div class="col-lg-12 content_historia">
+                            <p>Don Augusto Pérez Araníbar, médico filántropo, director de la Beneficencia en 1917, fue quien hizo realidad esta obra hace 102 años con apoyo de Víctor Larco Herrera, Miguel Echenique, Thomas Valle e Ignacia Rfa. Vda de Canevaro; cuyo principal propósito de creación, fue el de contar con un establecimiento dedicado a la protección de la infancia. Actualmente albergamos más de 215 niñas, niños y adolescentes.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="col-lg-12 section_landing_turismo">
+            <h2 id="Modalidad" class="ca_ title_men">Modalidad de Ingreso</h2>
+            <div class="row">
+                <div class="col-lg-12 background_ banner_landing_turismo" style="background-image:url({{ base_url() }}/uploads/2019/08/caleb-woods-269348-unsplash-2.png)">
+                    <h3></h3>
+                </div>
+
+                <div class="sect_servicio_info_container">
+                    <div class="sect_servicio_info_puericultorio">
+                        <div class="item">
+                            <div class="middle_1  ">
+                                <div class="cr_">
+                                    <h3>Los menores pueden ser enviados al Puericultorio hasta los 12 años.</h3>
+                                </div>
+                            </div>
+
+                            <div class="middle_2">
+                                <div class="cr_">
+                                    <p><strong>Actualmente, los niños que ingresan al Puericultorio son enviados por mandato judicial mediante dos modalidades.</strong></p>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                        <div class="item">
+
+                            <div class="middle_1 middle_1--pink ">
+
+                                <div class="cr_">
+
+                                    <h3>¿Cómo<br />ingresa?</h3>
+
+                                </div>
+
+                            </div>
+
+
+
+
+                            <div class="middle_2">
+
+                                <div class="cr_">
+
+                                    <p><strong>A través de los Juzgados de Familia.</strong></p>
+
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+
+
+
+                        <div class="item">
+
+                            <div class="middle_1  middle_1--gray">
+
+                                <div class="cr_">
+
+                                    <h3>Al ingresar, el infante es evaluado por un equipo multidisciplinario que incluye servicio social, psicología y examen médico.</h3>
+
+                                </div>
+
+                            </div>
+
+
+
+
+                            <div class="middle_2" style="background-image:url({{ base_url() }}/uploads/2019/08/baby-children-cute-264109.png)"></div>
+
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+
+
+    <section>
+
+        <div id="Contacto" class="col-lg-12 background_ banner2_landing_turismo" style="background-image:url({{ base_url() }}/uploads/2019/08/image-6-1.png)">            
+
+            <div class="content_">
+
+                <div class="row">
+
+                    <div class="col-lg-6 content_part content_part_1">
+
+                        <h3>Puericultorio Augusto Pérez Araníbar</h3>
+
+
+                    </div>
+
+                    <div class="col-lg-6 content_part content_part_2">
+
+                        <p>
+
+                            <strong>Dirección:</strong> Av. Del Ejército Nº 650 - Magdalena del Mar<br>
+                            <strong>Directora:</strong> Sra. Cecilia Hamann de Pennano<br>
+                            <strong>Teléfono:</strong> 01 482 1101 / 01 482-1499<br>
+
+                            <strong>Correo:</strong> chamann@beneficenciadelima.org<br>
+                        </p>
+
+                        <p class="btn_content_part_2"><a  href="#" data-toggle="modal" data-target="#form_modal" class="btn btn_default next_download">Formulario</a></p>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+   </div>
+        
+        <div class="modal fade" id="form_modal" tabindex="-1" role="dialog" aria-labelledby="VideoModal" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-content-general-fondo " role="document">
+        <div class="modal-content modal-content-general ca_">
+          <div class="modal-body">
+            <div class="mondal_body_formar_parte modal__purple">
+                <a class="close" data-dismiss="modal">X</a>
+                <div class="formulario_inmuebles">
+                	<h3>Llena el siguiente formulario</h3>
+                    <form class="row" method="POST" action="https://www.beneficenciadelima.org/puericultorio-perez-aranibar/" autocomplete="off">
+                    	<input type="hidden" name="form" value="1" />
+                    	<input type="hidden" name="pagina" value="Puericultorio Pérez Araníbar" />
+                        <div class="col-lg-6 col-md-12 col-sm-12 form-group">
+                            <label class="label-nombres">Nombres</label>
+                            <input type="text" name="nombres" id="nombres" class="form-control formulario"  onkeypress="return validaLetras(event)" required>
+                        </div>
+                        <div class="col-lg-6 col-md-12 col-sm-12 form-group">
+                            <label class="label-apellidos">Apellidos</label>
+                            <input type="text" name="apellidos" id="apellidos" class="form-control formulario"  onkeypress="return validaLetras(event)" required>
+                        </div>
+                        <div class="col-lg-6 col-md-12 col-sm-12 form-group">
+                            <label class="label-apellidos">DNI</label>
+                            <input type="text" name="dni" id="dni" class="form-control formulario" required>
+                        </div>
+                        <div class="col-lg-6 col-md-12 col-sm-12 form-group">
+                            <label class="label-email">Correo Electrónico</label>
+                            <input type="email" name="email" id="email" class="form-control formulario"  required>
+                        </div>
+                        <div class="col-lg-6 col-md-12 col-sm-12 form-group">
+                            <label class="label-telefono">Teléfono</label>
+                            <input type="tel" name="telefono" id="telefono" class="form-control formulario"  onkeypress="return validaNumericos(event)">
+                        </div>
+                        <div class="col-lg-6 col-md-12 col-sm-12 form-group">
+                            <label class="label-telefono">Dirección</label>
+                            <input type="text" name="direccion" id="direccion" class="form-control formulario" >
+                        </div>
+                        <div class="col-lg-6 col-md-12 col-sm-12 form-group">
+                            <label class="label-telefono">Motivo</label>
+                            <select name="motivo" id="motivo" class="form-control formulario">
+                                <option value="Consulta">Consulta</option>
+                                <option value="Donación">Donación</option>
+                                <option value="Voluntariado">Voluntariado</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-12 form-group">
+                            <textarea name="mensaje" id="mensaje" class="form-control formulario" rows="6" required  placeholder="Escribe aquí tu mensaje"></textarea>
+                        </div> 
+                        <div class="col-lg-12 form-group">
+                             <button type="submit" id="enviar" class="btn btn_default next_">ENVIAR</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<div class="modal fade" id="form_inmuebles-modal" tabindex="-1" role="dialog" aria-labelledby="VideoModal" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-content-general-fondo " role="document">
+        <div class="modal-content modal-content-general ca_">
+          <div class="modal-body">
+            <div class="mondal_body_formar_parte">
+                <a class="close" data-dismiss="modal">X</a>
+                <div class="formulario_inmuebles">
+                    <form class="row" method="POST" action="https://www.beneficenciadelima.org/puericultorio-perez-aranibar/" autocomplete="off">
+                    	<input type="hidden" name="form" value="1" />
+                        <div class="col-lg-6 col-md-12 col-sm-12 form-group">
+                            <label class="label-nombres">Nombres</label>
+                            <input type="text" name="nombres" id="nombres" class="form-control formulario"  onkeypress="return validaLetras(event)" required>
+                        </div>
+                        <div class="col-lg-6 col-md-12 col-sm-12 form-group">
+                            <label class="label-apellidos">Apellidos</label>
+                            <input type="text" name="apellidos" id="apellidos" class="form-control formulario"  onkeypress="return validaLetras(event)" required>
+                        </div>
+                        <div class="col-lg-6 col-md-12 col-sm-12 form-group">
+                            <label class="label-apellidos">DNI</label>
+                            <input type="text" name="dni" id="dni" class="form-control formulario" required>
+                        </div>
+                        <div class="col-lg-6 col-md-12 col-sm-12 form-group">
+                            <label class="label-email">Correo Electrónico</label>
+                            <input type="email" name="email" id="email" class="form-control formulario"  required>
+                        </div>
+                        <div class="col-lg-6 col-md-12 col-sm-12 form-group">
+                            <label class="label-telefono">Teléfono</label>
+                            <input type="tel" name="telefono" id="telefono" class="form-control formulario"  onkeypress="return validaNumericos(event)">
+                        </div>
+                        <div class="col-lg-6 col-md-12 col-sm-12 form-group">
+                            <label>Tipo de consulta</label>
+                            <select class="form-control formulario" id="tipo_consulta" name="tipo_consulta"  required>
+                                <option value="Alquiler" selected>Alquiler</option>
+                                <option value="Derecho de usufructo">Derecho de usufructo</option>
+                                <option value="Derecho de superficie">Derecho de superficie</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-12 form-group">
+                            <label class="label-mensaje">Consulta</label>
+                            <textarea name="mensaje" id="mensaje" class="form-control formulario" rows="6" required  placeholder="Escribe aquí tu mensaje"></textarea>
+                        </div> 
+                        <div class="col-lg-12 form-group">
+                             <button type="submit" id="enviar" class="btn btn_default next_">ENVIAR</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><script type='text/javascript' src='../wp-includes/js/wp-embed.minc9d0.js?ver=5.0.10'></script>
+
+{% endblock content %}

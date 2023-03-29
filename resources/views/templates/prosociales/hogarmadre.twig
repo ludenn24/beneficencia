@@ -1,0 +1,285 @@
+{% extends 'templates/app.twig' %}
+{% block content %}
+<div class="centros_esperanza_maria_castano_sagrada_familia_y_sagrado_corazon">
+   <main>
+      <div class="col-lg-12 section_landing">
+         <div class="owl-carousel owl-theme owl_landing_top">
+            <div class="item_owl_landing_top">
+               <div class="col-lg-12 background_" style="background-image:url('{{ base_url() }}/images/hma/phm.jpg')">
+                  <div class="ca_ content_item">
+                     <!--<h2>Hogar de la Madre</h2>-->
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </main>
+   <section id="contenido">
+      <div class="col-lg-12 section_menu_tabs">
+         <div class="col-md-3">
+            <div class="section_tab">
+               <div class="filtro menu content_btns_tabs">
+                  <ul class="nav nav-tabs menu">
+                     <li>
+                        <a class="btn btn_tab active " href="#inicio" data-toggle="tab">
+                        <i class="icon-home_landing"></i> Inicio
+                        </a>
+                     </li>
+                     <li>
+                        <a class="btn btn_tab" href="#historia" data-toggle="tab">
+                        <i class="icon-historia_bene"></i> Historia
+                        </a>
+                     </li>
+                     <li>
+                        <a class="btn btn_tab " href="#contacto" data-toggle="tab">
+                        <i class="icon-contacto_landing"></i> Contáctanos
+                        </a>
+                     </li>
+                  </ul>
+               </div>
+            </div>
+         </div>
+         <div class="col-md-9 hma hogar_de_la_madre ">
+            <div class="section_content_ ">
+               <div class="section_content_tabs_flex">
+                  <div class="content_tabs">
+                     <div class="tab-content">
+                        <div class="tab-pane in active " id="inicio">
+                           <h3>Inicio <strong class="subtitle"> &nbsp;Un hogar para las madres de Lima</strong></h3>
+                           <div class="text">
+                              <div class="text_middle">
+                                 <p>Con más de 70 años junto a madres gestantes, nuestra clínica las acoge con todo el amor que demandan para que su estadía y la bienvenida de su bebé sea la más dulce y placentera.</p>
+                                 <p>Nuestro selecto grupo de profesionales altamente calificado, es responsable de cuidar con altos estándares de calidad a la futura madre y al recién nacido.</p>
+                                 <p>Tenemos el firme compromiso de afianzarnos como institución sostenible, eficiente y moderna. Por ello, estamos transformando la infraestructura y equipamiento a la altura de las expectativas de toda futura mamá, a fin de brindar seguridad, confianza y confortabilidad.</p>
+                              </div>
+                           </div>
+                           <div class="carousel">
+                              <a class="owl_inicio_generales_left" onclick="owl_inicio_generales.trigger('prev.owl')">
+                              <img src="{{ base_url() }}/img/icon/doble-left.png">
+                              </a>
+                              <a class="owl_inicio_generales_right" onclick="owl_inicio_generales.trigger('next.owl')">
+                              <img src="{{ base_url() }}/img/icon/doble-right.png">
+                              </a>
+                              <div class="owl-carousel owl-theme owl_inicio_generales">
+                                 <div class="item_owl_inicio_generales" style="background-image:url('{{ base_url() }}/images/hma/2.jpg')" data-hash="mini1"></div>
+                                 <div class="item_owl_inicio_generales" style="background-image:url('{{ base_url() }}/images/hma/3.jpg')" data-hash="mini2"></div>
+                                 <div class="item_owl_inicio_generales" style="background-image:url('{{ base_url() }}/images/hma/4.jpg')" data-hash="mini3"></div>
+                              </div>
+                              <div class="owl-carousel owl-theme owl_inicio_generales_mini">
+                                 <a href="#mini1">
+                                    <div class="item_owl_inicio_generales_mini" style="background-image:url('{{ base_url() }}/images/hma/2.jpg')"></div>
+                                 </a>
+                                 <a href="#mini2">
+                                    <div class="item_owl_inicio_generales_mini" style="background-image:url('{{ base_url() }}/images/hma/3.jpg')"></div>
+                                 </a>
+                                 <a href="#mini3">
+                                    <div class="item_owl_inicio_generales_mini" style="background-image:url('{{ base_url() }}/images/hma/4.jpg')"></div>
+                                 </a>
+                              </div>
+                              <div class="owl-carousel-custom-dots owl-theme owl_dots_content_inicio_generales" >
+                                 <div class="owl-dots owl_dots_inicio_generales"></div>
+                              </div>
+                           </div>
+                           <div class="text text2">
+                           </div>
+                           <div class="col-lg-12 content_landing_">
+                              <h4 style="font-family: 'FortescuePro_Bold';text-align:center">El Hogar de la Madre garantiza</h4>
+                           </div>
+                           <div class="col-lg-12 content_landing_options">
+                              <div class="item">
+                                 <h3 class="cr_">Confianza</h3>
+                              </div>
+                              <div class="item">
+                                 <h3 class="cr_">Seguridad</h3>
+                              </div>
+                              <div class="item">
+                                 <h3 class="cr_">Confort</h3>
+                              </div>
+                              <div class="item">
+                                 <h3 class="cr_">Eficiencia</h3>
+                              </div>
+                           </div>
+                           <div class="col-lg-12 content_landing_2">
+                              <div class="row">
+                                 <div class="col-lg-6 content_landing_option2 ">
+                                    <p>Este año, el Hogar de la Madre se ha provisto de nuevo equipamiento para garantizar las condiciones adecuadas
+                                       de seguridad, calidad y eficiencia. Gracias a esto, nos hemos posicionado como uno de los mejores centros de referencia a nivel nacional. El Hogar de la Madre, se encuentra a cargo de la Beneficencia de Lima, institución con más de 185 años al servicio de los mas necesitados y que tiene la misión de velar por la calidad de vida de todos los ciudadanos.</p>
+                                 </div>
+                                 <div class="col-lg-6 content_landing_option2 landing_img_">
+                                    <img src="{{ base_url() }}/uploads/2019/08/max-panama-387781-unsplash.png">
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="tab-pane" id="historia">
+                           <h3>Historia</h3>
+                           <div class="text">
+                              <div class="text_middle">
+                                 <p>Creado en la década de los cuarenta como una Clínica Materno Infantil por Doña Rosalía
+                                    Lavalle de Morales Macedo. El Hogar de la Madre llega a la Beneficencia de Lima en los setenta.</p>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="tab-pane" id="contacto">
+                           <div class="row" >
+                              <h3>Contáctanos <strong class="subtitle"> &nbsp;Complete el siguiente formulario</strong></h3>
+                              <div class="col-md-8" >
+                                 <div class="modal__purple">
+                                    <div class="formulario_inmuebles">
+                                       <form class="row" method="post" autccomplete="off" enctype="multipart/form-data"  autocomplete="off"   id="FormRegistro" name="FormRegistro">
+                                          <input type="hidden" name="categoria" id="categoria"  value="Hogar de la Madre">
+                                          <div class="col-lg-6 col-md-12 col-sm-12 form-group">
+                                             <label class="label-nombres">Nombres</label>
+                                             <input type="text" name="nombres" id="nombres"
+                                                data-content="Usted debe ingresar su nombre."
+                                                class="form-control formulario obligate" onkeypress="return validaLetras(event)">
+                                          </div>
+                                          <div class="col-lg-6 col-md-12 col-sm-12 form-group">
+                                             <label class="label-apellidos">Apellidos</label>
+                                             <input type="text" name="apellidos" id="apellidos"
+                                                data-content="Usted debe ingresar sus apellidos."
+                                                class="form-control formulario obligate" onkeypress="return validaLetras(event)">
+                                          </div>
+                                          <div class="col-lg-6 col-md-12 col-sm-12 form-group">
+                                             <label class="label-apellidos">DNI</label>
+                                             <input type="text" name="dni" id="dni"
+                                                data-content="Usted debe ingresar su DNI."
+                                                class="form-control formulario obligate" onkeypress="return validaNumericos(event)">
+                                          </div>
+                                          <div class="col-lg-6 col-md-12 col-sm-12 form-group">
+                                             <label class="label-email">Correo Electrónico</label>
+                                             <input type="email" name="correo"
+                                                data-content="Usted debe ingresar su correo."
+                                                id="correo" class="form-control formulario obligate">
+                                          </div>
+                                          <div class="col-lg-6 col-md-12 col-sm-12 form-group">
+                                             <label class="label-telefono">Teléfono</label>
+                                             <input type="tel" name="telefono" id="telefono"
+                                                data-content="Usted debe ingresar su teléfono."
+                                                class="form-control formulario obligate" onkeypress="return validaNumericos(event)">
+                                          </div>
+                                          <div class="col-lg-6 col-md-12 col-sm-12 form-group">
+                                             <label class="label-telefono">Dirección</label>
+                                             <input type="text" name="direccion" id="direccion"
+                                                data-content="Usted debe ingresar su dirección."
+                                                class="form-control formulario obligate">
+                                          </div>
+                                          <div class="col-lg-6 col-md-12 col-sm-12 form-group">
+                                             <label class="label-telefono">Motivo</label>
+                                             <select name="motivo" id="motivo"
+                                                data-content="Usted debe seleccionar un motivo."
+                                                class="form-control formulario obligate" >
+                                                <option value="">Seleccione el motivo de comunicación</option>
+                                                <option value="Consulta">Consulta</option>
+                                                <option value="Donación">Donación</option>
+                                                <option value="Voluntariado">Voluntariado</option>
+                                             </select>
+                                          </div>
+                                          <div class="col-lg-6 col-md-12 col-sm-12 form-group" id="donacion" style="display:none">
+                                             <label class="label-telefono">¿Qué es lo quieres donar?</label>
+                                             <select name="tipodonacion" id="tipodonacion"
+                                                data-content="Usted debe seleccionar el tipo de donación."
+                                                class="form-control formulario">
+                                                <option value="">Seleccione el tipo de donación</option>
+                                                <option value="Bien">Bien</option>
+                                                <option value="Dinero">Dinero</option>
+                                             </select>
+                                          </div>
+                                          <div class="col-lg-6 col-md-12 col-sm-12 form-group" id="voluntariado" style="display:none">
+                                             <label class="label-telefono">¿Cuánto tiempo quieres voluntario?</label>
+                                             <select name="tiempovoluntario" id="tiempovoluntario"
+                                                data-content="Usted seleccionar el tiempo de voluntariado."
+                                                class="form-control formulario">
+                                                <option value="">Seleccione el tiempo de voluntariado</option>
+                                                <option value="Permanente">Permanente</option>
+                                                <option value="Eventual">Eventual</option>
+                                             </select>
+                                          </div>
+                                          <div class="col-lg-12 form-group">
+                                             <label class="label-telefono">Mensaje</label>
+                                             <textarea name="mensaje" id="mensaje"
+                                                data-content="Usted debe ingresar un mensaje."
+                                                class="form-control formulario obligate" rows="6"  placeholder="Escribe aquí tu mensaje"></textarea>
+                                          </div>
+                                          <div class="col-lg-12 form-group">
+                                             <div class="msg">
+                                             </div>
+                                          </div>
+                                          <div class="col-lg-12 form-group registrarform" >
+                                             <button type="button" id="registrar" class="btn btn_default next_">ENVIAR</button>
+                                          </div>
+                                          {{ csrf.field | raw }}
+                                       </form>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="col-md-4" >
+                                 <div class="content_ banner2_landing_turismo">
+                                    <p>
+                                       <strong>Dirección: </strong>Gervasio Santillana 260 - Miraflores<br>
+                                       <!--<strong>Director: </strong> José Tafur<br>
+                                       <strong>Teléfono: </strong> 01 440 2850<br>
+                                       <strong>Correo: </strong>jtafur@hogardelamadre.pe<br>-->
+                                    </p>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+</div>
+<div class="modal fade" id="modalMensaje" tabindex="-1" role="dialog" aria-labelledby="modalMensaje">
+   <div class="modal-dialog" role="document">
+      <div class="modal-content">
+         <div class="modal-header">
+            <h5 class="modal-title">Información</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+         </div>
+         <div class="modal-body">
+            cargando contenido...espere un momento por favor
+         </div>
+         <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+         </div>
+      </div>
+   </div>
+</div>
+<script>
+   $('#motivo').click(function () {
+       if ($(this).val() == 'Consulta') {
+           $("#donacion").css("display", "none");
+           $("#voluntariado").css("display", "none");
+           $("#tipodonacion").removeClass("obligate");
+           $("#tiempovoluntario").removeClass("obligate");
+           $("#tipodonacion").val("");
+           $("#tiempovoluntario").val("");
+       } else if ($(this).val() == 'Donación') {
+           $("#donacion").css("display", "block");
+           $("#voluntariado").css("display", "none");
+           $("#tipodonacion").addClass("obligate");
+           $("#tiempovoluntario").removeClass("obligate");
+           $("#tiempovoluntario").val("");
+       } else if ($(this).val() == 'Voluntariado') {
+           $("#voluntariado").css("display", "block");
+           $("#donacion").css("display", "none");
+           $("#tiempovoluntario").addClass("obligate");
+           $("#tipodonacion").removeClass("obligate");
+           $("#tipodonacion").val("");
+       } else {
+           $("#donacion").css("display", "none");
+           $("#voluntariado").css("display", "none");
+           $("#tipodonacion").removeClass("obligate");
+           $("#tiempovoluntario").removeClass("obligate");
+           $("#tipodonacion").val("");
+           $("#tiempovoluntario").val("");
+       }
+   });
+</script>
+{% endblock content %}

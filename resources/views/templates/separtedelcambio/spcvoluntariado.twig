@@ -1,0 +1,195 @@
+{% extends 'templates/app.twig' %}
+
+
+{% block content %}
+    <div class="se_parte_del_cambio">
+        <main>
+            <div class="col-lg-12 section_noticias_banner background_" style="background-image:url({{ base_url() }}/uploads/2019/08/partedelcambio_banner.png)">            
+                <div class="ca_ content_item">
+                    <h2>Sé parte del cambio</h2>
+                </div>
+            </div>
+        </main>
+
+            <section id"=contenido">
+            <div class="col-lg-12 section_partedelcambio">
+                <div class="section_partedelcambio_container">
+                    <div class="section_tab">
+                        <div class="filtro">
+                            <ul id="voluntariado-menu">
+                                <li class="convenios  "><a href="{{ base_url() }}/se-parte-del-cambio/convenios/#contenido" ><i class="fas fa-scroll"></i>Linea B</a></li>
+                                <li class="se-parte-del-cambio  active"><a href="{{ base_url() }}/se-parte-del-cambio/voluntariado/#contenido" ><i class="fas fa-balance-scale"></i>Voluntariado</a></li>
+                                <li class="donaciones  "><a href="{{ base_url() }}/se-parte-del-cambio/donaciones/#contenido" ><i class="fas fa-hand-holding-heart"></i>Donaciones</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="section_content">
+                        <h3>Voluntariados <strong class="subtitle"></strong></h3>
+                        <div class="content_parte_delcambio">
+                            <p><strong>Únete a la humanitaria labor que realiza la Beneficencia de Lima en favor de los niños, niñas, adolescentes y adultos mayores en situación de vulnerabilidad a través de sus programas de voluntariado.</strong></p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <div class="modal fade" id="voluntariado" tabindex="-1" role="dialog" aria-labelledby="VideoModal" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-content-general-fondo " role="document">
+                <div class="modal-content modal-content-general ca_">
+                    <div class="modal-body">
+                        <div class="mondal_body_formar_parte">
+                            <a class="close" data-dismiss="modal">X</a>
+                            <div class="formulario_">
+                                <h3>¡Quiero ser voluntario!</h3>
+                                <p>Si deseas aportar tu granito de arena, llena <br>el <strong>siguiente formulario</strong></p>
+                                <form class="row" method="POST" action="https://www.beneficenciadelima.org/se-parte-del-cambio/" autocomplete="off">
+                                    <input type="hidden" name="form" value="1">
+                                    <div class="col-lg-6 col-md-12 col-sm-12 form-group">
+                                        <label class="label-nombres">Nombres</label>
+                                        <input type="text" name="nombres" id="nombres" class="form-control formulario"  onkeypress="return validaLetras(event)" required>
+                                    </div>
+                                    <div class="col-lg-6 col-md-12 col-sm-12 form-group">
+                                        <label class="label-apellidos">Apellidos</label>
+                                        <input type="text" name="apellidos" id="apellidos" class="form-control formulario"  onkeypress="return validaLetras(event)" required>
+                                    </div>
+                                    <div class="col-lg-12 col-md-12 col-sm-12 form-group">
+                                        <label class="label-email">Correo Electrónico</label>
+                                        <input type="email" name="email" id="email" class="form-control formulario"  required>
+                                    </div>
+                                    <div class="col-lg-6 col-md-12 col-sm-12 form-group">
+                                        <label class="label-telefono">Teléfono</label>
+                                        <input type="text" name="telefono" id="telefono" class="form-control formulario"  onkeypress="return validaNumericos(event)">
+                                    </div> 
+                                    <div class="col-lg-6 col-md-12 col-sm-12 form-group">
+                                        <label class="label-telefono">DNI</label>
+                                        <input type="text" name="dni" id="dni" class="form-control formulario" >
+                                    </div>  
+                                    <div class="col-lg-12 col-md-12 col-sm-12 form-group">
+                                        <label class="label-tiempo">¿Cuánto tiempo quieres voluntario? </label>
+                                        <select name="tiempo" id="tiempo" class="form-control formulario" >
+                                            <option value="Permanente">Permanente</option>
+                                            <option value="Eventual">Eventual</option>
+                                        </select>
+                                    </div> 
+                                    <div class="col-lg-12 col-md-12 col-sm-12 form-group">
+                                        <label class="label-donde">¿Donde quieres ser voluntario?  </label>
+                                        <select name="donde" id="donde" class="form-control formulario" >
+                                            <option value="Puericultorio Pérez Araníbar">Puericultorio Pérez Araníbar </option>
+                                            <option value="Hogar Canevaro">Hogar Canevaro</option>
+                                            <option value="Hogar San Vicente de Paúl">Hogar San Vicente de Paúl</option>
+                                            <option value="Centros Esperanza">Centros Esperanza</option>
+                                            <option value="Hogar de la Madre">Hogar de la Madre</option>
+                                            <option value="Instituto Sevilla">Instituto Sevilla</option>
+                                        </select>
+                                    </div>                                                            
+                                    <div class="col-lg-12 form-group">
+                                        <label class="label-mensaje">Escribe tu mensaje</label>
+                                        <textarea name="mensaje" id="mensaje" class="form-control formulario" rows="6" required  placeholder=""></textarea>
+                                    </div> 
+                                    <div class="col-lg-12 form-group">
+                                        <button type="submit" id="enviar" class="btn btn_default next_">Enviar</button> <span>Únete y forma parte del cambio</span>
+                                    </div>
+                                </form>
+                            </div>
+
+
+
+
+
+                            <div class="imagen">
+                                <div class="imagen_img">
+                                    <img src="{{ base_url() }}/img/fomulario_moddla.png">
+                                </div>
+                                <div class="imagen_contacto">
+                                    <div class="cr_ cc_">
+                                        <h4>Contáctanos</h4>
+                                        <div class="item">
+                                            <div class="content">
+                                                <i class="fas fa-phone"></i>
+                                                <a href="tel:(+51) 1 01 427 6521">01 427 6521</a> /
+                                                <a href="tel:(+51) 1 01 427 6522">01 427 6522</a>
+                                            </div>
+                                        </div>
+                                        <div class="item">
+                                            <div class="content">
+                                                <i class="fas fa-envelope"></i>
+                                                <a href="mailito:hola@beneficenciadelima.org">hola@beneficenciadelima.org</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section>
+
+            <div class="container mondal_body_formar_parte">
+                <div class="formulario_">
+                    <h3>¡Quiero ser voluntario!</h3>
+                    <p>Si deseas aportar tu granito de arena, llena <br>el <strong>siguiente formulario</strong></p>
+                    <form class="row" method="POST" action="https://www.beneficenciadelima.org/se-parte-del-cambio/" autocomplete="off">
+                        <input type="hidden" name="form" value="1">
+                        <div class="col-lg-6 col-md-12 col-sm-12 form-group">
+                            <label class="label-nombres">Nombres</label>
+                            <input type="text" name="nombres" id="nombres" class="form-control formulario"  onkeypress="return validaLetras(event)" required>
+                        </div>
+                        <div class="col-lg-6 col-md-12 col-sm-12 form-group">
+                            <label class="label-apellidos">Apellidos</label>
+                            <input type="text" name="apellidos" id="apellidos" class="form-control formulario"  onkeypress="return validaLetras(event)" required>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 form-group">
+                            <label class="label-email">Correo Electrónico</label>
+                            <input type="email" name="email" id="email" class="form-control formulario"  required>
+                        </div>
+                        <div class="col-lg-6 col-md-12 col-sm-12 form-group">
+                            <label class="label-telefono">Teléfono</label>
+                            <input type="text" name="telefono" id="telefono" class="form-control formulario"  onkeypress="return validaNumericos(event)">
+                        </div> 
+                        <div class="col-lg-6 col-md-12 col-sm-12 form-group">
+                            <label class="label-telefono">DNI</label>
+                            <input type="text" name="dni" id="dni" class="form-control formulario" >
+                        </div>  
+                        <div class="col-lg-12 col-md-12 col-sm-12 form-group">
+                            <label class="label-tiempo">¿Cuánto tiempo quieres voluntario? </label>
+                            <select name="tiempo" id="tiempo" class="form-control formulario" >
+                                <option value="Permanente">Permanente</option>
+                                <option value="Eventual">Eventual</option>
+                            </select>
+                        </div> 
+                        <div class="col-lg-12 col-md-12 col-sm-12 form-group">
+                            <label class="label-donde">¿Donde quieres ser voluntario?  </label>
+                            <select name="donde" id="donde" class="form-control formulario" >
+                                <option value="Puericultorio Pérez Araníbar">Puericultorio Pérez Araníbar </option>
+                                <option value="Hogar Canevaro">Hogar Canevaro</option>
+                                <option value="Hogar San Vicente de Paúl">Hogar San Vicente de Paúl</option>
+                                <option value="Centros Esperanza">Centros Esperanza</option>
+                                <option value="Hogar de la Madre">Hogar de la Madre</option>
+                                <option value="Instituto Sevilla">Instituto Sevilla</option>
+                            </select>
+                        </div>                                                            
+                        <div class="col-lg-12 form-group">
+                            <label class="label-mensaje">Escribe tu mensaje</label>
+                            <textarea name="mensaje" id="mensaje" class="form-control formulario" rows="6" required  placeholder=""></textarea>
+                        </div> 
+                        <div class="col-lg-12 form-group">
+                            <button type="submit" id="enviar" class="btn btn_default next_">Enviar</button> <span>Únete y forma parte del cambio</span>
+                        </div>
+                    </form>
+                </div>
+
+
+
+
+
+            </div>
+
+        </section>
+    </div>
+
+{% endblock content %}

@@ -1,0 +1,73 @@
+{% extends 'templates/app.twig' %}
+
+{% block content %}
+    <div class="hma hogar_de_la_madre hogar_canevaro">   
+        <main>
+            <div class="col-lg-12 section_landing ">  
+                <div class="owl-carousel owl-theme owl_landing_top ">
+                    <div class="item_owl_landing_top">
+                        <div class="col-lg-12 background_" style="background-image:url('{{ base_url() }}/images/casadetodos/portada.jpg')">
+                            <div class="ca_ content_item">
+                                <h2>Casa de todos</h2>   
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+            </div> 
+        </main>
+
+        <section id="contenido">
+            <div class="col-lg-12 section_menu_tabs">
+                <div class="section_tab">
+                    <div class="filtro">
+                        <ul id="menu-san-vicente-de-paul" class="menu">
+                            <li class="inicio active"><a href="{{ base_url() }}/casadetodos/inicio/#contenido" ><i class="icon-home_landing"></i>Inicio</a></li>
+                            <li class="visitanos"><a href="{{ base_url() }}/casadetodos/visitanos/#contenido" ><i class="icon-historia_bene"></i>Visítanos</a></li>
+                            <li class="contactanos"><a href="{{ base_url() }}/casadetodos/contactanos/#contenido" ><i class="icon-contacto_landing"></i>Contáctanos</a></li>
+                        </ul>                
+                    </div>
+                </div>  
+
+                <div class="section_content section_content_history">
+                    <h3>Historia</h3>
+                    <div class="intro-patronato">
+                        <p>
+                            Casa de todos es un programa social de la Beneficencia de Lima en alianza con la
+                            Municipalidad Metropolitana de Lima, implementado durante el estado de emergencia
+                            como un albergue temporal para que las personas en situación de calle puedan cumplir 
+                            con el aislamiento social obligatorio, así como contar con las condiciones básicas de vida 
+                            digna, teniendo en cuenta que en la ciudad de Lima, hay cerca de 3,000 personas que se
+                            encuentran en situación de desamparo y el 10% de ellos están concentradas en el Centro 
+                            Histórico.
+                        </p>
+
+                        <p>
+                            Durante la primera etapa, el albergue se ubica temporalmente en el interior de la Plaza
+                            de Toros de Acho. Cuenta con un centro de atención para despistaje de covid-19, centro médico
+                            móvil, servicios higiénicos, comedor, además de las zonas de esparcimiento, biblioteca, espacio 
+                            de juegos y proyección de videos, donde el albergado puede realizar deporte y consumir
+                            entretenimiento, actividades necesarias para la optimización de su salud física y mental
+                            durante la cuarentena. 
+                        </p>
+
+                        <p>
+                            Actualmente nos encontramos trabajando en el proyecto para que la ciudad de Lima cuente
+                            con un albergue permanente, que permitirá rescatar y acoger a 120 personas sin hogar por 
+                            año, brindándoles albergue, alimentación, cuidados de salud e higiene y un programa de
+                            formación y talleres con el fin de otorgarles herramientas que permitan su reinserción
+                            laboral y social. Los primeros residentes serán los actuales albergados de la Plaza de 
+                            Acho quienes llevan más de 4 meses a nuestro cuidado médico y de atención psicológica. 
+                        </p>    
+
+                        <p>
+                            Este no solo será un albergue de primer nivel que velará por sus ocupantes, sino que
+                            además brindará mejoras en los servicios públicos y desarrollo para los vecinos de la
+                            zona con la implementación de una posta médica, a cargo de SISOL, mejora del sistema 
+                            de alumbrado público, áreas verdes y seguridad ciudadana, con la participación del Serenazgo de Lima. 
+                        </p>    
+                    </div>
+                </div>             
+            </div>
+        </section>
+    </div>
+{% endblock content %}

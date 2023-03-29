@@ -1,0 +1,130 @@
+{% extends 'templates/app.twig' %}
+
+{% block content %}
+<div class="san_vicente_de_paul">   
+    <main>
+            <div class="col-lg-12 section_landing">  
+                <div class="owl-carousel owl-theme owl_landing_top">
+                    <div class="item_owl_landing_top">
+                        <div class="col-lg-12 background_" style="background-image:url('{{ base_url() }}/images/svp/portada2.jpg')">
+                            <div class="ca_ content_item">
+                                <h2>Hogar San Vicente de Paúl<br></h2>
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+            </div> 
+        </main>
+
+  <section id="contenido">
+        <div class="col-lg-12 section_menu_tabs">
+                <div class="section_tab">
+                    <div class="filtro">
+                        <ul id="menu-san-vicente-de-paul" class="menu">
+                            <li class="inicio active "><a href="{{ base_url() }}/san-vicente-de-paul/inicio/#contenido" ><i class="icon-home_landing"></i>Inicio</a></li>
+                            <li class="historia  "><a href="{{ base_url() }}/san-vicente-de-paul/historia/#contenido" ><i class="icon-historia_bene"></i>Historia</a></li>
+                            <li class="modalidad-de-ingreso  "><a href="{{ base_url() }}/san-vicente-de-paul/modalidad-de-ingreso/#contenido" ><i class="icon-modalidad"></i>Modalidad de Ingreso</a></li>
+                            <li class="contactanos  "><a href="{{ base_url() }}/san-vicente-de-paul/contactanos/#contenido" ><i class="icon-contacto_landing"></i>Contáctanos</a></li>
+                        </ul>                
+                    </div>
+                </div>
+
+            <div class="section_content_ ">
+
+                <h3>Inicio <strong class="subtitle"> &nbsp;San Vicente de Paúl, símbolo de vida</strong></h3>
+
+
+
+                <div class="text">
+
+                    <div class="text_middle">
+
+
+                        <div class="item">
+
+                            <h4></h4>
+
+                            <p>En este hogar de abuelitos, construimos una vejez digna para quienes nada, ni a nadie tienen. Conservamos una asistencia personalizada y acogedora, incluyendo especiales cuidados asistenciales, una alimentación balanceada y nutritiva; además de cubrirlos con inmenso amor y regocijo.</p>
+                            <p>Nuestro propósito, es darle la mejor calidad de vida a aquellos que tienen dependencia física y mental; los que se hallan en estado crítico de abandono y riesgo social.</p>
+                            <p>Contamos con personal altamente capacitado para asistir a nuestros adultos mayores en sus tratamientos y frecuentes dolencias.</p>
+                            <p>El compromiso de los colaboradores que cuidan amorosamente a nuestros albergados, logra que ellos se sientan:</p>
+                            <p>&#8211; Seguros.<br />
+                                &#8211; Con autoestima.<br />
+                                &#8211; Tranquilos de poder vivir en un ambiente confortable.</p>
+
+                        </div>
+
+                    </div>
+
+
+
+                </div>
+
+
+
+
+
+
+                <div class="carousel">
+
+                    <a class="owl_inicio_generales_left" onclick="owl_inicio_generales.trigger('prev.owl')">
+
+                        <img src="{{ base_url() }}/img/icon/doble-left.png">
+
+                    </a>
+
+                    <a class="owl_inicio_generales_right" onclick="owl_inicio_generales.trigger('next.owl')">
+
+                        <img src="{{ base_url() }}/img/icon/doble-right.png">
+
+                    </a>
+
+                    <div class="owl-carousel owl-theme owl_inicio_generales">
+                        <div class="item_owl_inicio_generales" style="background-image:url('{{ base_url() }}/images/svp/1.jpg')" data-hash="mini1"></div> 
+                        <div class="item_owl_inicio_generales" style="background-image:url('{{ base_url() }}/images/svp/2.jpg')" data-hash="mini2"></div> 
+                        <div class="item_owl_inicio_generales" style="background-image:url('{{ base_url() }}/images/svp/3.jpg')" data-hash="mini3"></div> 
+                        <div class="item_owl_inicio_generales" style="background-image:url('{{ base_url() }}/images/svp/4.jpg')" data-hash="mini4"></div> 
+                    </div>
+
+                    <div class="owl-carousel owl-theme owl_inicio_generales_mini">
+                        <a href="#mini1">
+                            <div class="item_owl_inicio_generales_mini" style="background-image:url('{{ base_url() }}/images/svp/1.jpg')"></div>
+                        </a>
+
+                        <a href="#mini2">
+                            <div class="item_owl_inicio_generales_mini" style="background-image:url('{{ base_url() }}/images/svp/2.jpg')"></div>
+                        </a>
+
+                        <a href="#mini3">
+                            <div class="item_owl_inicio_generales_mini" style="background-image:url('{{ base_url() }}/images/svp/3.jpg')"></div>
+                        </a>
+                        
+                        <a href="#mini4">
+                            <div class="item_owl_inicio_generales_mini" style="background-image:url('{{ base_url() }}/images/svp/4.jpg')"></div>
+                        </a>
+                    </div>
+                        
+                    <div class="owl-carousel-custom-dots owl-theme owl_dots_content_inicio_generales" >
+                        <div class="owl-dots owl_dots_inicio_generales"></div>
+                    </div>
+
+                </div>
+
+
+
+
+                <div class="text text2">
+
+
+                </div>
+
+
+
+            </div>
+
+
+        </div>
+    </section>
+</div>   
+
+{% endblock content %}

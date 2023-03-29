@@ -1,0 +1,87 @@
+{% extends 'templates/app.twig' %}
+
+
+{% block content %}
+
+    <div class="cementerio_angel">
+<main>
+    <div class="col-lg-12 section_landing">  
+        <div class="owl-carousel owl-theme owl_landing_top">
+        	            <div class="item_owl_landing_top">
+                <div class="col-lg-12 background_" style="background-image:url('{{ base_url() }}/uploads/2019/08/cementerio_angel.png')">
+                    <div class="ca_ content_item">
+                        <h2>Cementerio El Ángel<br></h2>
+                                            </div>
+                </div>
+            </div> 
+                        <div class="item_owl_landing_top">
+                <div class="col-lg-12 background_" style="background-image:url('{{ base_url() }}/uploads/2019/08/cementerio_angel2.png')">
+                    <div class="ca_ content_item">
+                        <h2>Cementerio El Ángel<br></h2>
+                                            </div>
+                </div>
+            </div> 
+                    </div>
+        <div class="owl-carousel-custom-dots owl-theme owl_dots_content_landing" >
+            <a class="owl_landing_top_left" onclick="owl_landing_top.trigger('prev.owl')">
+                <img src="{{ base_url() }}/img/icon/left.png">
+            </a>
+            <div class="owl-dots owl_dots_landing_top"></div>
+            <a class="owl_landing_top_right" onclick="owl_landing_top.trigger('next.owl')">
+                <img src="{{ base_url() }}/img/icon/right.png">
+            </a>
+        </div>
+    </div> 
+</main>
+
+    <section>
+        <div class="col-lg-12 section_menu_tabs">
+            <div class="section_tab">
+                <div class="filtro">
+                    <ul id="menu-cementerio-el-angel" class="menu">
+	 	<li class="inicio  "><a href="../inicio/index.html" ><i class="icon-home_landing"></i>Inicio</a></li>
+	 	<li class="historia  "><a href="../historia/index.html" ><i class="icon-historia_bene"></i>Historia</a></li>
+	 	<li class="nuestros-servicios  "><a href="../nuestros-servicios/index.html" ><i class="icon-servicios_landing"></i>Nuestros Servicios</a></li>
+	 	<li class="contactanos active "><a href="index.html" ><i class="icon-contacto_landing"></i>Contáctanos</a></li>
+</ul>                </div>
+            </div>
+
+            <div class="section_content_">
+    <h3>Contáctanos <strong class="subtitle"> &nbsp;El Ángel, el cementerio del siglo XX</strong></h3>
+    <div class="text">
+        <p>Cementerio El Ángel se mantiene como uno de los cementerios más importantes y solicitados de Lima.</p>
+    </div>                
+</div>            
+        </div>
+    </section>
+
+    <section>
+
+    <div class="col-lg-12 contacto_inst_sevilla_banner" style="background-image:url('{{ base_url() }}/uploads/2019/08/cementerio_5.png')">
+
+        <div class="ca_">
+
+            <p>
+
+                <strong>Dirección:</strong> Jirón Ancash Nº 1611 - Barrios Altos<br>                
+                <strong>Director: </strong>Sr. Daniel Cáceda<br>
+                <strong>Teléfonos:</strong> 01 352-6208<br>
+                
+                <strong>Correo:</strong> dcaceda@beneficenciadelima.org<br>
+            </p>
+
+            <div class="content_btn">
+
+                <a  href="#" data-toggle="modal" data-target="#form_modal" class="btn btn_default">Formulario ></a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>    
+
+    </div>
+
+{% endblock content %}

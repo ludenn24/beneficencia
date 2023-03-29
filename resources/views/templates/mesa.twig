@@ -1,0 +1,417 @@
+{% extends 'templates/app.twig' %}
+{% block content %}
+
+    <div class="centro_cultural">
+        <main>
+            <div class="col-lg-12 section_inmuebles_banner section_noticias_banner background_" style="background-image:url({{ base_url() }}/images/inmobiliaria/portada.jpg)">
+                <div class="ca_ content_item">
+                    <h2>MESA DE PARTES VIRTUAL</h2>
+                </div>
+            </div>
+        </main>
+
+        <div class="col-lg-12 section_landing_second" style="background-color: #ffffff;">
+            <div class="row section_home_eventos_i">
+                <div class="col-lg-12">
+
+
+                    <div>
+                        <div class="formulario_pink">
+
+                            <form class="row" method="post" autccomplete="off" enctype="multipart/form-data"  autocomplete="off"   id="FormRegistro" name="FormRegistro">
+
+                                <div class="col-lg-12 col-md-12 col-sm-12 form-group">
+
+									<h4>Mesa de Partes Virtual:</h4>
+									<hr>
+									<p>La recepción de documentos virtual son las <b>24 horas del día, 7 días de la semana y 365 días del año.</b> <br>
+									El horario de registro, derivación y atención de documentos es <b>lunes a viernes desde las 08:30 a.m. hasta las 04:30 p.m.</b><br>
+									Documentos recepcionados <b>lunes a viernes desde 04:31 p.m. hasta 11:59 p.m.</b> son registrados y derivados para atención al día
+									hábil siguiente. <b>Sábados, domingos u otro día inhábil, se derivan al día siguiente hábil.</b></p>
+									<h5>Proceso</h5>
+									<p>
+									<ul>
+									<li><b>1.</b> Llenado de formulario</li>
+									<li><b>2.</b> Notificación al correo del correcto llenado de formulario</li>
+									<li><b>3.</b> Notificación al correo con el número de expediente de atención</li>
+									<li><b>4.</b> Inicio de gestión documentario</li>
+									</ul>
+									</p>
+                                </div>
+								
+								<div class="col-lg-12 col-md-12 col-sm-12">
+								<hr>
+								</div>
+								
+                                <div class="col-lg-12 col-md-12 col-sm-12 form-group">
+                                    <h5>Datos del solicitante</h5>
+                                </div>
+
+                                <div class="col-md-12" style="background: #f7f7f7;border: solid 1px #dedede;color: black;border-radius: 10px;">
+                                    <div class="col-12 row">
+                                        <label>1. Persona natural o jurídica</label>
+                                    </div>
+                                    <div class="col-12">
+                                        <input type="text" hidden id="txt_representacion" name="txt_representacion" class="obligate" data-content="Debe completar la pregunta 1.">
+                                        <div class="col-4 form-group clearfix">
+                                            <div class="icheck-primary d-inline">
+                                                <input type="radio" id="rad_representacion2" value="A otra Persona Natural" name="r1">
+                                                <label for="rad_representacion2" style="font-size: 15px !important;font-weight: normal;">Persona Natural</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-4 form-group clearfix">
+                                            <div class="icheck-success d-inline">
+                                                <input type="radio" id="rad_representacion3" value="Persona Jurídica" name="r1">
+                                                <label for="rad_representacion3" style="font-size: 15px !important;font-weight: normal;">Persona Jur&iacute;dica</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="div_juridico"  class="col-12 row" style="display: none;">
+                                    <div class="row"  style="background: #d1d1d1;border: solid 2px #dedede;border-radius: 10px;">
+
+                                        <div class="col-md-12 form-group">
+                                            <label><b>Información de la entidad, empresa o institución</b></label>
+                                        </div>
+
+                                        <div class="col-md-4 form-group">
+                                            <label>1.1. Número de RUC:</label>
+                                            <input type="text" id="juridico_ruc" name="juridico_ruc" maxlength="12"
+                                                   onkeypress="return validaNumericos(event)" placeholder="Ingresar ruc" class="form-control" data-content="Debe completar la pregunta 1.1.">
+                                        </div>
+                                        <div class="col-md-8 form-group">
+                                            <label>1.2. Nombre de la Empresa:</label>
+                                            <input type="text" id="juridico_nombre_empresa" name="juridico_nombre_empresa"
+                                                   data-content="Debe completar la pregunta 1.2."
+                                                   onkeyup="javascript:this.value=this.value.toUpperCase();" placeholder="Ingresar datos de la empresa" class="form-control">
+                                        </div>
+
+                                        <div class="col-md-12 form-group">
+                                            <label>1.3. Dirección de la entidad, empresa o institución</label>
+                                       </div>
+                                        <div class="col-md-4 form-group">
+                                            <label>Departamento:</label>
+                                            <input type="text" id="juridico_departamento" name="juridico_departamento"
+                                                   data-content="Debe completar la pregunta 1.3." onkeypress="return validaLetras(event)"
+                                                   onkeyup="javascript:this.value=this.value.toUpperCase();" placeholder="Ingrese el departamento" class="form-control">
+                                        </div>
+                                        <div class="col-md-4 form-group">
+                                            <label>Provincia:</label>
+                                            <input type="text" id="juridico_provincia" name="juridico_provincia"
+                                                   data-content="Debe completar la pregunta 1.3." onkeypress="return validaLetras(event)"
+                                                   onkeyup="javascript:this.value=this.value.toUpperCase();" placeholder="Ingresar la provincia" class="form-control">
+                                        </div>
+                                        <div class="col-md-4 form-group">
+                                            <label>Distrito:</label>
+                                            <input type="text" id="juridico_distrito" name="juridico_distrito"
+                                                   data-content="Debe completar la pregunta 1.3." onkeypress="return validaLetras(event)"
+                                                   onkeyup="javascript:this.value=this.value.toUpperCase();" placeholder="Ingresar el distrito" class="form-control">
+                                        </div>
+
+                                        <div class="col-md-8 form-group">
+                                            <label>1.4. Escribe la dirección</label>
+                                            <input type="text" id="juridico_direccion" name="juridico_direccion"
+                                                   data-content="Debe completar la pregunta 1.4."
+                                                   onkeyup="javascript:this.value=this.value.toUpperCase();" placeholder="Ingresar datos de la empresa" class="form-control">
+                                        </div>
+
+                                        <div class="col-md-12 form-group">
+                                            <label><b>Información del representante legal que realiza el trámite</b></label>
+                                       </div>
+
+                                        <div class="col-md-6 form-group">
+                                            <label>1.5. Tipo de documento de identidad</label>
+                                            <select class="form-control" name="juridico_tipo_doc_rep" data-content="Debe seleccionar la pregunta 1.5." id="juridico_tipo_doc_rep">
+                                                <option value="">Seleccione una opción</option>
+                                                <option value="DNI">DNI</option>
+                                                <option value="CE">Carné de extrangería</option>
+                                                <option value="PASAPORTE">Pasaporte</option>
+                                                <option value="RUC10">RUC 10 (de persona natural)</option>
+                                                <option value="OTROS">Otros</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6 form-group">
+                                            <label>Número de documento de identidad</label>
+                                            <input type="text" id="juridico_dni_rep" name="juridico_dni_rep"
+                                                   data-content="Debe completar la pregunta 1.5."
+                                                   onkeypress="return validaNumericos(event)"  class="form-control">
+                                        </div>
+
+                                        <div class="col-md-8 form-group">
+                                            <label>1.6. Nombres</label>
+                                            <input type="text" id="juridico_nombre_rep" name="juridico_nombre_rep"
+                                                   data-content="Debe completar la pregunta 1.6." onkeypress="return validaLetras(event)"
+                                                   onkeyup="javascript:this.value=this.value.toUpperCase();" placeholder="Ingresar datos de la empresa" class="form-control">
+                                        </div>
+
+                                        <div class="col-md-8 form-group">
+                                            <label>1.7. Apellidos</label>
+                                            <input type="text" id="juridico_ape_rep" name="juridico_ape_rep"
+                                                   data-content="Debe completar la pregunta 1.7." onkeypress="return validaLetras(event)"
+                                                   onkeyup="javascript:this.value=this.value.toUpperCase();" placeholder="Ingresar datos de la empresa" class="form-control">
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div id="div_natural"  class="col-12 row" style="display: none;">
+                                    <div class="row"  style="background: #d1d1d1; border-radius: 10px;">
+                                        <div class="col-md-12 form-group">
+                                            <label><b>Información de la persona natural</b></label>
+                                        </div>
+
+                                        <div class="col-md-6 form-group">
+                                            <label>1.1. Tipo de documento de identidad</label>
+                                            <select class="form-control" name="natural_tipo_doc" id="natural_tipo_doc" data-content="Debe completar la pregunta 1.1.">
+                                                <option value="">Seleccione una opción</option>
+                                                <option value="DNI">DNI</option>
+                                                <option value="CE">Carné de extrangería</option>
+                                                <option value="PASAPORTE">Pasaporte</option>
+                                                <option value="RUC10">RUC 10 (de persona natural)</option>
+                                                <option value="OTROS">Otros</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="col-md-6 form-group">
+                                            <label>Número de documento de identidad</label>
+                                            <input type="text" id="natural_dni" name="natural_dni" onkeypress="return validaNumericos(event)"  class="form-control" data-content="Debe completar la pregunta 1.1.">
+                                        </div>
+
+                                        <div class="col-lg-6 col-md-12 col-sm-12 form-group">
+                                            <label class="label-nombres">1.2. Nombres</label>
+                                            <input type="text" name="natural_nombres" id="natural_nombres"  onkeyup="javascript:this.value=this.value.toUpperCase();"
+                                                   data-content="Debe completar la pregunta 1.2."
+                                                   class="form-control" onkeypress="return validaLetras(event)">
+                                        </div>
+                                        <div class="col-lg-6 col-md-12 col-sm-12 form-group">
+                                            <label class="label-apellidos">1.3. Apellidos</label>
+                                            <input type="text" name="natural_apellidos" id="natural_apellidos" onkeyup="javascript:this.value=this.value.toUpperCase();"
+                                                   data-content="Debe completar la pregunta 1.3."
+                                                   class="form-control" onkeypress="return validaLetras(event)">
+                                        </div>
+
+                                        <div class="col-md-12 form-group">
+                                            <label>1.4. Dirección actual</label>
+                                        </div>
+                                        <div class="col-md-4 form-group">
+                                            <label>Departamento:</label>
+                                            <input type="text" id="natural_departamento" name="natural_departamento" onkeyup="javascript:this.value=this.value.toUpperCase();" onkeypress="return validaLetras(event)"
+                                                   data-content="Debe completar la pregunta 1.4."
+                                                   placeholder="Ingrese el departamento" class="form-control">
+                                        </div>
+                                        <div class="col-md-4 form-group">
+                                            <label>Provincia:</label>
+                                            <input type="text" id="natural_provincia" name="natural_provincia" onkeyup="javascript:this.value=this.value.toUpperCase();" onkeypress="return validaLetras(event)"
+                                                   data-content="Debe completar la pregunta 1.4."
+                                                   placeholder="Ingresar la provincia" class="form-control">
+                                        </div>
+                                        <div class="col-md-4 form-group">
+                                            <label>Distrito:</label>
+                                            <input type="text" id="natural_distrito" name="natural_distrito" onkeyup="javascript:this.value=this.value.toUpperCase()" onkeypress="return validaLetras(event)"
+                                                   data-content="Debe completar la pregunta 1.4."
+                                                   placeholder="Ingresar el distrito" class="form-control">
+                                        </div>
+
+                                        <div class="col-md-8 form-group">
+                                            <label>1.5. Escribe la dirección</label>
+                                            <input type="text" id="natural_direccion" name="natural_direccion" onkeyup="javascript:this.value=this.value.toUpperCase();"
+                                                   data-content="Debe completar la pregunta 1.5."
+                                                   placeholder="Ingresar datos de la empresa" class="form-control">
+                                        </div>
+
+                                    </div>
+                                </div>
+
+
+								<div class="col-md-12" style="background: #f7f7f7;border: solid 1px #dedede;color: black;border-radius: 10px; margin: 20px 0 20px 0;">
+
+									<div class="col-lg-6 col-md-12 col-sm-12 form-group" style="margin-top: 20px;">
+										<label class="label-email">2. Correo electrónico de contacto</label>
+										<input type="email" name="correo" accept=""
+											   data-content="Usted debe ingresar un correo válido." required="required"
+											   id="correo" class="form-control formulario obligatemail">
+									</div>
+									<div class="col-lg-6 col-md-12 col-sm-12 form-group">
+										<label class="label-telefono">3. Teléfono o celular de contacto</label>
+										<input type="tel" name="telefono" id="telefono"
+											   data-content="Usted debe ingresar su teléfono."
+											   class="form-control formulario obligate" onkeypress="return validaNumericos(event)">
+									</div>
+									
+								</div>
+								
+                                <br>
+                                <div class="col-lg-12 col-md-12 col-sm-12 form-group">
+                                    <h5>Detalle de la solicitud</h5>
+                                </div>
+
+								<div class="col-md-12" style="background: #f7f7f7;border: solid 1px #dedede;color: black;border-radius: 10px;">
+
+                                <div class="col-lg-12 col-md-12 col-sm-12 form-group" style="margin-top: 20px;">
+                                    <label class="label-asunto">4. Asunto de la solicitud o trámite</label>
+                                    <input type="text" name="motivo" id="motivo" onkeyup="javascript:this.value=this.value.toUpperCase();"
+                                           data-content="Usted debe ingresar el asunto."
+                                           class="form-control formulario obligate">
+                                </div>
+
+                                <div class="col-lg-12 form-group">
+                                    <label class="label-detalle">5. Descripción de la solicitud o trámite</label>
+                                    <textarea name="mensaje" id="mensaje" maxlength="500"
+                                              data-content="Usted debe ingresar el detalle de la solicitud."
+                                              class="form-control formulario obligate" rows="4"  placeholder="Ingrese el detalle de la solicitud"></textarea>
+                                </div>
+
+                                <div class="col-lg-12 col-md-12 col-sm-12 form-group">
+                                    <label class="label-asunto">6. Adjunta los documentos que sustenten tu solicitud</label>
+                                    <p class="mb-2">Peso máximo: 10 MB en total, solo se aceptan formatos jpg, jpeg, png,mpdf, doc y docx</p>
+                                    <input type="file" name="documento" id="documento"
+                                           data-content="Usted debe ingresar el asunto."
+                                           class="form-control">
+                                </div>
+
+                                 <div class="col-lg-12 col-md-12 col-sm-12 form-group" style="margin-top: 20px;">
+                                    <label class="label-documento-extra">7. Si tu archivo pesa más de 10 MB, puedes subirlo en un servidor externo y dejarnos el enlace.</label>
+                                    <input type="text" name="doc_extra" id="doc_extra" class="form-control formulario">
+                                </div>
+
+                                <div class="col-lg-12 form-group" >
+                                     <input type="checkbox" id="auto_1" value="auto_1" class="checked" data-content="Usted debe autorizar las notificaciones via correo electrónico."> 
+                                     <label for="auto_1">Autorizo, expresamente, a la Beneficencia de Lima,  efectuar las notificaciones via correo electrónico.
+                                     </label>
+                                </div>
+
+                                <div class="col-lg-12 form-group" >
+                                     <input type="checkbox" id="auto_2" value="auto_2" class="checked" data-content="Usted debe aceptar las políticas de privacidad."> 
+                                     <label for="auto_2">Acepto las poíticas de privacidad.</label>
+                                </div>
+
+                                <div class="col-lg-12 form-group" >
+                                    <label for="auto_3" class="inline">
+                                     <input type="checkbox" id="auto_3" value="auto_3" class="checked" data-content="Usted debe aceptar la declaración de juramento de datos ingresados."> 
+                                     Declaro bajo juramento que los datos ingresados en el formulario son verdaderos
+                                     y estan sujetos a los establecidos en los articulos 51 y 56 del TUO de la ley N° 27444.
+                                     </label>
+                                </div>
+
+                                <div class="col-lg-12 form-group">
+                                    <div class="msg">
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-12 form-group registrarmesa" >
+                                    <button type="button" id="registrarmesa" class="btn btn_default next_">ENVIAR</button>
+                                </div>
+
+                                {{ csrf.field | raw }}
+								
+								</div>
+								
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+        <div class="modal fade" id="modalMensaje" tabindex="-1" role="dialog" aria-labelledby="modalMensaje">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Información</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        cargando contenido...espere un momento por favor
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+<script>
+    var natural_tipo_doc = document.getElementById("natural_tipo_doc");
+    var natural_dni = document.getElementById("natural_dni");
+    var natural_nombres = document.getElementById("natural_nombres");
+    var natural_apellidos = document.getElementById("natural_apellidos");
+    var natural_departamento = document.getElementById("natural_departamento");
+    var natural_provincia = document.getElementById("natural_provincia");
+    var natural_distrito = document.getElementById("natural_distrito");
+    var natural_direccion = document.getElementById("natural_direccion");
+
+    var juridico_ruc = document.getElementById("juridico_ruc");
+    var juridico_nombre_empresa = document.getElementById("juridico_nombre_empresa");
+    var juridico_departamento = document.getElementById("juridico_departamento");
+    var juridico_provincia = document.getElementById("juridico_provincia");
+    var juridico_distrito = document.getElementById("juridico_distrito");
+    var juridico_direccion = document.getElementById("juridico_direccion");
+    var juridico_tipo_doc_rep = document.getElementById("juridico_tipo_doc_rep");
+    var juridico_dni_rep = document.getElementById("juridico_dni_rep");
+    var juridico_nombre_rep = document.getElementById("juridico_nombre_rep");
+    var juridico_ape_rep = document.getElementById("juridico_ape_rep");
+
+    $('#rad_representacion3').on('click', function() {
+        document.getElementById('div_juridico').style.display = 'block';
+        document.getElementById('div_natural').style.display = 'none';
+        $("#txt_representacion").val("Persona Jurídica");
+        natural_tipo_doc.classList.remove("obligate");
+        natural_dni.classList.remove("obligate");
+        natural_nombres.classList.remove("obligate");
+        natural_apellidos.classList.remove("obligate");
+        natural_departamento.classList.remove("obligate");
+        natural_provincia.classList.remove("obligate");
+        natural_distrito.classList.remove("obligate");
+        natural_direccion.classList.remove("obligate");
+        juridico_ruc.classList.add("obligate");
+        juridico_nombre_empresa.classList.add("obligate");
+        juridico_departamento.classList.add("obligate");
+        juridico_provincia.classList.add("obligate");
+        juridico_distrito.classList.add("obligate");
+        juridico_direccion.classList.add("obligate");
+        juridico_tipo_doc_rep.classList.add("obligate");
+        juridico_dni_rep.classList.add("obligate");
+        juridico_nombre_rep.classList.add("obligate");
+        juridico_ape_rep.classList.add("obligate");
+
+    });
+    $('#rad_representacion2').on('click', function() {
+        document.getElementById('div_natural').style.display = 'block';
+        document.getElementById('div_juridico').style.display = 'none';
+        $("#txt_representacion").val("Persona Natural");
+        natural_tipo_doc.classList.add("obligate");
+        natural_dni.classList.add("obligate");
+        natural_nombres.classList.add("obligate");
+        natural_apellidos.classList.add("obligate");
+        natural_departamento.classList.add("obligate");
+        natural_provincia.classList.add("obligate");
+        natural_distrito.classList.add("obligate");
+        natural_direccion.classList.add("obligate");
+        juridico_ruc.classList.remove("obligate");
+        juridico_nombre_empresa.classList.remove("obligate");
+        juridico_departamento.classList.remove("obligate");
+        juridico_provincia.classList.remove("obligate");
+        juridico_distrito.classList.remove("obligate");
+        juridico_direccion.classList.remove("obligate");
+        juridico_tipo_doc_rep.classList.remove("obligate");
+        juridico_dni_rep.classList.remove("obligate");
+        juridico_nombre_rep.classList.remove("obligate");
+        juridico_ape_rep.classList.remove("obligate");
+    });
+
+    function validar_email(email) {
+        var regex = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+        return regex.test(email) ? true : false;
+    }
+
+</script>
+
+{% endblock content %}
