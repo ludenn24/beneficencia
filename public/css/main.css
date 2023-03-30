@@ -81,6 +81,12 @@ a:hover {
     font-size:13px;
     padding-left: 7px;
 }
+.background_ img{
+      display: block;
+      width: 100vw;
+      height: 60vh;
+      object-fit: cover; /* or object-fit: contain; */
+}
 /*.menu_item.home::before{
     font-family: "Font Awesome 5 Free";
     font-weight: 900;

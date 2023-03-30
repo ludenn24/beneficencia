@@ -57,68 +57,12 @@ Class PaginasController extends Controller {
         echo json_encode($mensaje);
     }
 
-
-    
-    public function ListarFront($request, $response, $args) {
-        
-        $origen = $request->getParam('origen');
-        $texto = $request->getParam('texto');
-        
-        try {
-            $data = Noticia::select(DB::raw('DATE_FORMAT(created_at, "%d-%b-%Y") as formated'), 'tb_noticias.*')
-                    ->where('estado','1')
-                    ->where(function ($q) use($origen) {
-                                if ($origen) {
-                                    $q->where('categoria', 'like', '%' . $origen . '%');
-                                }
-                    })->where(function ($q) use($texto) {
-                                if ($texto) {
-                                    $q->where('titular', 'like', '%' . $texto . '%');
-                                }
-                    })->orderBy('codigo', 'DESC')->get();
-            return $this->response->withJson($data);
-        } catch (ErrorException $e) {
-            $data = "Hubo un error al listar los datos.";
-            return $this->response->withJson($data, 500);
-        }
-    }
-    
-      public function ListarHome($request, $response, $args) {
-        
-        $origen = $request->getParam('origen');
-        $texto = $request->getParam('texto');
-        
-        try {
-            $data = Noticia::select(DB::raw('DATE_FORMAT(created_at, "%d-%b-%Y") as formated'), 'tb_noticias.*')
-                    ->where('estado','1')
-                    ->where(function ($q) use($origen) {
-                                if ($origen) {
-                                    $q->where('categoria', 'like', '%' . $origen . '%');
-                                }
-                    })->where(function ($q) use($texto) {
-                                if ($texto) {
-                                    $q->where('titular', 'like', '%' . $texto . '%');
-                                }
-                    })->take(6)->get();
-            return $this->response->withJson($data);
-        } catch (ErrorException $e) {
-            $data = "Hubo un error al listar los datos.";
-            return $this->response->withJson($data, 500);
-        }
-    }
-    
-      public function getViewDetalleNoticia($request, $response, $args)
+    public function getViewPagina($request, $response, $args)
     {
         $codigo = $args['cod'];
-        $noticia = Noticia::select(DB::raw('DATE_FORMAT(created_at, "%d-%b-%Y") as formated'), 'tb_noticias.*')
-            ->where('codigo', $codigo)
-            ->first();
-         $totalnoticia = Noticia::where('codigo', '!=', $codigo)
-                 ->where('estado', 1)->get();
-
-        return $this->view->render($response, 'templates/noticiadetalle.twig',[
-            'noticia' => $noticia,
-            'total' => $totalnoticia,
+        $pagina = Pagina::where('codigo', $codigo)->first();
+        return $this->view->render($response, 'templates/detalle.twig',[
+            'pagina' => $pagina,
         ]);
     }
 

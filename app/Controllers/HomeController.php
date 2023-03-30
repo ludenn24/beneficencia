@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 use App\Models\Popup;
+use App\Models\Pagina;
 use Slim\Views\Twig as View;
 
 Class HomeController extends Controller {
@@ -21,9 +22,16 @@ Class HomeController extends Controller {
     public function mesa($request, $response) {
         return $this->view->render($response, 'templates/mesa.twig');
     }
-    public function construccion($request, $response) {        return $this->view->render($response, 'templates/construccion.twig');    }
+
+    public function construccion($request, $response) {        
+        return $this->view->render($response, 'templates/construccion.twig');    
+    
+    }
     public function beneficencia($request, $response) {
-        return $this->view->render($response, 'templates/beneficencia.twig');
+        $pagina = Pagina::first();
+        return $this->view->render($response, 'templates/beneficencia.twig',[
+            'pagina' => $pagina,
+        ]);
     }
 
     public function planbicentenario($request, $response) {

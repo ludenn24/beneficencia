@@ -88,7 +88,7 @@ function validaLetras(e){
 
                     $.ajax({
                         type: "POST",
-                        url: base_url+"/public/registrar",
+                        url: "/formulario/registrar",
                         data: formData,
                         contentType: false,
                         processData: false,

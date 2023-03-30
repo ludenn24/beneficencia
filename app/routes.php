@@ -11,6 +11,8 @@ $app->get('/eventos/listar', 'EventoController:ListarFront');
 $app->get('/alquiler/distritos', 'AlquilerController:ListarDistritos');
 $app->get('/evento/editar', 'EventoController:getEvento');
 $app->get('/noticias/detalle/{cod}', 'NoticiaController:getViewDetalleNoticia')->setName('noticia.detalle');
+$app->get('/{cod}', 'PaginasController:getViewPagina')->setName('pagina.detalle');
+$app->post('/formulario/registrar', 'FormularioController:Registrar');
 
 $app->group('', function () {
     $this->get('/admin/auth', 'AdminController:getViewDashSignIn')->setName('admin.signin');
@@ -76,84 +78,6 @@ $app->group('/admin', function () {
 
 $app->get('/menu/lista', 'SeccionesController:getMenu');
 $app->get('/submenu/lista', 'SeccionesController:getSubMenu');
-
 $app->get('/', 'HomeController:index')->setName('home');
-$app->get('/portal-de-transparencia', 'HomeController:PortalTransparencia')->setName('pt');
-$app->get('/mesa/', 'HomeController:mesa')->setName('mesa');
-$app->get('/pagina-en-construccion/', 'HomeController:construccion')->setName('construccion');
-$app->get('/beneficencia/', 'HomeController:beneficencia')->setName('beneficencia');
-$app->get('/plan-bicentenario/', 'HomeController:planbicentenario')->setName('home');
-$app->get('/beneficencia/nosotros/', 'HomeController:bnosotros')->setName('home');
-$app->get('/beneficencia/directorio/', 'HomeController:bdirectorio')->setName('home');
-$app->get('/beneficencia/patronato/', 'HomeController:bpatronato')->setName('home');
-$app->get('/beneficencia/historia/', 'HomeController:bhistoria')->setName('home');
 
-$app->get('/puericultorio-perez-aranibar/', 'HomeController:puericultorio')->setName('pp');
-$app->get('/puericultorio-perez-aranibar/inicio/', 'HomeController:puericultorioinicio')->setName('home');
-$app->get('/puericultorio-perez-aranibar/historia/', 'HomeController:puericultoriohistoria')->setName('home');
-$app->get('/puericultorio-perez-aranibar/modalidad-de-ingreso/', 'HomeController:puericultoriomodingreso')->setName('home');
-$app->get('/puericultorio-perez-aranibar/contactanos/', 'HomeController:puericultoriocontactanos')->setName('home');
 
-$app->get('/hogar-canevaro/', 'HomeController:hogarcanevaro')->setName('hogarcanevaro');
-$app->get('/hogar-canevaro/inicio/', 'HomeController:hogarcanevaroinicio')->setName('home');
-$app->get('/hogar-canevaro/testimonios/', 'HomeController:hogarcanevarotestimonios')->setName('home');
-$app->get('/hogar-canevaro/historia/', 'HomeController:hogarcanevarohistoria')->setName('home');
-$app->get('/hogar-canevaro/modalidad-de-ingreso/', 'HomeController:hogarcanevaromodingreso')->setName('home');
-$app->get('/hogar-canevaro/contactanos/', 'HomeController:hogarcanevarocontactanos')->setName('home');
-
-$app->get('/san-vicente-de-paul/', 'HomeController:spv')->setName('spv');
-$app->get('/san-vicente-de-paul/inicio/', 'HomeController:spvinicio')->setName('home');
-$app->get('/san-vicente-de-paul/historia/', 'HomeController:spvhistoria')->setName('home');
-$app->get('/san-vicente-de-paul/modalidad-de-ingreso/', 'HomeController:spvmodingreso')->setName('home');
-$app->get('/san-vicente-de-paul/contactanos/', 'HomeController:spvcontactanos')->setName('home');
-
-$app->get('/instituto-sevilla/', 'HomeController:is')->setName('is');
-$app->get('/instituto-sevilla/inicio/', 'HomeController:isinicio')->setName('home');
-$app->get('/instituto-sevilla/historia/', 'HomeController:ishistoria')->setName('home');
-$app->get('/instituto-sevilla/contactanos/', 'HomeController:iscontactanos')->setName('home');
-
-$app->get('/centros-esperanza/', 'HomeController:ce')->setName('ce');
-$app->get('/centros-esperanza/inicio/', 'HomeController:ceinicio')->setName('home');
-$app->get('/centros-esperanza/historia/', 'HomeController:cehistoria')->setName('home');
-$app->get('/centros-esperanza/contactanos/', 'HomeController:cecontactanos')->setName('home');
-
-$app->get('/centros-esperanza-maria-castano-sagrada-familia-y-sagrado-corazon/', 'HomeController:cemcsfsc')->setName('cemcsfsc');
-$app->get('/centros-esperanza-maria-castano-sagrada-familia-y-sagrado-corazon/inicio/', 'HomeController:cemcsfscinicio')->setName('home');
-$app->get('/centros-esperanza-maria-castano-sagrada-familia-y-sagrado-corazon/modalidad-de-ingreso/', 'HomeController:cemcsfscmodingreso')->setName('home');
-$app->get('/centros-esperanza-maria-castano-sagrada-familia-y-sagrado-corazon/hogares/', 'HomeController:cemcsfscmodhogares')->setName('home');
-$app->get('/centros-esperanza-maria-castano-sagrada-familia-y-sagrado-corazon/contactanos/', 'HomeController:cemcsfscmodcontactanos')->setName('home');
-
-$app->get('/hogar-de-la-madre/', 'HomeController:hogarmadre')->setName('hogarmadre');
-$app->get('/hogar-de-la-madre/inicio/', 'HomeController:hogarmadreinicio')->setName('home');
-$app->get('/hogar-de-la-madre/historia/', 'HomeController:hogarmadrehistoria')->setName('home');
-$app->get('/hogar-de-la-madre/contactanos/', 'HomeController:hogarmadrecontactanos')->setName('home');
-       
-$app->get('/casadetodos/', 'HomeController:casadetodos')->setName('casadetodos');
-$app->get('/casadetodos/inicio/', 'HomeController:casadetodosinicio')->setName('home');
-$app->get('/casadetodos/visitanos/', 'HomeController:casadetodosvisitanos')->setName('home');
-$app->get('/casadetodos/contactanos/', 'HomeController:casadetodoscontactanos')->setName('home');
-
-$app->get('/presbitero-maestro/', 'HomeController:presbiteromaestro')->setName('home');
-
-$app->get('/cementerio-angel/', 'HomeController:ca')->setName('home');
-$app->get('/cementerio-angel/contactanos/', 'HomeController:cacontactanos')->setName('home');
-$app->get('/cementerio-angel/nuestros-servicios/', 'HomeController:caservicios')->setName('home');
-$app->get('/cementerio-angel/historia/', 'HomeController:cahistoria')->setName('home');
-
-$app->get('/plaza-acho/', 'HomeController:plazaacho')->setName('home');
-
-$app->get('/centro-cultural/', 'HomeController:centrocultural')->setName('home');
-$app->get('/centro-cultural/psi', 'HomeController:centroculturalpsi')->setName('psi');
-$app->get('/centro-cultural/rcn', 'HomeController:centroculturalrcn')->setName('rcn');
-$app->get('/centro-cultural/nom', 'HomeController:centroculturalnom')->setName('nom');
-
-$app->get('/inmuebles/', 'HomeController:index');
-
-$app->get('/noticias/', 'HomeController:noticias')->setName('noticias');
-
-$app->get('/se-parte-del-cambio/convenios/', 'HomeController:spcconvenios')->setName('home');
-$app->get('/se-parte-del-cambio/donaciones/', 'HomeController:spcdonaciones')->setName('home');
-$app->get('/se-parte-del-cambio/voluntariado/', 'HomeController:spcvoluntariado')->setName('home');
-
-$app->post('/mesa/registrar', 'MesaController:Registrar');
-$app->post('/registrar', 'FormularioController:Registrar');$app->get('/como-ayudar/', 'HomeController:ComoAyudar')->setName('comoayudar');
