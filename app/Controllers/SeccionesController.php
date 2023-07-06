@@ -37,7 +37,7 @@ Class SeccionesController extends Controller {
             $data = SubSeccion::where('id_seccion', $codigo)
             ->where(function ($q) use($estado) {
                 if ($estado) {
-                     $q->whereYear('tb_sub_secciones.estado', $estado);
+                     $q->where('tb_sub_secciones.estado', $estado);
                 }
             })
             ->get();

@@ -60,7 +60,7 @@
                     $.each(c.data,function(i,item){ 
                         $('#menu-primary').append(
                             '<li id="li'+item.codigo+'" class="menu_item menu-item menu-item-type-post_type menu-item-object-page menu-item-2039">'+
-                            '<a href="{{ base_url() }}/'+item.url+'/" data-content="raiz">'+item.nombre+'</a>');
+                            '<a href="{{ base_url() }}/'+item.url+'" data-content="raiz">'+item.nombre+'</a>');
                         $.ajax({
                             url: '{{ base_url() }}/submenu/lista',
                             type:'get',
@@ -78,7 +78,7 @@
                                 if (b.data.length > 0){
                                     $('#li'+item.codigo).append('<ul class="sub-menu" id="ul'+item.codigo+'">');
                                         $.each(b.data,function(v,value){
-                                            $('#ul'+item.codigo).append('<li class="sub_menu_item menu-item menu-item-type-post_type menu-item-object-page"><a href="{{ base_url() }}/'+value.url+'/"><i class="fa fa-circle-o"></i> '+value.nombre+'</a></li>');
+                                            $('#ul'+item.codigo).append('<li class="sub_menu_item menu-item menu-item-type-post_type menu-item-object-page"><a href="{{ base_url() }}/'+value.url+'"><i class="fa fa-circle-o"></i> '+value.nombre+'</a></li>');
                                             cont++;
                                         });
                                     setTimeout(function(){

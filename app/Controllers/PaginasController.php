@@ -60,7 +60,7 @@ Class PaginasController extends Controller {
     public function getViewPagina($request, $response, $args)
     {
         $codigo = $args['cod'];
-        $pagina = Pagina::where('codigo', $codigo)->first();
+        $pagina = Pagina::where('url_canonica', $codigo)->first();
         return $this->view->render($response, 'templates/detalle.twig',[
             'pagina' => $pagina,
         ]);
