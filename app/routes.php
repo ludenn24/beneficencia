@@ -70,7 +70,12 @@ $app->group('/admin', function () {
     //SubSecciones//
     $this->get('/subsecciones/editar', 'SeccionesController:GetSubSeccion');
     $this->post('/subsecciones/registrar', 'SeccionesController:PostSubSeccion');
-    
+    //Noticias//
+    $this->get('/multimedia', 'MultimediaController:getView')->setName('admin.multimedia');
+    $this->get('/multimedia/listar', 'MultimediaController:Listar');
+    $this->post('/multimedia/registrar', 'MultimediaController:Registrar');
+    $this->get('/multimedia/editar', 'MultimediaController:GetMultimedia');
+    $this->post('/multimedia/actualizar', 'MultimediaController:UptMultimedia');
 })->add(new AuthMiddleware($container));
 
 //PUBLICO 

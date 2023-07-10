@@ -92,8 +92,12 @@ $container['SeccionesController'] = function ($container) {
     return new \App\Controllers\SeccionesController($container);
 };
 
+$container['MultimediaController'] = function ($container) {    
+    return new \App\Controllers\MultimediaController($container);
+};
+
+
 $container['csrf'] = function ($container) {
-    // return new \Slim\Csrf\Guard;
     $guard = new \Slim\Csrf\Guard();
     $guard->setPersistentTokenMode(true);
     return $guard;
