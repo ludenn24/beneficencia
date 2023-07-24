@@ -61,17 +61,26 @@ Class SeccionesController extends Controller {
         }
     }
     
-    public function Post($request, $response) {
-
-        Seccion::create([
-            'nombre' => $request->getParam('nombre'),
-            'url' =>  $request->getParam('url'),
-        ]);
-
-            $mensaje['response'] = 'success';
-            $mensaje['message'] = 'Registro guardado';
-
+    public function Post($request, $response, $args) {
+   
+        $codigo = $request->getParam('codigo');
+        if ($codigo) {
+            Seccion::where('codigo', '=', $codigo)->update([
+                    'nombre' => $request->getParam('nombre'),
+                    'url' =>  $request->getParam('url'),
+                ]);
+                $mensaje['response'] = 'success';
+                $mensaje['message'] = 'Registro actualizado';
+        } else {
+            Seccion::create([
+                    'nombre' => $request->getParam('nombre'),
+                    'url' =>  $request->getParam('url'),
+                ]);
+                $mensaje['response'] = 'success';
+                $mensaje['message'] = 'Registro guardado';         
+        }
         echo json_encode($mensaje);
+       
     }
 
 

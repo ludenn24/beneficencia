@@ -14,7 +14,7 @@
    background: url('{{ base_url() }}/images/details_close.png') no-repeat center center;
    }
 </style>
-<body class="hold-transition skin-blue sidebar-mini ">
+<body class="hold-transition skin-black sidebar-mini ">
    <div class="pace  pace-inactive">
       <div class="pace-progress" data-progress-text="100%" data-progress="99" style="transform: translate3d(100%, 0px, 0px);">
          <div class="pace-progress-inner"></div>
@@ -23,56 +23,7 @@
    </div>
    <div class="wrapper">
    <header class="main-header">
-      <!-- Logo -->
-      <a href="../admin/dash" class="logo">
-         <!-- mini logo for sidebar mini 50x50 pixels -->
-         <span class="logo-mini"><b>B</b>L</span>
-         <!-- logo for regular state and mobile devices -->
-         <span class="logo-lg"><b>BENEFICENCIA</b></span>
-      </a>
-      <!-- Header Navbar: style can be found in header.less -->
-      <nav class="navbar navbar-static-top" role="navigation">
-         <!-- Sidebar toggle button-->
-         <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-         <span class="sr-only">Toggle navigation</span>
-         <span class="icon-bar"></span>
-         <span class="icon-bar"></span>
-         <span class="icon-bar"></span>
-         </a>
-         <div class="navbar-custom-menu">
-            <ul class="nav navbar-nav">
-               <!-- User Account: style can be found in dropdown.less -->
-               <li class="dropdown user user-menu">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  <img src="{{ base_url() }}/dist/img/logini.jpg" class="user-image" alt="User Image">
-                  <span class="hidden-xs"></span>
-                  </a>
-                  <ul class="dropdown-menu">
-                     <!-- User image -->
-                     <li class="user-header">
-                        <img src="{{ base_url() }}/dist/img/logini.jpg" class="img-circle" alt="User Image">
-                        <p>
-                           {{ AdminController.admin.nombres }}
-                           <small>{{ AdminController.admin.dni }}</small>
-                           <small>Administrador</small>
-                        </p>
-                     </li>
-                     <!-- Menu Footer-->
-                     <li class="user-footer" style="border: 1px solid #3C8DBC;">
-                        <div class="pull-right">
-                           <a href="{{ base_url() }}/admin/auth/signout" class="btn btn-default btn-flat" id="changeses"
-                              style="border: 1px solid #3C8DBC;">Cerrar sesión</a>
-                        </div>
-                     </li>
-                  </ul>
-               </li>
-               <!-- Control Sidebar Toggle Button -->
-               <li>
-                  <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
-               </li>
-            </ul>
-         </div>
-      </nav>
+      {% include 'admin/templates/head.twig' %}
    </header>
    <aside class="main-sidebar">
       {% include 'admin/templates/menu.twig' %}
@@ -581,10 +532,10 @@
       
        //GUARDAR NOTICIA
          function GuardarSeccion() {
-               var formData = new FormData($("#subsecciones")[0]);
+               var formData = new FormData($("#seccion")[0]);
                var resultado = "";
                $.ajax({
-                   url: "{{ base_url() }}/admin/subsecciones/registrar",
+                   url: "{{ base_url() }}/admin/secciones/registrar",
                    async: false,
                    type: 'POST',
                    data: formData,
@@ -638,8 +589,8 @@
                                    }).then((result) => {
                                        if (result.value) {
                                            $('#modalNoticia').modal('hide');
-                                            $("#noticia")[0].reset();
-                                           ListaNoticias();
+                                            $("#seccion")[0].reset();
+                                             ListaNoticias();
                                        }
                                    });
                                } else {

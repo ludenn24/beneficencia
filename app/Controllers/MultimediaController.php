@@ -15,12 +15,11 @@ Class MultimediaController extends Controller {
     }
 
     public function Registrar($request, $response, $args) {
-        $carpeta = "uploads/";
-        $nombre = basename($_FILES["archivo"]["name"]);
-        $fecha_actual = date('Y-m-d-H-i-s');
-        $src = $carpeta . $fecha_actual . '_' . $nombre;
+        $carpeta = "images/";
+        $nombre = $request->getParam('url');
         $tipo = basename($_FILES["archivo"]["type"]);
         $size = basename($_FILES["archivo"]["size"]);
+        $src = $carpeta . $nombre . "." . $tipo;
         $moveee = $_FILES["archivo"]["tmp_name"];
         if ($tipo != 'png' and
                 $tipo != 'jpg' and
@@ -32,8 +31,8 @@ Class MultimediaController extends Controller {
             $mensaje['message'] = 'Solo se permiten subir imágenes de menos de 25 Megabytes.';
         } elseif (move_uploaded_file($moveee, $src)) {
             Multimedia::create([
-                'archivo' => $request->getParam('archivo'),
-                'url' => $src,
+                'url' => $request->getParam('url'),
+                'archivo' => $src,
             ]);
             $mensaje['response'] = 'success';
             $mensaje['message'] = 'Registro guardado';
@@ -116,10 +115,10 @@ Class MultimediaController extends Controller {
         ]);
     }
 
-    public function getNoticia($request, $response, $args) {
+    public function GetMultimedia($request, $response, $args) {
         try {
             $codigo = $request->getParam('codigo');
-            $data = Noticia::where('codigo', '=', $codigo)->get();
+            $data = Multimedia::where('codigo', '=', $codigo)->get();
             return $this->response->withJson($data, 200);
         } catch (ErrorException $e) {
             $data = "Hubo un error al listar los datos.";
@@ -129,52 +128,39 @@ Class MultimediaController extends Controller {
     
     public function Actualizar($request, $response, $args){
 
-           $carpeta = "uploads/";
-           $fecha_actual = date('Y-m-d-H-i-s');
-           $nombrerec1 = basename($_FILES["fotoeditar"]["name"]);
-           
+           $carpeta = "images/";
+           $nombrerec1 = $request->getParam('urledit');
+           $tiporec1 = basename($_FILES["archivoeditar"]["type"]);
+           $sizerec1 = basename($_FILES["archivoeditar"]["size"]);
+
             if ($nombrerec1) {
-                
-            $srcec1 = $carpeta . $fecha_actual . '_' . $nombrerec1;
-            $tiporec1 = basename($_FILES["fotoeditar"]["type"]);
-            $sizerec1 = basename($_FILES["fotoeditar"]["size"]);
-            $moveeerec1 = $_FILES["fotoeditar"]["tmp_name"];
+            $srcec1 = $carpeta . $nombrerec1 . "." . $tiporec1;
+            $moveeerec1 = $_FILES["archivoeditar"]["tmp_name"];
             if ($tiporec1 != 'png' and
                     $tiporec1 != 'jpg' and
                     $tiporec1 != 'jpeg') {
                 $mensaje['response'] = 'error';
-                $mensaje['message'] = $this->show('1', 'Solo se permiten archivos JPG, JPEG O PNG');
+                $mensaje['message'] = 'Solo se permiten archivos JPG, JPEG O PNG';
             } elseif ($sizerec1 >= 262144000) {
                 $mensaje['response'] = 'error';
-                $mensaje['message'] = $this->show('1', 'Solo se permiten subir archivos de menos de 25 Megabytes.');
+                $mensaje['message'] = 'Solo se permiten subir archivos de menos de 25 Megabytes.';
             } elseif (move_uploaded_file($moveeerec1, $srcec1)){
-                
                  $codigo=$request->getParam('codigo');
-                Noticia::where('codigo', '=', $codigo)->update([
-                 'categoria' => $request->getParam('categoriaeditar'),
-                'titular' => $request->getParam('titulareditar'),
-                'estado' => $request->getParam('estadoedi'),
-                'detallemin' => $request->getParam('detallemineditar'),
-                'detalle' => $request->getParam('detalleeditar'),
-                'foto' => $srcec1,
+                 Multimedia::where('codigo', '=', $codigo)->update([
+                 'url' => $request->getParam('urledit'),
+                 'archivo' => $srcec1,  
                  ]);
             $mensaje['response'] = 'success';
-            $mensaje['message'] = 'Noticia actualizada';
-            }
-            
-        }else{
-            
-               $codigo=$request->getParam('codigo');
-                Noticia::where('codigo', '=', $codigo)->update([
-                 'categoria' => $request->getParam('categoriaeditar'),
-                'titular' => $request->getParam('titulareditar'),
-                'estado' => $request->getParam('estadoedi'),
-                'detallemin' => $request->getParam('detallemineditar'),
-                'detalle' => $request->getParam('detalleeditar'),
+            $mensaje['message'] = 'Archivo actualizada';
+            }   
+            }else{
+                $codigo=$request->getParam('codigo');
+                Multimedia::where('codigo', '=', $codigo)->update([
+                'url' => $request->getParam('urledit'),
             ]);
            
             $mensaje['response'] = 'success';
-            $mensaje['message'] = 'Noticia actualizada';
+            $mensaje['message'] = 'Archivo actualizada';
         }
         
        echo json_encode($mensaje);

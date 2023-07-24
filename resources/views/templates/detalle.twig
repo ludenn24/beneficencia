@@ -1,5 +1,36 @@
 ﻿{% extends 'templates/app.twig' %}
 {% block content %}
 {{ pagina.detalle | raw  }}
+<div id="csrf">
+    {{ csrf.field2 | raw  }}
+</div>
+<script>
+    $('#csrf').appendTo('#sec_csrf');
+
+    var hoy = new Date().getFullYear() 
+
+    if (hoy == 2023) {
+         $("#year_1").attr("src","{{ base_url() }}/images/2023/sl1.jpg");
+         $("#year_2").attr("src","{{ base_url() }}/images/2023/sl2.jpg");
+         $("#year_3").attr("src","{{ base_url() }}/images/2023/sl3.jpg");
+         $("#year_4").attr("src","{{ base_url() }}/images/2023/sl4.jpg");
+         $("#year_5").attr("src","{{ base_url() }}/images/2023/sl5.jpg");
+    } else if (year == 2024) {
+         $("#year_1").attr("src","{{ base_url() }}/images/2024/sl1.jpg");
+         $("#year_2").attr("src","{{ base_url() }}/images/2024/sl2.jpg");
+         $("#year_3").attr("src","{{ base_url() }}/images/2024/sl3.jpg");
+         $("#year_4").attr("src","{{ base_url() }}/images/2024/sl4.jpg");
+         $("#year_5").attr("src","{{ base_url() }}/images/2024/sl5.jpg");
+    } else{
+         $("#year_1").attr("src","{{ base_url() }}/images/2025/sl1.jpg");
+         $("#year_2").attr("src","{{ base_url() }}/images/2025/sl2.jpg");
+         $("#year_3").attr("src","{{ base_url() }}/images/2025/sl3.jpg");
+         $("#year_4").attr("src","{{ base_url() }}/images/2025/sl4.jpg");
+         $("#year_5").attr("src","{{ base_url() }}/images/2025/sl5.jpg");
+
+    }
+
+</script>
+
 {% endblock content %}
 

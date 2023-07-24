@@ -13,6 +13,7 @@ class Noticia extends Model
         'categoria',
         'titular',
         'foto',
+        'detalle_previa',
         'detalle',
         'estado',
         'detallemin',

@@ -38,12 +38,17 @@ Class AdminController extends Controller
         return $this->view->render($response, 'admin/auth/popup.twig');    
     }  
 
+    public function getPortada($request, $response, $args)    
+    {        
+        return $this->view->render($response, 'admin/auth/portada.twig');    
+    }  
+
     public function getNoticias($request, $response, $args)
     {
         return $this->view->render($response, 'admin/auth/m-noticias.twig');
     }
 
-     public function getEventos($request, $response, $args)
+    public function getEventos($request, $response, $args)
     {
         return $this->view->render($response, 'admin/auth/eventos.twig');
     }
@@ -81,6 +86,11 @@ Class AdminController extends Controller
     public function getViewDashSignIn($request, $response)
     {
         return $this->view->render($response, 'admin/auth/signin.twig');
+    }
+
+    public function getDiscursos($request, $response, $args)
+    {
+        return $this->view->render($response, 'admin/auth/discursos.twig');
     }
 
     public function validar($login, $clave)

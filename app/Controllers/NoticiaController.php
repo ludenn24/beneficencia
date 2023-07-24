@@ -14,11 +14,12 @@ Class NoticiaController extends Controller {
         $carpeta = "uploads/";
         $nombre = basename($_FILES["foto"]["name"]);
         $fecha_actual = date('Y-m-d-H-i-s');
-        $src = $carpeta . $fecha_actual . '_' . $nombre;
+        $path = $_FILES['foto']['name'];
+        $ext = pathinfo($path, PATHINFO_EXTENSION);
+        $src = $carpeta . $fecha_actual . '.' . $ext;
         $tipo = basename($_FILES["foto"]["type"]);
         $size = basename($_FILES["foto"]["size"]);
         $moveee = $_FILES["foto"]["tmp_name"];
-
         if ($tipo != 'png' and
                 $tipo != 'jpg' and
                 $tipo != 'jpeg') {
@@ -28,13 +29,6 @@ Class NoticiaController extends Controller {
             $mensaje['response'] = 'error';
             $mensaje['message'] = 'Solo se permiten subir imágenes de menos de 25 Megabytes.';
         } elseif (move_uploaded_file($moveee, $src)) {
-            
-            $portada = $request->getParam('principal');
-            if ($portada) {
-                $portada = 1;
-            } else {
-                $portada = 0;
-            }
             Noticia::create([
                 'categoria' => $request->getParam('categoria'),
                 'titular' => $request->getParam('titular'),
@@ -51,7 +45,9 @@ Class NoticiaController extends Controller {
     public function Listar($request, $response, $args) {
         try {
             $data = Noticia::select(DB::raw('DATE_FORMAT(created_at, "%d-%b-%Y") as formated'), 'tb_noticias.*')
-                    ->orderBy('codigo', 'DESC')->get();
+                    ->where('codigo', "!=", 0)
+                    ->orderBy('codigo', 'DESC')
+                    ->get();
             $arreglo["data"] = $data;
             return $this->response->withJson($arreglo);
         } catch (ErrorException $e) {
@@ -61,10 +57,8 @@ Class NoticiaController extends Controller {
     }
     
     public function ListarFront($request, $response, $args) {
-        
         $origen = $request->getParam('origen');
         $texto = $request->getParam('texto');
-        
         try {
             $data = Noticia::select(DB::raw('DATE_FORMAT(created_at, "%d-%b-%Y") as formated'), 'tb_noticias.*')
                     ->where('estado','1')
@@ -140,26 +134,24 @@ Class NoticiaController extends Controller {
            $carpeta = "uploads/";
            $fecha_actual = date('Y-m-d-H-i-s');
            $nombrerec1 = basename($_FILES["fotoeditar"]["name"]);
-           
+           $path = $_FILES['fotoeditar']['name'];
+        
             if ($nombrerec1) {
-                
-            $srcec1 = $carpeta . $fecha_actual . '_' . $nombrerec1;
+            $ext = pathinfo($path, PATHINFO_EXTENSION);
+            $srcec1 = $carpeta . $fecha_actual . '.' . $ext;
             $tiporec1 = basename($_FILES["fotoeditar"]["type"]);
             $sizerec1 = basename($_FILES["fotoeditar"]["size"]);
             $moveeerec1 = $_FILES["fotoeditar"]["tmp_name"];
-            if ($tiporec1 != 'png' and
-                    $tiporec1 != 'jpg' and
-                    $tiporec1 != 'jpeg') {
+            if ($tiporec1 != 'png' and $tiporec1 != 'jpg' and $tiporec1 != 'jpeg') {
                 $mensaje['response'] = 'error';
                 $mensaje['message'] = $this->show('1', 'Solo se permiten archivos JPG, JPEG O PNG');
             } elseif ($sizerec1 >= 262144000) {
                 $mensaje['response'] = 'error';
                 $mensaje['message'] = $this->show('1', 'Solo se permiten subir archivos de menos de 25 Megabytes.');
             } elseif (move_uploaded_file($moveeerec1, $srcec1)){
-                
-                 $codigo=$request->getParam('codigo');
+                $codigo=$request->getParam('codigo');
                 Noticia::where('codigo', '=', $codigo)->update([
-                 'categoria' => $request->getParam('categoriaeditar'),
+                'categoria' => $request->getParam('categoriaeditar'),
                 'titular' => $request->getParam('titulareditar'),
                 'estado' => $request->getParam('estadoedi'),
                 'detallemin' => $request->getParam('detallemineditar'),
@@ -169,9 +161,7 @@ Class NoticiaController extends Controller {
             $mensaje['response'] = 'success';
             $mensaje['message'] = 'Noticia actualizada';
             }
-            
         }else{
-            
                $codigo=$request->getParam('codigo');
                 Noticia::where('codigo', '=', $codigo)->update([
                  'categoria' => $request->getParam('categoriaeditar'),
@@ -180,12 +170,103 @@ Class NoticiaController extends Controller {
                 'detallemin' => $request->getParam('detallemineditar'),
                 'detalle' => $request->getParam('detalleeditar'),
             ]);
-           
             $mensaje['response'] = 'success';
             $mensaje['message'] = 'Noticia actualizada';
         }
-        
        echo json_encode($mensaje);
     }
 
+    public function ActualizarPrevia($request, $response, $args)
+    {
+        $carpeta = "uploads/";
+        $fecha_actual = date('Y-m-d-H-i-s');
+        $nombrerec1 = basename($_FILES["fotoeditar"]["name"]);
+         if ($nombrerec1) {
+         $path = $_FILES['fotoeditar']['name'];
+         $ext = pathinfo($path, PATHINFO_EXTENSION);
+         $srcec1 = $carpeta . $fecha_actual . '.' . $ext;
+
+         $tiporec1 = basename($_FILES["fotoeditar"]["type"]);
+         $sizerec1 = basename($_FILES["fotoeditar"]["size"]);
+         $moveeerec1 = $_FILES["fotoeditar"]["tmp_name"];
+         if ($tiporec1 != 'png' and $tiporec1 != 'jpg' and $tiporec1 != 'jpeg') {
+             $mensaje['response'] = 'error';
+             $mensaje['message'] = 'Solo se permiten archivos JPG, JPEG O PNG';
+         } elseif ($sizerec1 >= 262144000) {
+             $mensaje['response'] = 'error';
+             $mensaje['message'] = 'Solo se permiten subir archivos de menos de 25 Megabytes.';
+         } elseif (move_uploaded_file($moveeerec1, $srcec1)){      
+              Noticia::where('codigo', '=', 0)->update([
+             'categoria' => $request->getParam('categoriaeditar'),
+             'titular' => $request->getParam('titulareditar'),
+             'estado' => $request->getParam('estadoedi'),
+             'detallemin' => $request->getParam('detallemineditar'),
+             'detalle' => $request->getParam('detalleeditar'),
+             'foto' => $srcec1,
+              ]);
+         $mensaje['response'] = 'success';
+         $mensaje['message'] = 'Noticia actualizada';
+         }
+         
+     }else{
+             Noticia::where('codigo', '=', 0)->update([
+             'categoria' => $request->getParam('categoriaeditar'),
+             'titular' => $request->getParam('titulareditar'),
+             'estado' => $request->getParam('estadoedi'),
+             'detallemin' => $request->getParam('detallemineditar'),
+             'detalle' => $request->getParam('detalleeditar'),
+         ]);
+        
+         $mensaje['response'] = 'success';
+         $mensaje['message'] = 'Noticia actualizada';
+     }
+     
+    echo json_encode($mensaje);  
+    }
+
+    public function ActualizarPreviaNuevo($request, $response, $args){
+        $carpeta = "uploads/";
+        $fecha_actual = date('Y-m-d-H-i-s');
+        $nombrerec1 = basename($_FILES["foto"]["name"]);
+         if ($nombrerec1) {
+         $path = $_FILES['foto']['name'];
+         $ext = pathinfo($path, PATHINFO_EXTENSION);
+         $srcec1 = $carpeta . $fecha_actual . '.' . $ext;
+
+         $tiporec1 = basename($_FILES["foto"]["type"]);
+         $sizerec1 = basename($_FILES["foto"]["size"]);
+         $moveeerec1 = $_FILES["foto"]["tmp_name"];
+         if ($tiporec1 != 'png' and $tiporec1 != 'jpg' and $tiporec1 != 'jpeg') {
+             $mensaje['response'] = 'error';
+             $mensaje['message'] = 'Solo se permiten archivos JPG, JPEG O PNG';
+         } elseif ($sizerec1 >= 262144000) {
+             $mensaje['response'] = 'error';
+             $mensaje['message'] = 'Solo se permiten subir archivos de menos de 25 Megabytes.';
+         } elseif (move_uploaded_file($moveeerec1, $srcec1)){      
+              Noticia::where('codigo', '=', 0)->update([
+             'titular' => $request->getParam('titular'),
+             'estado' => $request->getParam('estadoedi'),
+             'detallemin' => $request->getParam('detallemin'),
+             'detalle' => $request->getParam('detalle'),
+             'foto' => $srcec1,
+              ]);
+         $mensaje['response'] = 'success';
+         $mensaje['message'] = 'Noticia actualizada';
+         }
+         
+     }else{
+             Noticia::where('codigo', '=', 0)->update([
+             'titular' => $request->getParam('titular'),
+             'estado' => $request->getParam('estadoedi'),
+             'detallemin' => $request->getParam('detallemin'),
+             'detalle' => $request->getParam('detalle'),
+         ]);
+        
+         $mensaje['response'] = 'success';
+         $mensaje['message'] = 'Noticia actualizada';
+     }
+     
+    echo json_encode($mensaje);  
+    }
+    
 }

@@ -155,7 +155,8 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default pull-left" data-dismiss="modal"><i class="fa  fa-remove"></i> Cancelar</button>
-                          <button type="button" href="#" class="btn btn-success guardarpagina">Guardar </button>
+                            <button type="button" href="#" class="btn btn-primary previapaginanuevo">Vista previa</button>
+                            <button type="button" href="#" class="btn btn-success guardarpagina">Guardar </button>
                         </div>
                     </div>
                 </div>
@@ -246,7 +247,8 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default pull-left" data-dismiss="modal"><i class="fa  fa-remove"></i> Cancelar</button>
-                          <button type="button" href="#" class="btn btn-success actualizarnoticia">Guardar </button>
+                            <button type="button" href="#" class="btn btn-primary previapagina">Vista previa</button>
+                            <button type="button" href="#" class="btn btn-success actualizarnoticia">Guardar </button>
                         </div>
                     </div>
                 </div>
@@ -592,28 +594,68 @@
 
                 //Actualizar Noticia
 
-                  function ActualizaNoticia() {
+                function ActualizaNoticia() {
+                    var formData = new FormData($("#noticiaedit")[0]);
+                        formData.append('detalleeditar', CKEDITOR.instances.detalleeditar.getData());
+                    var resultado = "";
+                    $.ajax({
+                        url: "{{ base_url() }}/admin/paginas/actualizar",
+                        async: false,
+                        type: 'POST',
+                        data: formData,
+                        contentType: false,
+                        enctype: 'multipart/form-data',
+                        processData: false,
+                        dataType: 'json',
+                        success: function (datos) {
+                            resultado = datos.response;
+                            mensaje = datos.message;
+                        }
+                    });
+                    return [resultado, mensaje];
+                }
 
-                        var formData = new FormData($("#noticiaedit")[0]);
-                          formData.append('detalleeditar', CKEDITOR.instances.detalleeditar.getData());
-                        var resultado = "";
+                function ActualizaNoticiaPrevia() {
+                    var formData = new FormData($("#noticiaedit")[0]);
+                        formData.append('detalleeditar', CKEDITOR.instances.detalleeditar.getData());
+                    var resultado = "";
+                    $.ajax({
+                        url: "{{ base_url() }}/admin/paginas/previa",
+                        async: false,
+                        type: 'POST',
+                        data: formData,
+                        contentType: false,
+                        enctype: 'multipart/form-data',
+                        processData: false,
+                        dataType: 'json',   
+                        success: function (datos) {
+                            resultado = datos.response;
+                            mensaje = datos.message;
+                        }
+                    });
+                    return [resultado, mensaje];
+                }
 
-                        $.ajax({
-                            url: "{{ base_url() }}/admin/paginas/actualizar",
-                            async: false,
-                            type: 'POST',
-                            data: formData,
-                            contentType: false,
-                            enctype: 'multipart/form-data',
-                            processData: false,
-                            dataType: 'json',
-                            success: function (datos) {
-                                resultado = datos.response;
-                                mensaje = datos.message;
-                            }
-                        });
-                        return [resultado, mensaje];
-                    }
+                  function ActualizaNoticiaPreviaNueva() {
+                    var formData = new FormData($("#pagina")[0]);
+                        formData.append('detalle', CKEDITOR.instances.detalle.getData());
+                    var resultado = "";
+                    $.ajax({
+                        url: "{{ base_url() }}/admin/paginas/previa-nuevo",
+                        async: false,
+                        type: 'POST',
+                        data: formData,
+                        contentType: false,
+                        enctype: 'multipart/form-data',
+                        processData: false,
+                        dataType: 'json',   
+                        success: function (datos) {
+                            resultado = datos.response;
+                            mensaje = datos.message;
+                        }
+                    });
+                    return [resultado, mensaje];
+                }
 
                 $(".actualizarnoticia").on("click", function (event) {
 
@@ -675,6 +717,97 @@
                                 })
                             }
                         }           
+                });
+
+
+                $(".previapagina").on("click", function (event) {
+
+                    event.preventDefault();
+                    var codigo = $('#codigo').val();
+                    var nombre = $('#nombreedit').val();
+                    var detalle = CKEDITOR.instances.detalleeditar.getData();
+
+                    if (nombre == "") {
+                        Swal.fire({
+                            icon: 'warning',    
+                            title: '¡Advertencia!',
+                            text: 'Debe imgresar un titular',
+                        })
+                    } else {
+                           if (detalle == "") {
+                            Swal.fire({
+                                icon: 'warning',
+                                title: '¡Advertencia!',
+                                text: 'Debe ingresar el detalle de la noticia.',
+                            })
+                        } else {
+                            var resp = ActualizaNoticiaPrevia();
+                                if (resp[0] == "success") {
+                                    var win = window.open('{{ base_url() }}/pruebas', '_blank');
+                                    win.focus();
+                                } else {
+                                    Swal.fire({
+                                        icon: 'error',
+                                        title: '¡Error!',
+                                        text: resp[1],
+                                    })
+                                } 
+
+                            }
+                        } 
+                });
+
+                $(".previapaginanuevo").on("click", function (event) {
+
+                    event.preventDefault();
+                    var nombre = $('#nombre').val();
+                    var detallecorto = $('#detalle-corto').val();
+                    var detalle = CKEDITOR.instances.detalle.getData();
+                    var portada = $('#portada').val();
+
+                    if (nombre == "") {
+                        Swal.fire({
+                            icon: 'warning',
+                            title: '¡Advertencia!',
+                            text: 'Debe imgresar un titular',
+                        })
+                    } else {
+                        if (detallecorto == "") {
+                            Swal.fire({
+                                icon: 'warning',
+                                title: '¡Advertencia!',
+                                text: 'Debe ingresar el detalle corto de la noticia.',
+                            })
+                       }  else {
+                           if (detalle == "") {
+                            Swal.fire({
+                                icon: 'warning',
+                                title: '¡Advertencia!',
+                                text: 'Debe ingresar el detalle de la noticia.',
+                            })
+                        } else {
+                            if (portada == "") {
+                                Swal.fire({
+                                    icon: 'warning',
+                                    title: '¡Advertencia!',
+                                    text: 'Debe seleccionar una foto portada.',
+                                })
+                            } else {
+                                    var resp = ActualizaNoticiaPreviaNueva();
+                                    if (resp[0] == "success") {
+                                        var win = window.open('{{ base_url() }}/pruebas', '_blank');
+                                        win.focus();
+                                    } else {
+                                        Swal.fire({
+                                            icon: 'error',
+                                            title: '¡Error!',
+                                            text: resp[1],
+                                        })
+                                   } 
+                               }
+                            }
+                       }
+                    }
                 });
 
             </script>

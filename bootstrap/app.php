@@ -28,6 +28,10 @@ $container['view'] = function ($container){
         'cache' => false,
     ]);
 
+    $view->getEnvironment()->addGlobal('PortadaController', [
+        'portadas' => $container->PortadaController->getPortadasHabilitadas(),
+    ]);
+
     $view->addExtension(new \Slim\Views\TwigExtension(
         $container->router,
         $container->request->getUri()
@@ -96,6 +100,13 @@ $container['MultimediaController'] = function ($container) {
     return new \App\Controllers\MultimediaController($container);
 };
 
+$container['PortadaController'] = function ($container) {    
+    return new \App\Controllers\PortadaController($container);
+};
+
+$container['DiscursosController'] = function ($container) {    
+    return new \App\Controllers\DiscursosController($container);
+};
 
 $container['csrf'] = function ($container) {
     $guard = new \Slim\Csrf\Guard();

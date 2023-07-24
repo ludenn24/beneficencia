@@ -38,8 +38,23 @@
             <li class="menu_item home menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-2 current_page_item menu-item-676"><a href="https://beneficenciadelima.org/public/"><i class="fas fa-home"></i></a></li>
             </ul>
 
-    
+        </div>
+    </div>
 
+    <div class="nav_mobile">
+        <div class="nav_mobile_container">
+            <div class="nav_mobile_icon">
+                <img src="{{ base_url() }}/img/icon/menu_close.png">
+            </div>
+            <ul id="menu-primary-movil" class="menu">
+                 <li class="menu_item home menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-2 current_page_item menu-item-676"><a href="{{ base_url() }}/"><i class="fas fa-home"></i></a></li>
+            </ul>            	                
+             <div class="nav_mobile_redes">
+                <a href="https://www.facebook.com/BeneficenciaDeLimaOficial/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="http://cort.as/-RHGf" target="_blank"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.linkedin.com/company/beneficencia-de-lima-bl/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.instagram.com/beneficenciadelimaoficial/?hl=es-la" target="_blank"><i class="fab fa-instagram"></i></a>
+            </div>
         </div>
     </div>
 
@@ -60,7 +75,10 @@
                     $.each(c.data,function(i,item){ 
                         $('#menu-primary').append(
                             '<li id="li'+item.codigo+'" class="menu_item menu-item menu-item-type-post_type menu-item-object-page menu-item-2039">'+
-                            '<a href="{{ base_url() }}/'+item.url+'" data-content="raiz">'+item.nombre+'</a>');
+                            '<a href="'+item.url+'" data-content="raiz">'+item.nombre+'</a>');
+                        $('#menu-primary-movil').append(
+                            '<li id="li_'+item.codigo+'" class="menu_item  menu-item menu-item-type-post_type menu-item-object-page menu-item-770 menu-item-has-children">'+
+                            '<a href="'+item.url+'" data-content="raiz">'+item.nombre+'</a>');
                         $.ajax({
                             url: '{{ base_url() }}/submenu/lista',
                             type:'get',
@@ -77,8 +95,13 @@
 
                                 if (b.data.length > 0){
                                     $('#li'+item.codigo).append('<ul class="sub-menu" id="ul'+item.codigo+'">');
+                                    $('#li_'+item.codigo).append('<ul class="sub-menu" id="ul_'+item.codigo+'">');
+                                    $('#li_'+item.codigo).addClass("menu_icon");
+
                                         $.each(b.data,function(v,value){
+                                            $('#ul_'+item.codigo).append('<li class="sub_menu_item menu-item menu-item-type-post_type menu-item-object-page"><a href="{{ base_url() }}/'+value.url+'"><i class="fa fa-circle-o"></i> '+value.nombre+'</a></li>');
                                             $('#ul'+item.codigo).append('<li class="sub_menu_item menu-item menu-item-type-post_type menu-item-object-page"><a href="{{ base_url() }}/'+value.url+'"><i class="fa fa-circle-o"></i> '+value.nombre+'</a></li>');
+                                         
                                             cont++;
                                         });
                                     setTimeout(function(){
@@ -89,7 +112,6 @@
                                         $('#load').removeClass('load');
                                     }, 1500);
                                 }
-        
                             },
                             error: function(){
                                 $('#load').removeClass('load');
@@ -103,18 +125,14 @@
         }
     </script>
 
-
-	
 	<script type="text/javascript">
-	
-                             function get_ip(obj){
-                                    if(obj.ip=='181.65.214.132'){
-                                          urls.href = 'http://192.168.1.8:8083/slrv-sblm/';			
-                                    }else{
-                                          urls.href = 'http://181.65.214.132:8083/slrv-sblm/';
-                                    }
-                                }
+        function get_ip(obj){
+            if(obj.ip=='181.65.214.132'){
+                    urls.href = 'http://192.168.1.8:8083/slrv-sblm/';			
+            }else{
+                    urls.href = 'http://181.65.214.132:8083/slrv-sblm/';
+            }
+        }
     </script>
     <script type="text/javascript" src="https://api.ipify.org/?format=jsonp&callback=get_ip"></script>
-	
 </header>

@@ -1,0 +1,582 @@
+{% extends 'admin/templates/app.twig' %}
+{% block content %}
+
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        td.details-control {
+            background: url('{{ base_url() }}/images/details_open.png') no-repeat center center;
+            cursor: pointer;
+        }
+        tr.shown  td.details-control {
+            background: url('{{ base_url() }}/images/details_close.png') no-repeat center center;
+        }
+    </style>
+
+    <body class="hold-transition skin-black sidebar-mini ">
+        <div class="pace  pace-inactive">
+            <div class="pace-progress">
+                <div class="pace-progress-inner"></div>
+            </div>
+            <div class="pace-activity"></div>
+        </div>
+        <div class="wrapper">
+            <header class="main-header">
+                {% include 'admin/templates/head.twig' %}
+            </header>
+
+            <aside class="main-sidebar">
+                {% include 'admin/templates/menu.twig' %}
+            </aside>
+
+            <div class="content-wrapper">
+                <section class="content-header">
+                    <h1 id="tipodease">
+                        DISCURSOS
+                    </h1>
+
+                </section>
+                <section class="content">
+                    <div class="row">
+
+                        <div class="col-xs-12">
+                            <div class="box">
+
+                                <div class="box-body">
+                                    <div class="margin">
+                                        <div class="btn-group">
+                                            <button onclick="nuevanoticia()" type="button" class="btn btn-block btn-primary btn-flat">AGREGAR</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12">
+                            <div class="box">
+                                <div class="box-body">
+                                    <table id="Discursos"  class="table table-bordered table-hover" width="100%">
+                                        <thead>
+                                            <tr class="heading-table">
+                                                <th>Titular</th>
+                                                <th>Detalle</th>
+                                                <th>Fecha de publicación</th>
+                                                <th>Estado</th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                </section>
+            </div>
+
+
+
+            <div class="modal fade" id="modalNoticia" tabindex="-1" role="dialog" aria-labelledby="modalNoticia">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header modalert">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                            <h4 class="modal-title modtitle">[ DISCURSO NUEVA ]</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="box-body row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <form name="discursos" id="discursos" method="post" enctype="multipart/form-data">
+
+                                            <div class="form-group">
+                                                <label>Titular</label>
+                                                <input type="text" name="titular" id="titular" class="form-control">
+                                            </div>
+
+                                             <div class="form-group">
+                                                <label>Detalle corto</label>
+                                                <textarea cols="40" id="detalle-corto" name="detallemin" rows="3" class="form-control"></textarea>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label>Detalle</label>
+                                                <textarea cols="40" id="detalle" name="detalle" rows="5" data-sample-short></textarea>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label>Foto</label>
+                                                <input type="file" name="foto" id="foto"  class="dropify-es">
+                                            </div>
+
+                                            {{ csrf.field | raw }}
+
+                                        </form>
+                                    </div>
+                                    <div  class="msg"></div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default pull-left" data-dismiss="modal"><i class="fa  fa-remove"></i> Cancelar</button>
+                          <button type="button" href="#" class="btn btn-success guardarnoticia">Guardar </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+          <div class="modal fade" id="modalEditarDiscurso" tabindex="-1" role="dialog" aria-labelledby="modalEditarDiscurso">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header modalert">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                            <h4 class="modal-title modtitle">[ EDITAR DISCURSO ]</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="box-body row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <form name="discursoedit" id="discursoedit" method="post" enctype="multipart/form-data">
+                                             <input type="hidden"  name="codigo" id="codigo" value="">
+
+                                            <div class="form-group">
+                                                <label>Titular</label>
+                                                <input type="text" name="titulareditar" id="titulareditar" class="form-control">
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label>Estado</label>
+                                                <select id="estadoedi" name="estadoedi" value="" class="form-control">
+                                                    <option value="1">Activar</option>
+                                                    <option value="2">Desactivar</option>
+                                                    <option value="3">Eliminar</option>
+                                                </select>
+                                            </div>
+
+                                             <div class="form-group">
+                                                <label>Detalle corto</label>
+                                                <textarea cols="40" id="detallemineditar" name="detallemineditar" rows="3" class="form-control"></textarea>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label>Detalle</label>
+                                                <textarea cols="40" id="detalleeditar" name="detalleeditar" rows="5" data-sample-short ></textarea>
+                                            </div>
+
+                                             <div class="col-sm-6">
+                                                 <div class="form-group">
+                                                     <label>Foto original</label>
+                                                     <img src="" class="img-responsive pad" id="fotooriginal" name="fotooriginal">
+                                                 </div>
+                                             </div>
+
+                                             <div class="col-sm-6">
+                                                 <div class="form-group">
+                                                     <label>Foto a reemplazar</label>
+                                                     <input type="file" name="fotoeditar" id="fotoeditar"  class="dropify-es">
+                                                 </div>
+                                             </div>
+
+                                            {{ csrf.field | raw }}
+
+                                        </form>
+                                    </div>
+                                    <div  class="msg"></div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default pull-left" data-dismiss="modal"><i class="fa  fa-remove"></i> Cancelar</button>
+                          <button type="button" href="#" class="btn btn-success actualizardiscurso">Guardar </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <script type="text/javascript">
+
+               function EditarNoticia(codigo) {
+                    var codigo = codigo;
+                    $('#modalEditarDiscurso').modal('show');
+                    $('#codigo').val(codigo);
+
+                        return $.ajax({
+                        type: "get",
+                        url: '{{ base_url() }}/admin/discursos/editar',
+                        data: {
+                            codigo: codigo
+                        },
+                        success: function (data) {
+                            $.each(data, function (i, item) {
+                                $('#titulareditar').val(item.titular);
+                                $('#detallemineditar').val(item.detallemin);
+                                CKEDITOR.instances.detalleeditar.setData(item.detalle);
+                                $('#fotooriginal').attr('src','{{base_url()}}/'+item.foto);
+                                $('#estadoedi').val(item.estado);
+
+                            });
+                        },
+                        error: function () {
+
+                        }
+                    });
+                }
+
+                CKEDITOR.replace('detalle', {
+                    height: 300,
+                    baseFloatZIndex: 10005
+                });
+
+                CKEDITOR.replace('detalleeditar', {
+                    height: 300,
+                    baseFloatZIndex: 10005
+                });
+
+                $(document).ready(function () {
+
+                    ListaDiscursos();
+
+                    $(".cogepx").on("click", function () {
+                        var valor = $(this).data('codigo');
+                        $("#Selecciones").modal('hide');
+                        $('.foto').val(valor);
+                    });
+
+                    $('.dropify-es').dropify({
+                        messages: {
+                            default: 'Arrastra y suelta un archivo aquí o haz clic',
+                            replace: 'Arrastre y suelte un archivo o haga clic para reemplazar',
+                            remove: 'Suprimir',
+                            error: 'Lo sentimos, el archivo es demasiado grande'
+                        }
+                    });
+
+                    // Used events
+                    var drEvent = $('#input-file-events').dropify();
+
+                    drEvent.on('dropify.beforeClear', function (event, element) {
+                        return confirm("Do you really want to delete \"" + element.file.name + "\" ?");
+                    });
+
+                    drEvent.on('dropify.afterClear', function (event, element) {
+                        alert('File deleted');
+                    });
+
+                    drEvent.on('dropify.errors', function (event, element) {
+                        console.log('Has Errors');
+                    });
+
+                    var drDestroy = $('#input-file-to-destroy').dropify();
+                    drDestroy = drDestroy.data('dropify')
+
+                    $('#toggleDropify').on('click', function (e) {
+                        e.preventDefault();
+                        if (drDestroy.isDropified()) {
+                            drDestroy.destroy();
+                        } else {
+                            drDestroy.init();
+                        }
+                    })
+
+                })
+
+                function ListaDiscursos() {
+                    responsive: true
+                    var dt = $('#Discursos').DataTable({
+                        destroy: true,
+                        dom: 'Bfrtip',
+                        buttons: [
+                            'copy', 'csv', 'excel', 'pdf', 'print'
+                        ],
+                        "buttons": [
+                            'copy', 'csv', 'excel', 'pdf'
+                        ],
+
+                        "language": {
+                            "lengthMenu": "Ver _MENU_ registros por página",
+                            "zeroRecords": "No se encontraron resultados",
+                            "info": "Viendo página _PAGE_ de _PAGES_",
+                            "infoEmpty": "No se encontraron responsables",
+                            "infoFiltered": "(filtrado de un total de _MAX_ registros)",
+                            "search": "Buscar:",
+                            "paginate": {
+                                "first": "Primero",
+                                "last": "Último",
+                                "next": "Siguiente",
+                                "previous": "Anterior"
+                            },
+                        },
+
+                        "ajax": {
+                            "type": "get",
+                            "url": "{{ base_url() }}/admin/discursos/listar",
+                            "data": { }
+                        },
+
+                        "columns": [
+                            {"data": "titular" },
+                            {"data": "detallemin" },
+                            {"data": "formated" },
+                            {
+                                "data": "estado",
+                                render: function(data) {
+                                    if(data=="1") {
+                                        return "<span class='label label-success'>Publicado</span>";
+                                    }  else if(data=="2") {
+                                        return "<span class='label label-warning'>Desactivado</span>";
+                                    }
+                                    else{
+                                        return "<span class='label label-danger'>Eliminado</span>";
+                                    }
+                                },
+                            },
+                            {
+                                "data": "codigo",
+                                render: function (data) {
+                                    return "<a class='btn btn-default'" +
+                                            "style='cursor:pointer;overflow: visible;'" +
+                                            "onclick='EditarNoticia(" + data + ")'" +
+                                            "data-toggle='modal'" +
+                                            "data-content=''>" +
+                                            "Editar</a>"
+
+                                },
+                            },
+                        ],
+                    });
+
+                    var detailRows = [];
+
+                }
+
+
+                //Nueva discursos
+                function nuevanoticia() {
+                    var tipo = 1;
+                    $('#modalNoticia').modal('show');
+                    $('#tipo').val(tipo);
+                }
+
+                //--------------------------GUARDAR DISCURSO---------------------------
+
+                  function GuardarDiscurso() {
+
+                        var formData = new FormData($("#discursos")[0]);
+                          formData.append('detalle', CKEDITOR.instances.detalle.getData());
+
+                        var resultado = "";
+                        $.ajax({
+                            url: "{{ base_url() }}/admin/discursos/registrar",
+                            async: false,
+                            type: 'POST',
+                            data: formData,
+                            contentType: false,
+                            enctype: 'multipart/form-data',
+                            processData: false,
+                            dataType: 'json',
+                            success: function (datos) {
+                                resultado = datos.response;
+                                mensaje = datos.message;
+                            }
+                        });
+                        return [resultado, mensaje];
+                    }
+
+                $(".guardarnoticia").on("click", function (event) {
+
+                    event.preventDefault();
+                    var categoria = $('#categoria').val();
+                    var titulo = $('#titulo').val();
+                    var detallecorto = $('#detalle-corto').val();
+                    var detalle = CKEDITOR.instances.detalle.getData();
+                    var foto = $('#foto').val();
+
+                    if (titulo == "") {
+                        Swal.fire({
+                            icon: 'warning',
+                            title: '¡Advertencia!',
+                            text: 'Debe imgresar un titular',
+                        })
+                    } else {
+                           if (categoria == "") {
+                            Swal.fire({
+                                icon: 'warning',
+                                title: '¡Advertencia!',
+                                text: 'Debe seleccionar el tipo de origen.',
+                            })
+                       }  else {
+                        if (detallecorto == "") {
+                            Swal.fire({
+                                icon: 'warning',
+                                title: '¡Advertencia!',
+                                text: 'Debe ingresar el detalle corto de la discursos.',
+                            })
+                       }  else {
+                           if (detalle == "") {
+                            Swal.fire({
+                                icon: 'warning',
+                                title: '¡Advertencia!',
+                                text: 'Debe ingresar el detalle de la discursos.',
+                            })
+                        } else {
+                            if (foto == "") {
+                                Swal.fire({
+                                    icon: 'warning',
+                                    title: '¡Advertencia!',
+                                    text: 'Debe seleccionar una foto.',
+                                })
+                            } else {
+                                Swal.fire({
+                                    title: '¿Está seguro?',
+                                    icon: 'warning',
+                                    showCancelButton: true,
+                                    confirmButtonColor: '#3085d6',
+                                    cancelButtonColor: '#d33',
+                                    confirmButtonText: 'Sí, guardar!'
+                                }).then((result) => {
+                                    if (result.value) {
+                                        var resp = GuardarDiscurso();
+                                        //resp = JSON.parse(resp);
+                                        if (resp[0] == "success") {
+                                            Swal.fire({
+                                                icon: 'success',
+                                                title: '¡Éxito!',
+                                                text: resp[1],
+                                            }).then((result) => {
+                                                if (result.value) {
+                                                    $('#modalNoticia').modal('hide');
+                                                     CKEDITOR.instances.detalle.setData('');
+                                                     $("#discursos")[0].reset();
+                                                     var drEvent = $('#foto').dropify();
+                                                    drEvent = drEvent.data('dropify');
+                                                    drEvent.resetPreview();
+                                                    drEvent.clearElement();
+                                                    ListaDiscursos();
+                                                }
+                                            });
+                                        } else {
+                                            Swal.fire({
+                                                icon: 'error',
+                                                title: '¡Error!',
+                                                text: resp[1],
+                                            })
+                                        }
+                                    }
+                                })
+                               }
+                                 }
+                            }
+                        }
+                    }
+                });
+
+                //Actualizar Discursos
+
+                  function ActualizaNoticia() {
+
+                        var formData = new FormData($("#discursoedit")[0]);
+                          formData.append('detalleeditar', CKEDITOR.instances.detalleeditar.getData());
+                        var resultado = "";
+
+                        $.ajax({
+                            url: "{{ base_url() }}/admin/discursos/actualizar",
+                            async: false,
+                            type: 'POST',
+                            data: formData,
+                            contentType: false,
+                            enctype: 'multipart/form-data',
+                            processData: false,
+                            dataType: 'json',
+                            success: function (datos) {
+                                resultado = datos.response;
+                                mensaje = datos.message;
+                            }
+                        });
+                        return [resultado, mensaje];
+                    }
+
+                $(".actualizardiscurso").on("click", function (event) {
+
+                    event.preventDefault();
+                    var codigo = $('#codigo').val();
+                    var categoria = $('#categoriaeditar').val();
+                    var titulo = $('#titulareditar').val();
+                    var detallecorto = $('#detallemineditar').val();
+                    var detalle = CKEDITOR.instances.detalleeditar.getData();
+                    var foto = $('#fotooriginal').val();
+                    var fotoeditar = $('#fotoeditar').val();
+
+                    if (titulo == "") {
+                        Swal.fire({
+                            icon: 'warning',
+                            title: '¡Advertencia!',
+                            text: 'Debe imgresar un titular',
+                        })
+                    } else {
+                        if (detallecorto == "") {
+                            Swal.fire({
+                                icon: 'warning',
+                                title: '¡Advertencia!',
+                                text: 'Debe ingresar el detalle corto de la discursos.',
+                            })
+                       }  else {
+                           if (detalle == "") {
+                            Swal.fire({
+                                icon: 'warning',
+                                title: '¡Advertencia!',
+                                text: 'Debe ingresar el detalle de la discursos.',
+                            })
+                        } else {
+                                Swal.fire({
+                                    title: '¿Está seguro?',
+                                    icon: 'warning',
+                                    showCancelButton: true,
+                                    confirmButtonColor: '#3085d6',
+                                    cancelButtonColor: '#d33',
+                                    confirmButtonText: 'Sí, guardar!'
+                                }).then((result) => {
+                                    if (result.value) {
+                                        var resp = ActualizaNoticia();
+                                        if (resp[0] == "success") {
+                                            Swal.fire({
+                                                icon: 'success',
+                                                title: '¡Éxito!',
+                                                text: resp[1],
+                                            }).then((result) => {
+                                                if (result.value) {
+                                                    $('#modalEditarDiscurso').modal('hide');
+                                                    CKEDITOR.instances.detalleeditar.setData('');
+                                                     $("#discursoedit")[0].reset();
+                                                     var drEvent = $('#fotoeditar').dropify();
+                                                        drEvent = drEvent.data('dropify');
+                                                        drEvent.resetPreview();
+                                                        drEvent.clearElement();
+                                                    ListaDiscursos();
+                                                }
+                                            });
+                                        } else {
+                                            Swal.fire({
+                                                icon: 'error',
+                                                title: '¡Error!',
+                                                text: resp[1],
+                                            })
+                                        }
+                                    }
+                                })
+                                }
+                            }
+                        }
+                    });
+
+            </script>
+
+
+        {% endblock content %}
